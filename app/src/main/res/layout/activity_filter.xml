@@ -37,8 +37,9 @@
             android:layout_height="wrap_content"
             android:maxWidth="35dp"
             android:maxHeight="35dp"
+            android:layout_marginEnd="23dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/calendar"/>
+            android:src="@drawable/dollar_sign"/>
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -65,7 +66,8 @@
             android:adjustViewBounds="true"
             android:maxWidth="35dp"
             android:maxHeight="35dp"
-            android:src="@drawable/calendar" />
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/briefcase_medical" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -91,7 +93,8 @@
             android:maxWidth="35dp"
             android:maxHeight="35dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/calendar"/>
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/dumbbell"/>
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -117,7 +120,8 @@
             android:maxWidth="35dp"
             android:maxHeight="35dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/calendar"/>
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/full_heart"/>
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -143,7 +147,8 @@
             android:maxWidth="35dp"
             android:maxHeight="35dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/calendar"/>
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/house"/>
 
         <CheckBox
             android:layout_width="wrap_content"

@@ -18,4 +18,5 @@
     <string name="ajouter_une_photo">Ajouter une photo</string>
     <string name="parcourir_les_fichiers_locaux">Parcourir les fichiers locaux</string>
     <string name="prendre_une_photo">Prendre une photo</string>
+    <string name="prix">Prix</string>
 </resources>
