@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListRecipeActivity">
+    <LinearLayout
+        android:id="@+id/datemonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+        <ImageView
+            android:id="@+id/flechegauchemonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_marginRight="352dp"
+            android:adjustViewBounds="true"
+
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
+            android:src="@drawable/flechegauche"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/flechedroitemonth"
+        android:layout_width="21dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginRight="16dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:src="@drawable/flechedroite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/datefirstrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="113dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/date1"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/date2"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/date3"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="3"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date4"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/date5"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="5"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date6"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="6"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date7"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/date8"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="8" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/flechegauchemenue"
+        android:layout_width="22dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginRight="372dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:src="@drawable/flechegauche"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:text="Selectionner un jour"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="48dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:layout_marginRight="200dp"
+        android:layout_marginTop="70dp"
+        android:text="mois année"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="91dp"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/datesecondrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/date9"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/date10"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="10" />
+
+        <Button
+            android:id="@+id/date11"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="11"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date12"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="12" />
+
+        <Button
+            android:id="@+id/date13"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="13"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date14"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="14"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date15"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/date16"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="16" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/datethirdrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="205dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/date17"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="17" />
+
+        <Button
+            android:id="@+id/date18"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="18" />
+
+        <Button
+            android:id="@+id/date19"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="19"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date20"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="20" />
+
+        <Button
+            android:id="@+id/date21"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="21"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date22"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="22"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date23"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="23" />
+
+        <Button
+            android:id="@+id/date24"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/datefourthrow"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/date25"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="25" />
+
+        <Button
+            android:id="@+id/date26"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="26" />
+
+        <Button
+            android:id="@+id/date27"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="27"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date28"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="28" />
+
+        <Button
+            android:id="@+id/date29"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="29"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date30"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="30"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date31"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="31" />
+        <Button
+            android:id="@+id/date1nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/datefifthrow"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/date2nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/date3nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/date4nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="4"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date5nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/date6nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="6"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date7nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="7"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <Button
+            android:id="@+id/date8nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="8" />
+        <Button
+            android:id="@+id/date9nextmonth"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:text="9" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
