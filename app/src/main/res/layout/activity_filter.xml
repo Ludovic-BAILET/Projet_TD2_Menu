@@ -1,15 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FilterActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
-</LinearLayout>
+        android:text="@string/filtres"
+        app:layout_constraintTop_toBottomOf="filter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/economique"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/filter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="60dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/calendar"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/economique"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/economique"
+        android:paddingStart="60dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
+            android:src="@drawable/calendar" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sain" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/difficulte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sain"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="60dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/calendar"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/difficult"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/favoris"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/difficulte"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="60dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/calendar"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favoris"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/creations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/favoris"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="60dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="35dp"
+            android:maxHeight="35dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/calendar"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mes_cr_ations"/>
+
+    </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/annuler"
+            app:layout_constraintTop_toBottomOf="@id/creations"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="60dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/valider"
+            app:layout_constraintTop_toBottomOf="@id/creations"
+           app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="60dp"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

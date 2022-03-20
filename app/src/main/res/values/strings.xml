@@ -8,4 +8,11 @@
     <string name="plats">Plats</string>
     <string name="desserts">Desserts</string>
     <string name="filtres">Filtres</string>
+    <string name="sain">Sain</string>
+    <string name="difficult">Difficulté</string>
+    <string name="favoris">Favoris</string>
+    <string name="mes_cr_ations">Mes Créations</string>
+    <string name="economique">Economique</string>
+    <string name="annuler">Annuler</string>
+    <string name="valider">Valider</string>
 </resources>
