@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Projet_TD2_Menu</string>
+    <string name="mescourses">MesCourses</string>
+    <string name="profil">Profil</string>
+    <string name="recettes">Recettes</string>
+    <string name="planning">Planning</string>
 </resources>
