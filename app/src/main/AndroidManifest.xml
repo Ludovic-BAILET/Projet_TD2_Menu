@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_TD2_Menu">
         <activity
+            android:name=".FilterActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListRecipeActivity"
             android:exported="false" />
         <activity
