@@ -15,4 +15,7 @@
     <string name="economique">Economique</string>
     <string name="annuler">Annuler</string>
     <string name="valider">Valider</string>
+    <string name="ajouter_une_photo">Ajouter une photo</string>
+    <string name="parcourir_les_fichiers_locaux">Parcourir les fichiers locaux</string>
+    <string name="prendre_une_photo">Prendre une photo</string>
 </resources>
