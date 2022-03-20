@@ -4,4 +4,8 @@
     <string name="profil">Profil</string>
     <string name="recettes">Recettes</string>
     <string name="planning">Planning</string>
+    <string name="entrees">Entrées</string>
+    <string name="plats">Plats</string>
+    <string name="desserts">Desserts</string>
+    <string name="filtres">Filtres</string>
 </resources>
