@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment;
 
 import edu.polytech.projet_td2_menu.R;
 
-public class NavigationBar extends Fragment {
-    public NavigationBar() {}
+public class ValidationCancelButtons extends Fragment {
+
+    public ValidationCancelButtons() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.navigation_bar, container, false);
+        return inflater.inflate(R.layout.validation_cancel_buttons, container, false);
     }
 }
