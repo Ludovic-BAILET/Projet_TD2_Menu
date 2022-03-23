@@ -411,5 +411,15 @@
             android:text="9" />
     </LinearLayout>
 
+    <fragment
+        android:id="@+id/navigation_bar"
+        android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
