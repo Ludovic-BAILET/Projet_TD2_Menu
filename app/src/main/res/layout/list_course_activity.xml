@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/calendar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:src="@drawable/calendar"
+        tools:layout_editor_absoluteX="365dp"
+        tools:layout_editor_absoluteY="16dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombres de jours séléctionnés"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="200dp"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="110dp" />
+
+
+
+    <LinearLayout
+        android:id="@+id/filters"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="20sp"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="35dp">
+
+        <Button
+            android:id="@+id/unesemaine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unesemaine" />
+
+        <Button
+            android:id="@+id/deuxsemaine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="deuxsemaine" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/planning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/planning"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/recettes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recettes"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/mes_courses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mescourses"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/profil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profil"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
