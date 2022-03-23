@@ -17,11 +17,13 @@
         android:src="@drawable/calendar"
         tools:layout_editor_absoluteX="300dp"
         tools:layout_editor_absoluteY="50dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombres de jours séléctionnés"
-        android:layout_marginLeft="200dp"
+        app:layout_constraintTop_toBottomOf=""
+        android:layout_marginStart="200dp"
         android:layout_marginTop="200dp"
         tools:layout_editor_absoluteX="115dp"
         tools:layout_editor_absoluteY="110dp" />
@@ -52,43 +54,16 @@
             android:text="deuxsemaine" />
 
     </LinearLayout>
-    <LinearLayout
+
+    <fragment
         android:id="@+id/navigation_bar"
+        android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <Button
-            android:id="@+id/planning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/planning"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/recettes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/recettes"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/mes_courses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mescourses"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profil"
-            android:textSize="12sp" />
-
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
