@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_TD2_Menu">
         <activity
+
             android:name=".RecipeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ajouter_recettesActivity"
             android:exported="false" />
         <activity
             android:name=".RecipeInfosActivity"
