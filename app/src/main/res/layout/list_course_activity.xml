@@ -15,8 +15,8 @@
         android:maxWidth="35dp"
         android:maxHeight="35dp"
         android:src="@drawable/calendar"
-        tools:layout_editor_absoluteX="365dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="50dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
