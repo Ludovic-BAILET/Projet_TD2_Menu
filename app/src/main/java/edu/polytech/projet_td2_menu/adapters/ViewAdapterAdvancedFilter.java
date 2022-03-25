@@ -12,24 +12,24 @@ import android.widget.TextView;
 
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.models.AdvancedFilter;
-import edu.polytech.projet_td2_menu.models.data.ModelAdvancedFilter;
+import edu.polytech.projet_td2_menu.models.data.ModelAdvancedFilters;
 
-public class ViewAdapterFilterElement extends BaseAdapter {
+public class ViewAdapterAdvancedFilter extends BaseAdapter {
 
     private final LayoutInflater inflater;
 
-    public ViewAdapterFilterElement(Context context) {
+    public ViewAdapterAdvancedFilter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return ModelAdvancedFilter.size();
+        return ModelAdvancedFilters.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return ModelAdvancedFilter.get(i);
+        return ModelAdvancedFilters.get(i);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ViewAdapterFilterElement extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        LinearLayout layout = (LinearLayout) (view == null ? inflater.inflate(R.layout.view_adapater_filter_element, viewGroup, false) : view);
+        LinearLayout layout = (LinearLayout) (view == null ? inflater.inflate(R.layout.view_adapater_advanced_filter, viewGroup, false) : view);
 
         AdvancedFilter filter = (AdvancedFilter) getItem(i);
         ((ImageView) layout.findViewById(R.id.image)).setImageResource(filter.getImage());

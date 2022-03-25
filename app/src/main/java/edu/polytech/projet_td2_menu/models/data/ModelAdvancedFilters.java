@@ -6,7 +6,7 @@ import java.util.List;
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.models.AdvancedFilter;
 
-public class ModelAdvancedFilter {
+public class ModelAdvancedFilters {
     private final static List<AdvancedFilter> filtersList = new ArrayList<>();
 
     static {
