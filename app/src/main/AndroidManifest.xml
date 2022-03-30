@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_TD2_Menu">
         <activity
+            android:name=".PlanningContainerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListeCourseActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlanningActivity$Planning_container"
             android:exported="false" />
         <activity
