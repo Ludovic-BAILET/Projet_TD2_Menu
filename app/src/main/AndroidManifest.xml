@@ -19,6 +19,9 @@
             android:name=".Ajouter_recettesActivity"
             android:exported="false" />
         <activity
+            android:name=".ProfilBoiteAmisActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecipeInfosActivity"
             android:exported="false" />
         <activity
