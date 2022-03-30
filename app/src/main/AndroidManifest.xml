@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.polytech.projet_td2_menu">
+    package="edu.polytech.projet_td2_menu" >
 
     <application
         android:allowBackup="true"
@@ -8,12 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Projet_TD2_Menu">
-        <activity
-            android:name=".PlanningContainerActivity"
-            android:exported="false" />
+        android:theme="@style/Theme.Projet_TD2_Menu" >
         <activity
             android:name=".ListeCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlanningContainerActivity"
             android:exported="false" />
         <activity
             android:name=".PlanningActivity$Planning_container"
@@ -44,7 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".PlanningActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
