@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeDetailActivity">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Nom du Plat"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_recette"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/camera" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="70dp"
+        android:numStars="3"
+        android:rating="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar3" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginRight="70dp"
+        android:numStars="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar2" />
+
+    <RatingBar
+        android:id="@+id/ratingBar3"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="214dp"
+        android:numStars="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/healthy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Sain"
+        android:textSize="20dp"
+        android:layout_marginTop="228dp"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Prix"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar2"
+        app:layout_constraintTop_toBottomOf="@+id/healthy" />
+
+    <TextView
+        android:id="@+id/difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Difficile"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar"
+        app:layout_constraintTop_toBottomOf="@+id/price" />
+
+    <ImageView
+        android:id="@+id/favorite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="267dp"
+        app:layout_constraintStart_toEndOf="@+id/ratingBar2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty_heart" />
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="60dp"
+        android:text="supprimer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="30dp"
+        android:text="sauvegarder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/desc_recette"
+        android:layout_width="245dp"
+        android:layout_height="90dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="110dp"
+        android:text="ceci est une description"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ingredient"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:text="ingredients :"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="370dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nbPersonne"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="570dp"
+        android:text="Nombre de personne"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="570dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ListView
+        android:layout_width="240dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/nbPersonne"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredient"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/planning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/planning"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/recettes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recettes"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/mes_courses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mescourses"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/profil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profil"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
