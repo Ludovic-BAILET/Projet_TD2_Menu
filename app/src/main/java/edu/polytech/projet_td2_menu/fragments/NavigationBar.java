@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import edu.polytech.projet_td2_menu.ListRecipeActivity;
 import edu.polytech.projet_td2_menu.PlanningActivity;
+import edu.polytech.projet_td2_menu.ProfilActivity;
 import edu.polytech.projet_td2_menu.R;
 
 public class NavigationBar extends Fragment {
@@ -37,7 +38,7 @@ public class NavigationBar extends Fragment {
 
         //Listener de Profil
         layout.findViewById(R.id.profil).setOnClickListener(click -> {
-            startActivity(new Intent(getContext(), PlanningActivity.class));
+            startActivity(new Intent(getContext(), ProfilActivity.class));
         });
 
         return layout;
