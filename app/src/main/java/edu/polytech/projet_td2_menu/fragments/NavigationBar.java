@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 
 import edu.polytech.projet_td2_menu.ListRecipeActivity;
+import edu.polytech.projet_td2_menu.ListeCourseActivity;
 import edu.polytech.projet_td2_menu.PlanningActivity;
 import edu.polytech.projet_td2_menu.ProfilActivity;
 import edu.polytech.projet_td2_menu.R;
