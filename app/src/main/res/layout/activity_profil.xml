@@ -7,43 +7,14 @@
     tools:context=".ProfilActivity">
 
 
-    <LinearLayout
+    <fragment
         android:id="@+id/navigation_bar"
+        android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <Button
-            android:id="@+id/planning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/planning"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/recettes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/recettes"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/mes_courses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mescourses"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profil"
-            android:textSize="12sp" />
-
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
         android:id="@+id/profilPicture"
