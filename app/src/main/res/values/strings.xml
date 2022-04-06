@@ -48,5 +48,20 @@
     <string name="planing_snack">Goûter</string>
     <string name="planing_dinner">Dinner</string>
 
+    <!-- Filtre -->
+    <string name="filter_title">Filtres</string>
+    <string name="filter_eco">Economie</string>
+    <string name="filter_healthy">Sain</string>
+    <string name="filter_difficulty">Difficulté</string>
+    <string name="filter_fav">Favori</string>
+    <string name="filter_creation">Création</string>
+    <string name="filter_starter">Entrées</string>
+    <string name="filter_main">Plats</string>
+    <string name="filter_dessert">Desserts</string>
 
+    <!-- Boutons -->
+    <string name="button_save">Sauvegarder</string>
+    <string name="button_del">Supprimer</string>
+    <string name="button_validate">Valider</string>
+    <string name="button_cancel">Annuler</string>
 </resources>

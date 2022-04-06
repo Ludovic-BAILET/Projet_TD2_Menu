@@ -19,19 +19,19 @@
             android:id="@+id/starters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/entrees" />
+            android:text="@string/filter_starter" />
 
         <Button
             android:id="@+id/dishes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plats" />
+            android:text="@string/filter_main" />
 
         <Button
             android:id="@+id/deserts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/desserts" />
+            android:text="@string/filter_dessert" />
 
     </LinearLayout>
 
@@ -43,7 +43,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="160dp"
-        android:text="@string/filtres" />
+        android:text="@string/filter_title" />
 
     <ListView
         android:id="@+id/list_recipes"

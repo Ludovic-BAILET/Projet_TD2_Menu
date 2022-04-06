@@ -27,6 +27,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image"
         android:layout_marginTop="5dp"
-        android:text="name"/>
+        android:text="@string/item_ingredient_name"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
