@@ -10,27 +10,27 @@
         android:id="@+id/planning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/planning"
+        android:text="@string/item_navigation_planing"
         android:textSize="12sp" />
 
     <Button
         android:id="@+id/recettes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recettes"
+        android:text="@string/item_navigation_recipe"
         android:textSize="12sp" />
 
     <Button
         android:id="@+id/mes_courses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mescourses"
+        android:text="@string/item_navigation_course"
         android:textSize="12sp" />
 
     <Button
         android:id="@+id/profil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/profil"
+        android:text="@string/item_navigation_profil"
         android:textSize="12sp" />
 </LinearLayout>
