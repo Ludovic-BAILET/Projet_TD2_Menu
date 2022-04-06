@@ -19,7 +19,7 @@
     <string name="prix">Prix</string>
     <string name="valider">Valider</string>
     <string name="annuler">Annuler</string>
-    
+
     <!-- Profil -->
     <string name="item_profil_name">Nom du profil</string>
 
@@ -41,7 +41,7 @@
     <string name="status_sub">S\'abonner</string>
     <string name="status_sub_subscriber">Abonnés</string>
     <string name="status_sub_subscription">Abonnements</string>
-    
+
     <!-- Planing -->
     <string name="planing_breakfast">Petit déjeuner</string>
     <string name="planing_lunch">Déjeuner</string>
