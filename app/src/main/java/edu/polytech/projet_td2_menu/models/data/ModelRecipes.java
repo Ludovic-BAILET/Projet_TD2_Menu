@@ -10,9 +10,10 @@ import java.util.List;
 
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
-import edu.polytech.projet_td2_menu.models.Recipe;
+import edu.polytech.projet_td2_menu.models.Ratings;
+import edu.polytech.projet_td2_menu.models.recipes.PlatRecipe;
+import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 import edu.polytech.projet_td2_menu.models.TypesDishes;
-import edu.polytech.projet_td2_menu.models.TypesUnits;
 
 public class ModelRecipes {
     private final static List<Recipe> recipesList = new ArrayList<>();
@@ -20,7 +21,7 @@ public class ModelRecipes {
     static {
         List<Pair<Ingredient, Quantity>> ingredientsPizza = new ArrayList<>();
         ingredientsPizza.add(new Pair<>(ModelIngredients.get(FARINE), new Quantity(200, G)));
-        recipesList.add(new Recipe("Pizza", TypesDishes.PLAT, ingredientsPizza, 1, 2, 2));
+        recipesList.add(new PlatRecipe("Pizza", ingredientsPizza, new Ratings(1, 2, 2)));
     }
 
     public static Recipe get(int index) {
