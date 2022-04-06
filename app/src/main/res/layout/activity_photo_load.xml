@@ -23,7 +23,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ajouter_une_photo"
+        android:text="@string/picture_title"
         android:textSize="30sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/back_button"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@id/file"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/parcourir_les_fichiers_locaux"
+        android:text="@string/picture_find_picture"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:layout_marginTop="20dp"/>
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/camera"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/prendre_une_photo"
+        android:text="@string/picture_take"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:layout_marginTop="30dp"/>
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@id/desc_camera"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/valider"
+        android:text="@string/button_validate"
         android:layout_marginTop="50dp"/>
 
     <fragment

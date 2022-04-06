@@ -1,24 +1,5 @@
 <resources>
     <string name="app_name">Projet_TD2_Menu</string>
-    <string name="mescourses">MesCourses</string>
-    <string name="profil">Profil</string>
-    <string name="recettes">Recettes</string>
-    <string name="planning">Planning</string>
-    <string name="entrees">Entrées</string>
-    <string name="plats">Plats</string>
-    <string name="desserts">Desserts</string>
-    <string name="filtres">Filtres</string>
-    <string name="sain">Sain</string>
-    <string name="difficult">Difficulté</string>
-    <string name="favoris">Favoris</string>
-    <string name="mes_cr_ations">Mes Créations</string>
-    <string name="economique">Economique</string>
-    <string name="ajouter_une_photo">Ajouter une photo</string>
-    <string name="parcourir_les_fichiers_locaux">Parcourir les fichiers locaux</string>
-    <string name="prendre_une_photo">Prendre une photo</string>
-    <string name="prix">Prix</string>
-    <string name="valider">Valider</string>
-    <string name="annuler">Annuler</string>
     
     <!-- Profil -->
     <string name="item_profil_name">Nom du profil</string>
@@ -27,6 +8,10 @@
     <string name="item_recipe_name">Nom de la recette</string>
     <string name="item_recipe_description">Description de la recette</string>
     <string name="item_recipe_ingredient">Ingrédients</string>
+    <string name="item_recipe_health">Sain</string>
+    <string name="item_recipe_price">Prix</string>
+    <string name="item_recipe_difficulty">Difficulté</string>
+    <string name="item_recipe_people_number">Nombre de personnes</string>
 
     <!-- Ingredients -->
     <string name="item_ingredient_name">Nom de l\'ingrédient</string>
@@ -64,4 +49,10 @@
     <string name="button_del">Supprimer</string>
     <string name="button_validate">Valider</string>
     <string name="button_cancel">Annuler</string>
+
+    <!-- Ajout de photo -->
+    <string name="picture_title">Ajouter une photo</string>
+    <string name="picture_take">Prendre une photo</string>
+    <string name="picture_find_picture">Parcourire les fichiers locaux</string>
+
 </resources>
