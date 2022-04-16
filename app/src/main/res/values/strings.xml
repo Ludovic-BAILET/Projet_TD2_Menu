@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Projet_TD2_Menu</string>
+    <string name="app_name">ApplicationMenu</string>
     
     <!-- Profil -->
     <string name="item_profil_name">Nom du profil</string>

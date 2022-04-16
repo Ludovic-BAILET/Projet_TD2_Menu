@@ -3,6 +3,7 @@
     package="edu.polytech.projet_td2_menu">
 
     <application
+        android:name=".ApplicationMenu"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,9 +21,6 @@
             android:exported="false" />
         <activity
             android:name=".PlanningContainerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PlanningActivity$Planning_container"
             android:exported="false" />
         <activity
             android:name=".ListeAbonnementActivity"
@@ -60,6 +58,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+<!--        <service android:name=".notifications.NotificationListener126266"-->
+<!--            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.service.notification.NotificationListenerService" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+
     </application>
 
 </manifest>
