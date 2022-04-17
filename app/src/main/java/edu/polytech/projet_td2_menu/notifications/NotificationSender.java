@@ -20,7 +20,8 @@ public class NotificationSender {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context, channelId)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setPriority(priority);
+                .setPriority(priority)
+                .setShowWhen(true);
         switch(channelId) {
             case CHANNEL_1_ID: notification.setSmallIcon(R.drawable.number_1);
             case CHANNEL_2_ID: notification.setSmallIcon(R.drawable.number_2);
@@ -39,11 +40,11 @@ public class NotificationSender {
 
         for (int id = 0; id < 10; id++) {
             notificationSender.sendNotification(title, message + id, CHANNEL_1_ID, priority);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

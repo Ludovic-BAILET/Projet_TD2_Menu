@@ -20,4 +20,20 @@ public class ModelNotifications {
     public static Notification removeNotification(int index) {
         return notificationList.remove(index);
     }
+
+    public static int size() {
+        return notificationList.size();
+    }
+
+    public static Notification getNotification(int index) {
+        return notificationList.get(index);
+    }
+
+    public static void sortTimeIncrease() {
+        notificationList.sort((n1, n2) -> (int) (n1.when - n2.when));
+    }
+    public static void sortTimeDecrease() {
+        notificationList.sort((n1, n2) -> (int) (n2.when - n1.when));
+    }
+
 }

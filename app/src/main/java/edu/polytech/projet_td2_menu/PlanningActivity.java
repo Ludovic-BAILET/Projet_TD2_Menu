@@ -19,19 +19,19 @@ public class PlanningActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning);
-        theDate = (TextView) findViewById(R.id.date);
-        imageCalendar = (ImageView) findViewById(R.id.calendar);
+        theDate = findViewById(R.id.date);
+        imageCalendar = findViewById(R.id.calendar);
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
         theDate.setText(date);
 
-        imageCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PlanningActivity.this,CalendarActivity.class);
-                startActivity(intent);
-            }
+        imageCalendar.setOnClickListener(view -> {
+            startActivity(new Intent(PlanningActivity.this,CalendarActivity.class));
+        });
+
+        findViewById(R.id.bell).setOnClickListener(click -> {
+            startActivity(new Intent(this, NotificationsCenterActivity.class));
         });
     }
 
