@@ -39,14 +39,47 @@
         android:text="temps decroissant"/>
     </LinearLayout>
 
-    <ListView
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:id="@+id/list_notifications"
+    <LinearLayout
+        android:id="@+id/layout_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/buttons_sort"
         app:layout_constraintBottom_toTopOf="@id/navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notifications épinglées"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingStart="20dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/list_notifications_pinned"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autres Notifications"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingStart="20dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/list_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <fragment
         android:id="@+id/navigation_bar"

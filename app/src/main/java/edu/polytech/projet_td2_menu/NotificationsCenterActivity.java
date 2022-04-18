@@ -3,6 +3,7 @@ package edu.polytech.projet_td2_menu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -19,18 +20,25 @@ public class NotificationsCenterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications_center);
 
-        BaseAdapter adapter = new ViewAdapterNotification(getApplicationContext());
-        ((ListView) findViewById(R.id.list_notifications)).setAdapter(adapter);
+        BaseAdapter adapter_base = null;
+        BaseAdapter adapter_pinned = new ViewAdapterNotification(getApplicationContext(), true, adapter_base);
+        adapter_base = new ViewAdapterNotification(getApplicationContext(), false, adapter_pinned);
+        LinearLayout layout_list_view = findViewById(R.id.layout_list_view);
+        ((ListView) layout_list_view.findViewById(R.id.list_notifications)).setAdapter(adapter_base);
+        ((ListView) layout_list_view.findViewById(R.id.list_notifications_pinned)).setAdapter(adapter_pinned);
 
-        LinearLayout layout = findViewById(R.id.buttons_sort);
-        layout.findViewById(R.id.increase_time_button).setOnClickListener(click -> {
+        LinearLayout layout_buttons = findViewById(R.id.buttons_sort);
+        BaseAdapter finalAdapter_base = adapter_base;
+        layout_buttons.findViewById(R.id.increase_time_button).setOnClickListener(click -> {
             ModelNotifications.sortTimeIncrease();
-            adapter.notifyDataSetChanged();
+            finalAdapter_base.notifyDataSetChanged();
+            adapter_pinned.notifyDataSetChanged();
         });
 
-        layout.findViewById(R.id.decrease_time_button).setOnClickListener(click -> {
+        layout_buttons.findViewById(R.id.decrease_time_button).setOnClickListener(click -> {
             ModelNotifications.sortTimeDecrease();
-            adapter.notifyDataSetChanged();
+            finalAdapter_base.notifyDataSetChanged();
+            adapter_pinned.notifyDataSetChanged();
         });
     }
 }

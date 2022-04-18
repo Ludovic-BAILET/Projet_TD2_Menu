@@ -1,41 +1,48 @@
 package edu.polytech.projet_td2_menu.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
-import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import edu.polytech.projet_td2_menu.R;
-import edu.polytech.projet_td2_menu.models.Ingredient;
+import edu.polytech.projet_td2_menu.gestures.OnSwipeTouchListener;
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
 public class ViewAdapterNotification extends BaseAdapter {
     private final LayoutInflater inflater;
+    private final boolean pinnedNotification;
+    private final BaseAdapter otherAdapter;
 
-    public ViewAdapterNotification(Context context) {
+    public ViewAdapterNotification(Context context, boolean pinnedNotification, BaseAdapter otherAdapter) {
         inflater = LayoutInflater.from(context);
+        this.pinnedNotification = pinnedNotification;
+        this.otherAdapter = otherAdapter;
     }
     @Override
     public int getCount() {
-        return ModelNotifications.size();
+        if (pinnedNotification) {
+            return ModelNotifications.sizePinnedNotification();
+        }
+        return ModelNotifications.sizeNotification();
     }
 
     @Override
     public Notification getItem(int position) {
+        if (pinnedNotification) {
+            return ModelNotifications.getPinnedNotification(position);
+        }
         return ModelNotifications.getNotification(position);
     }
 
@@ -65,6 +72,39 @@ public class ViewAdapterNotification extends BaseAdapter {
         ((ImageView) layout.findViewById(R.id.image_notification)).setImageResource(notification.getSmallIcon().getResId());
         ((TextView) layout.findViewById(R.id.text_message)).setText(notification.extras.getString(Notification.EXTRA_TEXT));
         ((TextView) layout.findViewById(R.id.text_date)).setText(time);
+
+        OnSwipeTouchListener swipeTouchListener;
+
+        if (pinnedNotification) {
+            swipeTouchListener = new OnSwipeTouchListener(layout.getContext()) {
+                @Override
+                public void onSwipeLeft() {
+                    super.onSwipeLeft();
+                    ModelNotifications.transferNotificationToUnpinned(i);
+                    ViewAdapterNotification.this.notifyDataSetChanged();
+                    otherAdapter.notifyDataSetChanged();
+                }
+            };
+        } else {
+            swipeTouchListener = new OnSwipeTouchListener(layout.getContext()) {
+                @Override
+                public void onSwipeLeft() {
+                    super.onSwipeLeft();
+                    ModelNotifications.removeNotification(i);
+                    ViewAdapterNotification.this.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onSwipeRight() {
+                    super.onSwipeRight();
+                    ModelNotifications.transferNotificationToPinned(i);
+                    ViewAdapterNotification.this.notifyDataSetChanged();
+                    otherAdapter.notifyDataSetChanged();
+                }
+            };
+        }
+
+        layout.setOnTouchListener(swipeTouchListener);
 
         return layout;
     }
