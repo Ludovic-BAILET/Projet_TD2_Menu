@@ -3,12 +3,19 @@
     package="edu.polytech.projet_td2_menu">
 
     <application
+        android:name=".ApplicationMenu"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_TD2_Menu">
+
+        <activity
+            android:name=".NotificationsCenterActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".CalendarActivity"
             android:exported="false" />
@@ -20,9 +27,6 @@
             android:exported="false" />
         <activity
             android:name=".PlanningContainerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PlanningActivity$Planning_container"
             android:exported="false" />
         <activity
             android:name=".ListeAbonnementActivity"

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "edu.polytech.projet_td2_menu"
-        minSdk 27
+        minSdk 28
         targetSdk 32
         versionCode 1
         versionName "1.0"

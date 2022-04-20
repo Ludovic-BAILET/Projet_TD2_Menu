@@ -7,7 +7,7 @@
     tools:context=".ListRecipeActivity">
 
     <LinearLayout
-        android:paddingTop="20sp"
+        android:paddingTop="20dp"
         android:id="@+id/filters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Projet_TD2_Menu</string>
-    
+    <string name="app_name">ApplicationMenu</string>
+
     <!-- Profil -->
     <string name="item_profil_name">Nom du profil</string>
 
@@ -54,5 +54,6 @@
     <string name="picture_title">Ajouter une photo</string>
     <string name="picture_take">Prendre une photo</string>
     <string name="picture_find_picture">Parcourire les fichiers locaux</string>
+    <string name="title_notification_center">Centre de notification</string>
 
 </resources>
