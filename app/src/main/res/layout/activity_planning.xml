@@ -62,4 +62,16 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/addToAgenda"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/bell"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/file" />
 </androidx.constraintlayout.widget.ConstraintLayout>
