@@ -122,4 +122,14 @@
         app:layout_constraintBottom_toTopOf="@+id/listRecipeProfile"
         app:layout_constraintStart_toEndOf="@+id/favorite_menu" />
 
+    <Button
+        android:id="@+id/tmp_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TMP"
+        app:layout_constraintBottom_toTopOf="@+id/listRecipeProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profilPicture"
+        app:layout_constraintTop_toBottomOf="@+id/sub" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
