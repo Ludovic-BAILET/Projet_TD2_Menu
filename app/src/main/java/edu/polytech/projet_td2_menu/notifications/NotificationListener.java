@@ -18,6 +18,6 @@ public class NotificationListener {
 
     public static void onNotificationPosted(Notification notification) {
         Log.d(TAG, "onNotificationPosted");
-        ModelNotifications.addNotification(notification);
+        ModelNotifications.getInstance().addNotification(notification);
     }
 }

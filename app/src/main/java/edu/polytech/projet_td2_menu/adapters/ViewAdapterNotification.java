@@ -1,8 +1,10 @@
 package edu.polytech.projet_td2_menu.adapters;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +12,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import edu.polytech.projet_td2_menu.NotificationsController;
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.gestures.OnSwipeTouchListener;
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
@@ -23,27 +27,26 @@ import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 public class ViewAdapterNotification extends BaseAdapter {
     private final LayoutInflater inflater;
     private final boolean pinnedNotification;
-    private final BaseAdapter otherAdapter;
+    private NotificationsController controller;
 
-    public ViewAdapterNotification(Context context, boolean pinnedNotification, BaseAdapter otherAdapter) {
+    public ViewAdapterNotification(Context context, boolean pinnedNotification) {
         inflater = LayoutInflater.from(context);
         this.pinnedNotification = pinnedNotification;
-        this.otherAdapter = otherAdapter;
     }
     @Override
     public int getCount() {
         if (pinnedNotification) {
-            return ModelNotifications.sizePinnedNotification();
+            return ModelNotifications.getInstance().sizePinnedNotification();
         }
-        return ModelNotifications.sizeNotification();
+        return ModelNotifications.getInstance().sizeNotification();
     }
 
     @Override
     public Notification getItem(int position) {
         if (pinnedNotification) {
-            return ModelNotifications.getPinnedNotification(position);
+            return ModelNotifications.getInstance().getPinnedNotification(position);
         }
-        return ModelNotifications.getNotification(position);
+        return ModelNotifications.getInstance().getNotification(position);
     }
 
     @Override
@@ -80,26 +83,22 @@ public class ViewAdapterNotification extends BaseAdapter {
                 @Override
                 public void onSwipeLeft() {
                     super.onSwipeLeft();
-                    ModelNotifications.transferNotificationToUnpinned(i);
-                    ViewAdapterNotification.this.notifyDataSetChanged();
-                    otherAdapter.notifyDataSetChanged();
+                    controller.changeNotificationToUnPinned(i);
                 }
             };
         } else {
+            Log.d("no", "before");
             swipeTouchListener = new OnSwipeTouchListener(layout.getContext()) {
                 @Override
                 public void onSwipeLeft() {
                     super.onSwipeLeft();
-                    ModelNotifications.removeNotification(i);
-                    ViewAdapterNotification.this.notifyDataSetChanged();
+                    controller.removeNotification(i);
                 }
 
                 @Override
                 public void onSwipeRight() {
                     super.onSwipeRight();
-                    ModelNotifications.transferNotificationToPinned(i);
-                    ViewAdapterNotification.this.notifyDataSetChanged();
-                    otherAdapter.notifyDataSetChanged();
+                    controller.changeNotificationToPinned(i);
                 }
             };
         }
@@ -107,5 +106,9 @@ public class ViewAdapterNotification extends BaseAdapter {
         layout.setOnTouchListener(swipeTouchListener);
 
         return layout;
+    }
+
+    public void setController(NotificationsController controller) {
+        this.controller = controller;
     }
 }
