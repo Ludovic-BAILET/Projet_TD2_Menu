@@ -43,6 +43,12 @@
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_advanced_filter.xml" value="0.15602836879432624" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_filter_element.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_ingredient.xml" value="0.15602836879432624" />
+        <entry key="app/src/main/res/layout/activity_ajouter_recettes.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_list_recipe.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_photo_load.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_planning.xml" value="0.11955420466058764" />
+        <entry key="app/src/main/res/layout/activity_profil.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_profil_boite_amis.xml" value="0.16893115942028986" />
       </map>
     </option>
   </component>
