@@ -27,10 +27,10 @@ public class NotificationSender {
                 .setPriority(priority)
                 .setShowWhen(true);
         switch(channelId) {
-            case CHANNEL_suggestion: notification.setSmallIcon(R.drawable.number_1).setStyle(new NotificationCompat.BigPictureStyle()
+            case CHANNEL_suggestion: notification.setSmallIcon(R.drawable.full_heart).setStyle(new NotificationCompat.BigPictureStyle()
                     .bigPicture(bitmap).setSummaryText(message)
             );break;
-            case CHANNEL_rappelcourse: notification.setTimeoutAfter(20000).setSmallIcon(R.drawable.number_2).setStyle(new NotificationCompat.BigPictureStyle()
+            case CHANNEL_rappelcourse: notification.setTimeoutAfter(20000).setSmallIcon(R.drawable.bell).setStyle(new NotificationCompat.BigPictureStyle()
                     .bigPicture(bitmap2).setSummaryText(message));break;
 
         }
