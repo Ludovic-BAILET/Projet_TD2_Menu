@@ -9,6 +9,7 @@ import java.util.List;
 
 import edu.polytech.projet_td2_menu.NotificationsController;
 import edu.polytech.projet_td2_menu.notifications.NotificationSender;
+import static edu.polytech.projet_td2_menu.ApplicationMenu.CHANNEL_suggestion;
 
 public final class ModelNotifications {
     private static ModelNotifications instance;
