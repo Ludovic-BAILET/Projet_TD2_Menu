@@ -17,7 +17,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class PhotoLoadActivity extends AppCompatActivity {
+import edu.polytech.projet_td2_menu.fragments.NavigationBar;
+import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
+import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
+
+public class PhotoLoadActivity extends AppCompatActivity implements NavigationBarInterface {
 
     private static final String TAG = "photoLoad";
     private Button valider;
@@ -30,6 +34,7 @@ public class PhotoLoadActivity extends AppCompatActivity {
     private static final int CAMERA_CODE = 100;
     private static final int PERMISSION_CAMERA_CODE = 101;
 
+    private NavigationBarInterfaceImplementation implementation;
 
 
 
@@ -39,57 +44,54 @@ public class PhotoLoadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_load);
 
+        implementation = new NavigationBarInterfaceImplementation(this);
+        getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
+
         valider = (Button) findViewById(R.id.button_valider);
         camera = findViewById(R.id.camera);
         file = findViewById(R.id.file);
 
 
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        camera.setOnClickListener(view -> {
 
 
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
-                        //permission not granted
-                        String[] permissions = {Manifest.permission.CAMERA};
-                        //show popup for runtime permission
-                        requestPermissions(permissions, PERMISSION_CAMERA_CODE);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if(checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+                    //permission not granted
+                    String[] permissions = {Manifest.permission.CAMERA};
+                    //show popup for runtime permission
+                    requestPermissions(permissions, PERMISSION_CAMERA_CODE);
 
-                    }else{
-                        //permission already granted
-                        takeImageFromCamera();
-                    }
-                }
-                else{
-                    //system os is less than marsmallow
+                }else{
+                    //permission already granted
                     takeImageFromCamera();
                 }
+            }
+            else{
+                //system os is less than marsmallow
+                takeImageFromCamera();
             }
         });
 
 
 
 
-        file.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
-                        //permission not granted
-                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
-                        //show popup for runtime permission
-                        requestPermissions(permissions, PERMISSION_PICK_CODE);
+        file.setOnClickListener(view -> {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+                    //permission not granted
+                    String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                    //show popup for runtime permission
+                    requestPermissions(permissions, PERMISSION_PICK_CODE);
 
-                    }else{
-                        //permission already granted
-                        pickImageFromGallery();
-                    }
-                }
-                else{
-                    //system os is less than marsmallow
+                }else{
+                    //permission already granted
                     pickImageFromGallery();
                 }
+            }
+            else{
+                //system os is less than marsmallow
+                pickImageFromGallery();
             }
         });
 
@@ -147,5 +149,25 @@ public class PhotoLoadActivity extends AppCompatActivity {
             camera.setImageBitmap(photo);
         }
 
+    }
+
+    @Override
+    public void onButtonPlanningClicked(View v) {
+        implementation.onButtonPlanningClicked(v);
+    }
+
+    @Override
+    public void onButtonProfilClicked(View v) {
+        implementation.onButtonProfilClicked(v);
+    }
+
+    @Override
+    public void onButtonMesCoursesClicked(View v) {
+        implementation.onButtonMesCoursesClicked(v);
+    }
+
+    @Override
+    public void onButtonRecettesClicked(View v) {
+        implementation.onButtonRecettesClicked(v);
     }
 }

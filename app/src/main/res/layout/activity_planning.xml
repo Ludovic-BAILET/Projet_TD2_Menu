@@ -54,7 +54,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/navigation_bar"
         android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"

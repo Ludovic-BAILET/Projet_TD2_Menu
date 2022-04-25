@@ -1,10 +1,7 @@
 package edu.polytech.projet_td2_menu.adapters;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Notification;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +9,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import edu.polytech.projet_td2_menu.NotificationsController;
+import edu.polytech.projet_td2_menu.MVC.NotificationsController;
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.gestures.OnSwipeTouchListener;
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;

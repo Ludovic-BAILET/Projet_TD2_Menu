@@ -5,23 +5,36 @@
       <map>
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/number_3.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/sack_dollar.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_ajouter_recettes.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_calendar.xml" value="0.23007246376811594" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_filter.xml" value="0.1" />
-        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_list_recipe.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_list_recipe.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_liste_abonnement.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_liste_course.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_liste_course_container.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_notifications_center.xml" value="0.1" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_photo_load.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning_container.xml" value="0.23007246376811594" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_profil.xml" value="0.21875" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_profil_boite_amis.xml" value="0.23007246376811594" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_recipe_detail.xml" value="0.23007246376811594" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_recipe_infos.xml" value="0.1" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/calendar_planing_activity.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/list_course_activity.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/navigation_bar.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/validation_cancel_buttons.xml" value="0.1859375" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_filter_element.xml" value="0.25" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_ingredient.xml" value="0.1" />
+        <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_notification.xml" value="0.21875" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2265" />
         <entry key="..\:/Users/QuentinXPS/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2265" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/camera.xml" value="0.233" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/file.xml" value="0.233" />
-        <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/user.xml" value="0.182" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_ajouter_recettes.xml" value="0.32135416666666666" />
-        <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_calendar.xml" value="0.1" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_filter.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_list_recipe.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_liste_course.xml" value="0.33" />
@@ -29,7 +42,7 @@
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_main.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_my_shopping.xml" value="0.33" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_photo_load.xml" value="0.3079710144927536" />
-        <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning.xml" value="0.25" />
+        <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning_container.xml" value="0.33" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_profil.xml" value="0.25" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_profil_boite_amis.xml" value="0.36666666666666664" />
@@ -43,11 +56,6 @@
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_advanced_filter.xml" value="0.15602836879432624" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_filter_element.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_ingredient.xml" value="0.15602836879432624" />
-        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/bell.xml" value="0.1005" />
-        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/full_heart.xml" value="0.1005" />
-        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/number_1.xml" value="0.1" />
-        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/number_2.xml" value="0.1" />
-        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/number_3.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -28,16 +28,9 @@
     <string name="status_sub_subscription">Abonnements</string>
 
     <!-- Planing -->
-    <string name="planing_breakfast">Petit déjeuner</string>
-    <string name="planing_lunch">Déjeuner</string>
-    <string name="planing_snack">Goûter</string>
-    <string name="planing_dinner">Dinner</string>
 
     <!-- Filtre -->
     <string name="filter_title">Filtres</string>
-    <string name="filter_eco">Economie</string>
-    <string name="filter_healthy">Sain</string>
-    <string name="filter_difficulty">Difficulté</string>
     <string name="filter_fav">Favori</string>
     <string name="filter_creation">Création</string>
     <string name="filter_starter">Entrées</string>

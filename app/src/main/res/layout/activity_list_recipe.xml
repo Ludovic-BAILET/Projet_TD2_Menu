@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@id/filters"
         app:layout_constraintBottom_toTopOf="@id/navigation_bar"/>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/navigation_bar"
         android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"

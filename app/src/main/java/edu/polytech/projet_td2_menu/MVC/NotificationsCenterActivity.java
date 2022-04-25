@@ -1,34 +1,31 @@
-package edu.polytech.projet_td2_menu;
+package edu.polytech.projet_td2_menu.MVC;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
-import edu.polytech.projet_td2_menu.adapters.ViewAdapterAdvancedFilter;
+import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
 
-public class FilterActivity extends AppCompatActivity implements NavigationBarInterface {
-
-    private ViewAdapterAdvancedFilter adapter;
+public class NotificationsCenterActivity extends AppCompatActivity implements NavigationBarInterface {
     private NavigationBarInterfaceImplementation implementation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filter);
+        setContentView(R.layout.activity_notifications_center);
 
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
 
-        adapter = new ViewAdapterAdvancedFilter(getApplicationContext());
-        ViewGroup layout = findViewById(R.id.view_filters);
-        ((ListView) layout.findViewById(R.id.list_filters)).setAdapter(adapter);
+        NotificationView view = new NotificationView(getApplicationContext(), (ConstraintLayout) findViewById(R.id.notification_center));
 
+        NotificationsController controller = new NotificationsController(view);
+        view.setController(controller);
     }
 
     @Override
@@ -50,4 +47,5 @@ public class FilterActivity extends AppCompatActivity implements NavigationBarIn
     public void onButtonRecettesClicked(View v) {
         implementation.onButtonRecettesClicked(v);
     }
+
 }

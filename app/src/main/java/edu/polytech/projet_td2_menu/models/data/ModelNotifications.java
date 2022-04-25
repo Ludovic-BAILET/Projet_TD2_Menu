@@ -1,15 +1,10 @@
 package edu.polytech.projet_td2_menu.models.data;
 
 import android.app.Notification;
-import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
-import edu.polytech.projet_td2_menu.NotificationsController;
-import edu.polytech.projet_td2_menu.notifications.NotificationSender;
-import static edu.polytech.projet_td2_menu.ApplicationMenu.CHANNEL_suggestion;
 
 public final class ModelNotifications {
     private static ModelNotifications instance;

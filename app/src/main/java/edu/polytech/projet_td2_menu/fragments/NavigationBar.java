@@ -1,21 +1,18 @@
 package edu.polytech.projet_td2_menu.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import edu.polytech.projet_td2_menu.ListRecipeActivity;
-import edu.polytech.projet_td2_menu.ListeCourseActivity;
-import edu.polytech.projet_td2_menu.PlanningActivity;
-import edu.polytech.projet_td2_menu.ProfilActivity;
 import edu.polytech.projet_td2_menu.R;
 
 public class NavigationBar extends Fragment {
+    private NavigationBarInterface callback;
     public NavigationBar() {}
 
     @Override
@@ -23,25 +20,33 @@ public class NavigationBar extends Fragment {
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.navigation_bar, container, false);
 
         //Listener de Planning
-        layout.findViewById(R.id.planning).setOnClickListener(click -> {
-            startActivity(new Intent(getContext(), PlanningActivity.class));
-        });
+        callback.onButtonPlanningClicked(layout.findViewById(R.id.planning));
 
         //Listener de Recettes
-        layout.findViewById(R.id.recettes).setOnClickListener(click -> {
-            startActivity(new Intent(getContext(), ListRecipeActivity.class));
-        });
+        callback.onButtonRecettesClicked(layout.findViewById(R.id.recettes));
 
         //Listener de Mes Courses
-        layout.findViewById(R.id.mes_courses).setOnClickListener(click -> {
-            startActivity(new Intent(getContext(), ListeCourseActivity.class));
-        });
+        callback.onButtonMesCoursesClicked(layout.findViewById(R.id.mes_courses));
 
         //Listener de Profil
-        layout.findViewById(R.id.profil).setOnClickListener(click -> {
-            startActivity(new Intent(getContext(), ProfilActivity.class));
-        });
+        callback.onButtonProfilClicked(layout.findViewById(R.id.profil));
 
         return layout;
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.createCallBackToParentActivity();
+    }
+
+    private void createCallBackToParentActivity() {
+        try {
+            callback = (NavigationBarInterface) getActivity();
+        } catch (ClassCastException e) {
+        throw new ClassCastException(e
+                + " must implement NavigationBarInterface");
+    }
+
+}
 }
