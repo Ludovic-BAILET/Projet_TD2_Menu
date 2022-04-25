@@ -27,7 +27,7 @@ import edu.polytech.projet_td2_menu.models.Quantity;
 import edu.polytech.projet_td2_menu.models.Ratings;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
-public class ApiTask extends AsyncTask<Void, Void, Void> {
+public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
     private final static String APP_ID = "app_id=7d6e984e&";
 
@@ -44,32 +44,22 @@ public class ApiTask extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    public Void doInBackground(Void... voids) {
+    public List<Recipe> doInBackground(Void... voids) {
         // Create URL
-        URL edamamEndpoint = null;
+        List<Recipe> recipeList = new ArrayList<>();
         try {
             Log.d("URL", "Début de création de l'URL");
-            edamamEndpoint = new URL(API_URL + RECIPE_PATH + "q=meal&" + APP_ID + APP_KEY + FIELDS);
+            String url = API_URL + RECIPE_PATH + "q=meal&" + APP_ID + APP_KEY + FIELDS;
+            Log.d("URL", "Url = " + url);
+            URL edamamEndpoint = new URL(url);
             Log.d("URL", "URL crée");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
 
-        // Create connection
-        HttpsURLConnection myConnection = null;
-        try {
+            // Create connection
             Log.d("Connection_URL", "Début de connection a l'URL");
-            myConnection = (HttpsURLConnection) edamamEndpoint.openConnection();
+            HttpsURLConnection myConnection = (HttpsURLConnection) edamamEndpoint.openConnection();
             Log.d("Connection_URL", "Connection établie");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        // myConnection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
-
-        try {
             Log.d("Response_Code", "On check le code de réponse : ");
-            Log.d("Response_Code", "" + myConnection.getResponseCode());
             if (myConnection.getResponseCode() == 200) {
                 // On recupère le corp de la réponse
                 InputStream responseBody = myConnection.getInputStream();
@@ -80,17 +70,16 @@ public class ApiTask extends AsyncTask<Void, Void, Void> {
                 // On crée le Reader
                 JsonReader jsonReader = new JsonReader(responseBodyReader);
 
-                readRecipeList(jsonReader);
+                recipeList.addAll(readRecipeList(jsonReader));
 
                 jsonReader.close();
             } else {
                 Log.d("Connection API", "Erreur dans la connection a l'API");
             }
         } catch (IOException e) {
-            Log.d("Fail", "Fail get response code");
             e.printStackTrace();
         }
-        return null;
+        return recipeList;
     }
 
     private List<Recipe> readRecipeList(JsonReader jsonReader) {
