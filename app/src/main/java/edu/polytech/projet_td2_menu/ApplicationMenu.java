@@ -6,24 +6,24 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.view.ViewGroup;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.util.Objects;
 
 import edu.polytech.projet_td2_menu.notifications.NotificationSender;
 
 public class ApplicationMenu extends Application {
-    public static final String CHANNEL_1_ID = "channel low";
-    public static final String CHANNEL_2_ID = "channel default";
-    public static final String CHANNEL_3_ID = "channel high";
+    public static final String CHANNEL_suggestion = "channel low";
+    public static final String CHANNEL_rappelcourse = "channel default";
 
     private NotificationSender notificationSender;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        createNotificationChannel(CHANNEL_1_ID , "low", NotificationManager.IMPORTANCE_LOW);
-        createNotificationChannel(CHANNEL_2_ID , "default", NotificationManager.IMPORTANCE_DEFAULT);
-        createNotificationChannel(CHANNEL_3_ID, "high", NotificationManager.IMPORTANCE_HIGH);
+        createNotificationChannel(CHANNEL_suggestion , "low", NotificationManager.IMPORTANCE_LOW);
+        createNotificationChannel(CHANNEL_rappelcourse , "default", NotificationManager.IMPORTANCE_DEFAULT);
 
         //startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
         notificationSender = new NotificationSender(getApplicationContext());
