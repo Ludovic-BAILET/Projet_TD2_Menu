@@ -13,14 +13,13 @@ import edu.polytech.projet_td2_menu.models.Quantity;
 import edu.polytech.projet_td2_menu.models.Ratings;
 import edu.polytech.projet_td2_menu.models.recipes.PlatRecipe;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
-import edu.polytech.projet_td2_menu.models.TypesDishes;
 
 public class ModelRecipes {
     private final static List<Recipe> recipesList = new ArrayList<>();
 
     static {
         List<Pair<Ingredient, Quantity>> ingredientsPizza = new ArrayList<>();
-        ingredientsPizza.add(new Pair<>(ModelIngredients.get(FARINE), new Quantity(200, G)));
+        ingredientsPizza.add(new Pair<>(ModelIngredients.get(FARINE), new Quantity(200, "G")));
         recipesList.add(new PlatRecipe("Pizza", ingredientsPizza, new Ratings(1, 2, 2)));
     }
 

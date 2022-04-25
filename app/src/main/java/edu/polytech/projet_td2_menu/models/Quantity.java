@@ -3,9 +3,9 @@ package edu.polytech.projet_td2_menu.models;
 public class Quantity {
 
     private final int number;
-    private final TypesUnits unite;
+    private final String unite;
 
-    public Quantity(int number, TypesUnits unite) {
+    public Quantity(int number, String unite) {
         this.number = number;
         this.unite = unite;
     }
@@ -14,7 +14,7 @@ public class Quantity {
         return number;
     }
 
-    public TypesUnits getUnite() {
+    public String getUnite() {
         return unite;
     }
 }

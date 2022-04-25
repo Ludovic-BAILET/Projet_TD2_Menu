@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar" />
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/view_separator_title"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:id="@+id/view_separator_health"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toTopOf="@id/view_separator_price"
+        app:layout_constraintTop_toBottomOf="@id/view_separator_title" />
+    <View
+        android:id="@+id/view_separator_price"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_separator_health" />
+
+    <TextView
+        android:id="@+id/recipe_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/item_recipe_name"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_separator_title"/>
+
+    <TextView
+        android:id="@+id/recipe_health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/item_recipe_health"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/view_separator_title"
+        app:layout_constraintBottom_toTopOf="@id/view_separator_health"/>
+
+    <TextView
+        android:id="@+id/recipe_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/item_recipe_price"
+        app:layout_constraintBottom_toTopOf="@id/view_separator_price"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/view_separator_health" />
+
+    <TextView
+        android:id="@+id/recipe_difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/item_recipe_difficulty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/view_separator_price" />
+
+    <View
+        android:id="@+id/view_separator_star"
+        android:layout_width="1dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/recipe_difficulty"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/health_star_1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
+        app:layout_constraintLeft_toRightOf="@id/view_separator_star"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_title" />
+
+    <ImageView
+        android:id="@+id/health_star_2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
+        app:layout_constraintLeft_toRightOf="@id/health_star_1"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_title" />
+
+    <ImageView
+        android:id="@+id/health_star_3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
+        app:layout_constraintLeft_toRightOf="@id/health_star_2"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_title" />
+
+    <ImageView
+        android:id="@+id/price_star_1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_price"
+        app:layout_constraintLeft_toRightOf="@id/view_separator_star"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_health" />
+
+    <ImageView
+        android:id="@+id/price_star_2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_price"
+        app:layout_constraintLeft_toRightOf="@id/price_star_1"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_health" />
+
+    <ImageView
+        android:id="@+id/price_star_3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_separator_price"
+        app:layout_constraintLeft_toRightOf="@id/price_star_2"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_health" />
+
+    <ImageView
+        android:id="@+id/difficulty_star_1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/view_separator_star"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_price" />
+
+    <ImageView
+        android:id="@+id/difficulty_star_2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/difficulty_star_1"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_price" />
+
+    <ImageView
+        android:id="@+id/difficulty_star_3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/full_heart"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/difficulty_star_2"
+        app:layout_constraintTop_toBottomOf="@+id/view_separator_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

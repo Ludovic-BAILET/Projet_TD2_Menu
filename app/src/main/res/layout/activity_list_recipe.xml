@@ -45,14 +45,14 @@
         android:layout_marginLeft="160dp"
         android:text="@string/filter_title" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recipes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/filters"
-        app:layout_constraintBottom_toTopOf="@id/navigation_bar"/>
+        android:layout_height=""
+        app:layout_constraintTop_toBottomOf="@id/filter_button"
+        app:layout_constraintBottom_toTopOf="@id/navigation_bar" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navigation_bar"
         android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"
