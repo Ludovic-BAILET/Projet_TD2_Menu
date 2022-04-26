@@ -39,7 +39,7 @@ public class ListRecipeActivity extends AppCompatActivity {
         ApiTask apiTask = new ApiTask();
         apiTask.execute();
         while (ApiTask.recipeList == null){
-            Log.d("wait list", "waiting for the list to change");
+
         }
         return ApiTask.recipeList;
     }

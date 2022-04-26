@@ -12,10 +12,10 @@ import android.util.Pair;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -58,7 +58,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
             Log.d("connection", ""+myConnection);
 
-            Log.d("Response_Code", "On check le code de réponse : ");
+            Log.d("Response_Code", "On check le code de réponse : " + myConnection.getResponseCode());
             if (myConnection.getResponseCode() == 200) {
                 // On recupère le corp de la réponse
                 InputStream responseBody = myConnection.getInputStream();
@@ -76,57 +76,66 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                 Log.d("Connection API", "Erreur dans la connection a l'API");
             }
         } catch (IOException e) {
+            Log.d("oui", "bonjour");
             e.printStackTrace();
         }
         return recipeList;
     }
 
-    private List<Recipe> readRecipeList(JsonReader jsonReader) {
+    private List<Recipe> readRecipeList(JsonReader jsonReader) throws IOException {
         List<Recipe> recipeList = new ArrayList<>();
-        try {
-            jsonReader.beginArray(); // Start processing the JSON object
-            while (jsonReader.hasNext()) { // Loop through all keys
-                String key = jsonReader.nextName(); // Fetch the next key
-                if (key.equals("hits")) { // Check if desired key
-                    recipeList.addAll(readRecipe(jsonReader));
-                    break; // Break out of the loop
-                } else {
-                    jsonReader.skipValue(); // Skip values of other keys
-                }
+        jsonReader.beginObject(); // Start processing the JSON object
+        while (jsonReader.hasNext()) { // Loop through all keys
+            String key = jsonReader.nextName(); // Fetch the next key
+            Log.d("key", ""+key);
+            if (key.equals("hits")) { // Check if desired key
+                Log.d("key", "on rentre dans l'objet");
+                recipeList.addAll(readRecipes(jsonReader));
+                break; // Break out of the loop
+            } else {
+                jsonReader.skipValue(); // Skip values of other keys
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         Log.d("List size", "la taille de la liste est de : " + recipeList.size());
         return recipeList;
     }
 
-    private List<Recipe> readRecipe(JsonReader jsonReader) throws IOException {
+    private List<Recipe> readRecipes(JsonReader jsonReader) throws IOException {
+        List<Recipe> recipeList = new ArrayList<>();
+
+        jsonReader.beginArray();
+        while (jsonReader.hasNext()){
+            recipeList.addAll(readOneRecipe(jsonReader));
+        }
+        jsonReader.beginArray();
+        return recipeList;
+    }
+
+    private List<Recipe> readOneRecipe(JsonReader jsonReader) throws IOException {
+        List<Recipe> recipes = new ArrayList<>();
+
+        jsonReader.beginObject();
+        while (jsonReader.hasNext()){
+            if (jsonReader.nextName().equals("recipe"))
+                recipes.addAll(createRecipes(jsonReader));
+            else
+                jsonReader.skipValue();
+        }
+        jsonReader.endObject();
+        return recipes;
+    }
+
+    private List<Recipe> createRecipes(JsonReader jsonReader) throws IOException {
         String label = null;
         List<Pair<Ingredient, Quantity>> ingredientList = null;
         int time = 0;
         List<DishesTypes> dishesTypesList = null;
 
         List<Recipe> recipeList = new ArrayList<>();
-
-        try {
-            jsonReader.beginObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        while (true){
-            try {
-                if (!jsonReader.hasNext()) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            String key = null;
-            try {
-                key = jsonReader.nextName();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        Log.d("jsonReader", ""+jsonReader);
+        jsonReader.beginObject();
+        while (jsonReader.hasNext()){
+            String key = jsonReader.nextName();
             switch (key){
                 case "label":
                     label = jsonReader.nextString();
@@ -162,9 +171,10 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         return recipeList;
     }
 
-    private List<DishesTypes> readDishesTypesList(JsonReader jsonReader) {
+
+
+    private List<DishesTypes> readDishesTypesList(JsonReader jsonReader) throws IOException {
         List<DishesTypes> dishesTypesList = new ArrayList<>();
-        try {
 
             jsonReader.beginArray(); // Start processing the JSON object
 
@@ -185,48 +195,56 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                         jsonReader.skipValue();
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            jsonReader.endArray();
         return dishesTypesList;
     }
 
-    private List<Pair<Ingredient, Quantity>> readIngredientList(JsonReader jsonReader) {
-        List<Pair<Ingredient, Quantity>> ingredientList =  new ArrayList<>();
-        try {
-            int quantity = -1;
-            String measure = null;
-            String name = null;
-            String image = null;
-
-            jsonReader.beginObject(); // Start processing the JSON object
-
-            while (jsonReader.hasNext()) { // Loop through all keys
-                String key = jsonReader.nextName(); // Fetch the next key
-
-                switch (key){
-                    case "quantity":
-                        quantity = jsonReader.nextInt();
-                        break;
-                    case "measure":
-                        measure = jsonReader.nextString();
-                        break;
-                    case "food":
-                        name = jsonReader.nextString();
-                        break;
-                    case "image":
-                        image = jsonReader.nextString();
-                    default:
-                        jsonReader.skipValue();
-                }
-
-                ingredientList.add(new Pair<>(new Ingredient(image, name), new Quantity(quantity, measure)));
-            }
-
-            jsonReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private List<Pair<Ingredient, Quantity>> readIngredientList(JsonReader jsonReader) throws IOException {
+        List<Pair<Ingredient, Quantity>> list = new ArrayList<>();
+        jsonReader.beginArray();
+        while (jsonReader.hasNext()){
+            list.add(readIngredien(jsonReader));
         }
-        return ingredientList;
+        return list;
+    }
+
+    private Pair<Ingredient, Quantity> readIngredien(JsonReader jsonReader) throws IOException {
+        Pair<Ingredient, Quantity> paire =  null;
+        double quantity = -1;
+        String measure = null;
+        String name = null;
+        String image = null;
+
+        jsonReader.beginObject(); // Start processing the JSON object
+
+        while (jsonReader.hasNext()) { // Loop through all keys
+            String key = jsonReader.nextName(); // Fetch the next key
+            Log.d("ingredient_key", ""+key+", hasNext : "+jsonReader.hasNext());
+            Log.d("ingredient_key", ""+jsonReader);
+            switch (key){
+                case "quantity":
+                    quantity = jsonReader.nextDouble();
+                    break;
+                case "measure":
+                    try {
+                        measure = jsonReader.nextString();
+                    } catch (IOException ignored) {
+
+                    }
+                    Log.d("ta_mere_la_pute", ""+jsonReader);
+                    break;
+                case "food":
+                    name = jsonReader.nextString();
+                    break;
+                case "image":
+                    image = jsonReader.nextString();
+                    break;
+                default:
+                    jsonReader.skipValue();
+            }
+        }
+        jsonReader.endObject();
+        paire = new Pair<>(new Ingredient(image, name), new Quantity(quantity, measure));
+        return paire;
     }
 }
