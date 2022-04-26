@@ -124,7 +124,7 @@
 
     </LinearLayout>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/navigation_bar"
         android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package edu.polytech.projet_td2_menu;
+package edu.polytech.projet_td2_menu.MVC;
 
 import android.content.Context;
 import android.widget.BaseAdapter;
@@ -7,6 +7,8 @@ import android.widget.ListView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import edu.polytech.projet_td2_menu.MVC.NotificationsController;
+import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterNotification;
 
 public class NotificationView {

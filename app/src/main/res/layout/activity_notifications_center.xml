@@ -5,7 +5,7 @@
     android:id="@+id/notification_center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotificationsCenterActivity">
+    tools:context=".MVC.NotificationsCenterActivity">
 
     <TextView
         android:id="@+id/title"
@@ -82,7 +82,7 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/navigation_bar"
         android:name="edu.polytech.projet_td2_menu.fragments.NavigationBar"
         android:layout_width="match_parent"

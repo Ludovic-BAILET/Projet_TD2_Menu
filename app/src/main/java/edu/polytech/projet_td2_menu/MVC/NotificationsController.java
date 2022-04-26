@@ -1,4 +1,4 @@
-package edu.polytech.projet_td2_menu;
+package edu.polytech.projet_td2_menu.MVC;
 
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 

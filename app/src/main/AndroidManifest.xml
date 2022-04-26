@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Projet_TD2_Menu">
 
         <activity
-            android:name=".NotificationsCenterActivity"
+            android:name=".MVC.NotificationsCenterActivity"
             android:exported="false">
         </activity>
 
