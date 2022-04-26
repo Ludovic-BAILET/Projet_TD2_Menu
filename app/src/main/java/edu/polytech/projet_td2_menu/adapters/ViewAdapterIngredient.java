@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.Map;
 
 import edu.polytech.projet_td2_menu.R;
@@ -47,7 +46,7 @@ public class ViewAdapterIngredient extends BaseAdapter {
         LinearLayout layout = (LinearLayout) (view == null ? inflater.inflate(R.layout.view_adapter_ingredient, viewGroup, false) : view);
 
         Ingredient ingredient = getItem(i).getValue();
-        ((ImageView) layout.findViewById(R.id.image)).setImageResource(ingredient.getImage());
+        ((ImageView) layout.findViewById(R.id.image)).setImageResource(ingredient.getImageInt());
         ((TextView) layout.findViewById(R.id.name)).setText(ingredient.getName());
 
         return layout;

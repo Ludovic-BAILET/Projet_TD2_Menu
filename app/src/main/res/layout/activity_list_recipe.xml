@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_list_recipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListRecipeActivity">
@@ -49,8 +50,9 @@
         android:id="@+id/list_recipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/filters"
-        app:layout_constraintBottom_toTopOf="@id/navigation_bar"/>
+        app:layout_constraintTop_toBottomOf="@id/filter_button"
+        app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+        />
 
     <FrameLayout
         android:id="@+id/navigation_bar"

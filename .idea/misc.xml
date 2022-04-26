@@ -56,6 +56,24 @@
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_advanced_filter.xml" value="0.15602836879432624" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapater_filter_element.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_ingredient.xml" value="0.15602836879432624" />
+        <entry key="app/src/main/res/drawable/full_heart.xml" value="0.219" />
+        <entry key="app/src/main/res/drawable/full_star.xml" value="0.219" />
+        <entry key="app/src/main/res/drawable/number_1.xml" value="0.219" />
+        <entry key="app/src/main/res/drawable/number_3.xml" value="0.219" />
+        <entry key="app/src/main/res/drawable/sack_dollar.xml" value="0.219" />
+        <entry key="app/src/main/res/drawable/star.xml" value="0.219" />
+        <entry key="app/src/main/res/drawable/user.xml" value="0.219" />
+        <entry key="app/src/main/res/layout/activity_ajouter_recettes.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_list_recipe.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_notifications_center.xml" value="0.33106884057971014" />
+        <entry key="app/src/main/res/layout/activity_photo_load.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_planning.xml" value="0.11955420466058764" />
+        <entry key="app/src/main/res/layout/activity_profil.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_profil_boite_amis.xml" value="0.16893115942028986" />
+        <entry key="app/src/main/res/layout/activity_recipe_detail.xml" value="0.2563323201621074" />
+        <entry key="app/src/main/res/layout/activity_recipe_infos.xml" value="0.2563323201621074" />
+        <entry key="app/src/main/res/layout/item_recipe.xml" value="0.33106884057971014" />
+        <entry key="app/src/main/res/layout/view_adapter_recipe.xml" value="0.30104166666666665" />
       </map>
     </option>
   </component>
