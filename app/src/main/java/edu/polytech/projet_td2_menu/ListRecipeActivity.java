@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -36,6 +37,10 @@ public class ListRecipeActivity extends AppCompatActivity {
 
     private List<Recipe> getRecipeListFromApi() {
         ApiTask apiTask = new ApiTask();
-        return apiTask.doInBackground();
+        apiTask.execute();
+        while (ApiTask.recipeList == null){
+            Log.d("wait list", "waiting for the list to change");
+        }
+        return ApiTask.recipeList;
     }
 }

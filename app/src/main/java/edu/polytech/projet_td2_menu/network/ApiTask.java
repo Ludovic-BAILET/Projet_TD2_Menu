@@ -39,14 +39,11 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
     private final static String FIELDS = "field=label&field=image&field=ingredientLines&field=ingredients&field=totalTime&field=mealType&field=dishType";
 
-
-    public ApiTask (){
-    }
+    public static List<Recipe> recipeList = null;
 
     @Override
     public List<Recipe> doInBackground(Void... voids) {
         // Create URL
-        List<Recipe> recipeList = new ArrayList<>();
         try {
             Log.d("URL", "Début de création de l'URL");
             String url = API_URL + RECIPE_PATH + "q=meal&" + APP_ID + APP_KEY + FIELDS;
@@ -58,6 +55,8 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
             Log.d("Connection_URL", "Début de connection a l'URL");
             HttpsURLConnection myConnection = (HttpsURLConnection) edamamEndpoint.openConnection();
             Log.d("Connection_URL", "Connection établie");
+
+            Log.d("connection", ""+myConnection);
 
             Log.d("Response_Code", "On check le code de réponse : ");
             if (myConnection.getResponseCode() == 200) {
