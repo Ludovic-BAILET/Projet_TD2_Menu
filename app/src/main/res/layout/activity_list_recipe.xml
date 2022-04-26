@@ -49,7 +49,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="La conection avec l'api est faite mais elle n'est pas implémenté\nElle se situe dans le dossier network"
+        android:text="La conection avec le web service est faite mais elle n'est pas implémenté\nElle se situe dans le dossier network"
         app:layout_constraintTop_toBottomOf="@+id/filter_button"/>
 
     <ListView
