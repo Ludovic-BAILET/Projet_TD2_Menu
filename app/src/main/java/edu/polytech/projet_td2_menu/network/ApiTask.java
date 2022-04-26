@@ -39,7 +39,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
     private final static String FIELDS = "field=label&field=image&field=ingredientLines&field=ingredients&field=totalTime&field=mealType&field=dishType";
 
-    public static List<Recipe> recipeList = null;
+    public final static List<Recipe> recipeList = new ArrayList<>();
 
     @Override
     public List<Recipe> doInBackground(Void... voids) {
@@ -97,6 +97,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
             }
         }
         Log.d("List size", "la taille de la liste est de : " + recipeList.size());
+        Log.d("Liste_recipe", ""+recipeList);
         return recipeList;
     }
 
@@ -107,7 +108,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         while (jsonReader.hasNext()){
             recipeList.addAll(readOneRecipe(jsonReader));
         }
-        jsonReader.beginArray();
+        jsonReader.endArray();
         return recipeList;
     }
 
@@ -129,10 +130,9 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         String label = null;
         List<Pair<Ingredient, Quantity>> ingredientList = null;
         int time = 0;
-        List<DishesTypes> dishesTypesList = null;
+        List<DishesTypes> dishesTypesList = new ArrayList<>();
 
         List<Recipe> recipeList = new ArrayList<>();
-        Log.d("jsonReader", ""+jsonReader);
         jsonReader.beginObject();
         while (jsonReader.hasNext()){
             String key = jsonReader.nextName();
@@ -150,7 +150,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                     break;
 
                 case "dishType":
-                    dishesTypesList = readDishesTypesList(jsonReader);
+                    dishesTypesList.addAll(readDishesTypesList(jsonReader));
                     break;
 
                 default:
@@ -180,6 +180,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
             while (jsonReader.hasNext()) { // Loop through all keys
                 String type = jsonReader.nextString();
+                Log.d("sidhType", ""+type+", hasNext :"+jsonReader.hasNext()+", "+jsonReader);
 
                 switch (type){
                     case "desserts":
@@ -191,8 +192,6 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                     case "main course":
                         dishesTypesList.add(PLAT);
                         break;
-                    default:
-                        jsonReader.skipValue();
                 }
             }
             jsonReader.endArray();
@@ -205,6 +204,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         while (jsonReader.hasNext()){
             list.add(readIngredien(jsonReader));
         }
+        jsonReader.endArray();
         return list;
     }
 
@@ -219,8 +219,6 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
         while (jsonReader.hasNext()) { // Loop through all keys
             String key = jsonReader.nextName(); // Fetch the next key
-            Log.d("ingredient_key", ""+key+", hasNext : "+jsonReader.hasNext());
-            Log.d("ingredient_key", ""+jsonReader);
             switch (key){
                 case "quantity":
                     quantity = jsonReader.nextDouble();
@@ -228,16 +226,22 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                 case "measure":
                     try {
                         measure = jsonReader.nextString();
-                    } catch (IOException ignored) {
-
+                    } catch (Exception ignored) {
+                        jsonReader.nextNull();
+                        measure = "no measure";
                     }
-                    Log.d("ta_mere_la_pute", ""+jsonReader);
+
                     break;
                 case "food":
                     name = jsonReader.nextString();
                     break;
                 case "image":
-                    image = jsonReader.nextString();
+                    try{
+                        image = jsonReader.nextString();
+                    } catch (Exception ignored) {
+                        jsonReader.nextNull();
+                        image = "no image";
+                    }
                     break;
                 default:
                     jsonReader.skipValue();
