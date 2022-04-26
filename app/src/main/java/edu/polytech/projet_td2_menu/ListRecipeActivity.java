@@ -33,6 +33,7 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_recipe);
 
 //        List<Recipe> recipeList = new ArrayList<>();
 //        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
