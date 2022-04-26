@@ -1,8 +1,8 @@
 package edu.polytech.projet_td2_menu.network;
 
-import static edu.polytech.projet_td2_menu.models.DishesTypes.DESSERT;
-import static edu.polytech.projet_td2_menu.models.DishesTypes.ENTREE;
-import static edu.polytech.projet_td2_menu.models.DishesTypes.PLAT;
+import static edu.polytech.projet_td2_menu.models.TypesDishes.DESSERT;
+import static edu.polytech.projet_td2_menu.models.TypesDishes.ENTREE;
+import static edu.polytech.projet_td2_menu.models.TypesDishes.PLAT;
 
 import android.os.AsyncTask;
 import android.util.JsonReader;
@@ -15,13 +15,12 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import edu.polytech.projet_td2_menu.factory.RecipeFactory;
-import edu.polytech.projet_td2_menu.models.DishesTypes;
+import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactory;
+import edu.polytech.projet_td2_menu.models.TypesDishes;
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
 import edu.polytech.projet_td2_menu.models.Ratings;
@@ -128,9 +127,9 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
     private List<Recipe> createRecipes(JsonReader jsonReader) throws IOException {
         String label = null;
-        List<Pair<Ingredient, Quantity>> ingredientList = null;
+        List<Pair<Ingredient, Quantity>> ingredientList = new ArrayList<>();
         int time = 0;
-        List<DishesTypes> dishesTypesList = new ArrayList<>();
+        List<TypesDishes> typesDishesList = new ArrayList<>();
 
         List<Recipe> recipeList = new ArrayList<>();
         jsonReader.beginObject();
@@ -150,7 +149,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                     break;
 
                 case "dishType":
-                    dishesTypesList.addAll(readDishesTypesList(jsonReader));
+                    typesDishesList.addAll(readDishesTypesList(jsonReader));
                     break;
 
                 default:
@@ -159,10 +158,42 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         }
         jsonReader.endObject();
 
-        RecipeFactory recipeFactory = new RecipeFactory();
-        for (DishesTypes dishiesTypes : dishesTypesList) {
+        ConcreteRecipeFactory concreteRecipeFactoryEnteree = new ConcreteRecipeFactory(ENTREE);
+        ConcreteRecipeFactory concreteRecipeFactoryPlat = new ConcreteRecipeFactory(PLAT);
+        ConcreteRecipeFactory concreteRecipeFactoryDessert = new ConcreteRecipeFactory(DESSERT);
+        for (TypesDishes dishiesTypes : typesDishesList) {
             try {
-                recipeList.add(recipeFactory.buildRecipe(dishiesTypes, label, ingredientList, new Ratings(0, 0, 0)));
+                Recipe recipe = null;
+                switch (dishiesTypes){
+                    case ENTREE:
+                        concreteRecipeFactoryEnteree.setNameRecipe(label);
+                        for (Pair<Ingredient, Quantity> pair : ingredientList){
+                            concreteRecipeFactoryEnteree.addIngredients(pair.first, pair.second);
+                        }
+                        concreteRecipeFactoryEnteree.buildIngredientsList();
+                        concreteRecipeFactoryEnteree.buildRatings();
+                        recipe = concreteRecipeFactoryDessert.buildRecipe();
+                        break;
+                    case PLAT:
+                        concreteRecipeFactoryPlat.setNameRecipe(label);
+                        for (Pair<Ingredient, Quantity> pair : ingredientList){
+                            concreteRecipeFactoryPlat.addIngredients(pair.first, pair.second);
+                        }
+                        concreteRecipeFactoryPlat.buildIngredientsList();
+                        concreteRecipeFactoryPlat.buildRatings();
+                        recipe = concreteRecipeFactoryPlat.buildRecipe();
+                        break;
+                    case DESSERT:
+                        concreteRecipeFactoryDessert.setNameRecipe(label);
+                        for (Pair<Ingredient, Quantity> pair : ingredientList){
+                            concreteRecipeFactoryEnteree.addIngredients(pair.first, pair.second);
+                        }
+                        concreteRecipeFactoryDessert.buildIngredientsList();
+                        concreteRecipeFactoryDessert.buildRatings();
+                        recipe = concreteRecipeFactoryDessert.buildRecipe();
+                        break;
+                }
+                recipeList.add(recipe);
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
@@ -173,8 +204,8 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
 
 
-    private List<DishesTypes> readDishesTypesList(JsonReader jsonReader) throws IOException {
-        List<DishesTypes> dishesTypesList = new ArrayList<>();
+    private List<TypesDishes> readDishesTypesList(JsonReader jsonReader) throws IOException {
+        List<TypesDishes> typesDishesList = new ArrayList<>();
 
             jsonReader.beginArray(); // Start processing the JSON object
 
@@ -184,18 +215,18 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
                 switch (type){
                     case "desserts":
-                        dishesTypesList.add(DESSERT);
+                        typesDishesList.add(DESSERT);
                         break;
                     case "starter":
-                        dishesTypesList.add(ENTREE);
+                        typesDishesList.add(ENTREE);
                         break;
                     case "main course":
-                        dishesTypesList.add(PLAT);
+                        typesDishesList.add(PLAT);
                         break;
                 }
             }
             jsonReader.endArray();
-        return dishesTypesList;
+        return typesDishesList;
     }
 
     private List<Pair<Ingredient, Quantity>> readIngredientList(JsonReader jsonReader) throws IOException {

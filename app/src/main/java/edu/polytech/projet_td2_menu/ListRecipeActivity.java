@@ -15,6 +15,8 @@ import android.widget.ListView;
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterRecipe;
@@ -32,14 +34,14 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Recipe> recipeList = getRecipeListFromApi();
-        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
-
-        ConstraintLayout constraintLayout = findViewById(R.id.activity_list_recipe);
-
-        ((ListView) constraintLayout.findViewById(R.id.list_recipes)).setAdapter(adapterRecipe);
-
-        setContentView(R.layout.activity_list_recipe);
+//        List<Recipe> recipeList = new ArrayList<>();
+//        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
+//
+//        ConstraintLayout constraintLayout = findViewById(R.id.activity_list_recipe);
+//
+//        ((ListView) constraintLayout.findViewById(R.id.list_recipes)).setAdapter(adapterRecipe);
+//
+//        setContentView(R.layout.activity_list_recipe);
 
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();

@@ -8,13 +8,13 @@ import java.util.List;
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
 import edu.polytech.projet_td2_menu.models.Ratings;
-import edu.polytech.projet_td2_menu.models.DishesTypes;
+import edu.polytech.projet_td2_menu.models.TypesDishes;
 
 public abstract class Recipe {
     private final String name;
     private final List<Pair<Ingredient, Quantity>> ingredients;
     private Ratings ratings;
-    protected DishesTypes type;
+    protected TypesDishes type;
 
     public Recipe(String name, List<Pair<Ingredient, Quantity>> ingredients, Ratings ratings) {
         this.name = name;
@@ -38,7 +38,7 @@ public abstract class Recipe {
         this.ratings = ratings;
     }
 
-    public DishesTypes getType() {
+    public TypesDishes getType() {
         return type;
     }
 }
