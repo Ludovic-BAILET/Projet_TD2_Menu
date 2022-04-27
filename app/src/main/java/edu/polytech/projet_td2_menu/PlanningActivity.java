@@ -34,6 +34,7 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
     private static final String  TAG = "PlanningActivity";
     private TextView theDate;
+    private Calendar calendar;
     private ImageView imageCalendar;
     private NavigationBarInterfaceImplementation implementation;
     private ImageView addToAgenda;
@@ -52,15 +53,20 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
 
         Intent incomingIntent = getIntent();
-        String date = incomingIntent.getStringExtra("date");
-        if(date == null){
-            String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String currentDate = incomingIntent.getStringExtra("date");
+        if(currentDate == null){
+            currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
             theDate.setText(currentDate);
 
         }else{
-            theDate.setText(date);
+            theDate.setText(currentDate);
         }
 
+        String[] dateInt = currentDate.split("/");
+        calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR,Integer.valueOf(dateInt[2]));
+        calendar.set(Calendar.MONTH,Integer.valueOf(dateInt[1]));
+        calendar.set(Calendar.DATE,Integer.valueOf(dateInt[0]));
 
         imageCalendar.setOnClickListener(view -> {
             startActivity(new Intent(PlanningActivity.this,CalendarActivity.class));
@@ -112,9 +118,13 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
         intent.putExtra(CalendarContract.Events.TITLE, "liste des courses du " + theDate.getText());
         //TODO reformuler la description pour l'agenda
         intent.putExtra(CalendarContract.Events.DESCRIPTION, "La liste des courses à acheter pour le " + theDate.getText());
-//        intent.putExtra(CalendarContract.Events.DTSTART, theDate.getText());
 
-        intent.putExtra(CalendarContract.Events.ALL_DAY,true );
+        intent.putExtra(CalendarContract.Events.DTSTART, calendar.getTimeInMillis());
+        intent.putExtra(CalendarContract.Events.DTEND, calendar.getTimeInMillis());
+        intent.putExtra(CalendarContract.Events.DURATION,100000);
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION,"Biot");
+        intent.putExtra(CalendarContract.Events.CALENDAR_ID,1);
+//        intent.putExtra(CalendarContract.Events.ALL_DAY,true );
 
         startActivity(intent);
 
