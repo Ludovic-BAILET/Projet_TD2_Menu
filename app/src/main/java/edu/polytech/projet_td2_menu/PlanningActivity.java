@@ -68,6 +68,8 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
         calendar.set(Calendar.MONTH,Integer.valueOf(dateInt[1]));
         calendar.set(Calendar.DATE,Integer.valueOf(dateInt[0]));
 
+        Log.d(TAG, "onCreate: " + calendar.getTimeInMillis());
+
         imageCalendar.setOnClickListener(view -> {
             startActivity(new Intent(PlanningActivity.this,CalendarActivity.class));
         });
@@ -119,16 +121,38 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
         //TODO reformuler la description pour l'agenda
         intent.putExtra(CalendarContract.Events.DESCRIPTION, "La liste des courses à acheter pour le " + theDate.getText());
 
-        intent.putExtra(CalendarContract.Events.DTSTART, calendar.getTimeInMillis());
-        intent.putExtra(CalendarContract.Events.DTEND, calendar.getTimeInMillis());
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, calendar.getTimeInMillis());
         intent.putExtra(CalendarContract.Events.DURATION,100000);
         intent.putExtra(CalendarContract.Events.EVENT_LOCATION,"Biot");
         intent.putExtra(CalendarContract.Events.CALENDAR_ID,1);
-//        intent.putExtra(CalendarContract.Events.ALL_DAY,true );
+        intent.putExtra(CalendarContract.Events.ALL_DAY,true );
 
         startActivity(intent);
 
     }
+
+//    public void putEventToCalendar(){
+//        long millis = 1000;
+//        String evtext = "test";
+//
+//        Intent intent = new Intent(Intent.ACTION_INSERT)
+//                .setData(CalendarContract.Events.CONTENT_URI)
+//                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, millis)
+//                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, millis + 60 * 60 * 1000)
+//                .putExtra(CalendarContract.Events.TITLE, evtext)
+//                .putExtra(CalendarContract.Events.DESCRIPTION, evtext)
+//                .putExtra(CalendarContract.Events.HAS_ALARM, true)
+//                .putExtra(CalendarContract.Reminders.EVENT_ID, CalendarContract.Events._ID)
+//                .putExtra(CalendarContract.Events.ALLOWED_REMINDERS, "METHOD_DEFAULT")
+//                .putExtra(CalendarContract.Reminders.MINUTES, 1)
+//                .putExtra(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT)
+//                .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+//
+//        startActivity(intent);
+//
+//    }
+
+
 
     @Override
     public void onButtonPlanningClicked(View v) {
