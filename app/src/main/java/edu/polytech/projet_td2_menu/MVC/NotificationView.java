@@ -29,6 +29,7 @@ public class NotificationView implements Observer {
         adapterBaseNotification = new ViewAdapterNotification(context, false);
         adapterPinnedNotification = new ViewAdapterNotification(context, true);
         this.layout = layout;
+        this.setListeners();
     }
 
     public void setListeners() {
@@ -63,4 +64,3 @@ public class NotificationView implements Observer {
         adapterBaseNotification.notifyDataSetChanged();
     }
 }
-

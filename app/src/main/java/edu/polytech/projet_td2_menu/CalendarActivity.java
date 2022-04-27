@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
@@ -31,7 +30,7 @@ public class CalendarActivity extends AppCompatActivity implements NavigationBar
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
 
         mCalendarView.setOnDateChangeListener((calendarView, i, i1, i2) -> {
-            String date = (i1 + 1) + "/" + i2 + "/" + i;
+            String date = i2 + "/" + (i1 + 1) + "/" + i;
             Log.d(TAG, "onSelectedDayChange: date " + date);
 
             Intent intent = new Intent(CalendarActivity.this, PlanningActivity.class);
