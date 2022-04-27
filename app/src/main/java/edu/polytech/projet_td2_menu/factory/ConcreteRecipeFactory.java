@@ -81,4 +81,8 @@ public class ConcreteRecipeFactory extends AbstractRecipeFactory {
     public void addIngredients(Ingredient ingredient, Quantity quantity) {
         ingredients.add(new Pair<>(ingredient, quantity));
     }
+
+    public void addIngredientsList(List<Pair<Ingredient, Quantity>> list) {
+        ingredients.addAll(list);
+    }
 }
