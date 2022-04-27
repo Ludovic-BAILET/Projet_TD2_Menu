@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,39 +63,32 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
         Log.d(TAG, "onCreate: " + calendar.getTimeInMillis());
 
-        imageCalendar.setOnClickListener(view -> {
-            startActivity(new Intent(PlanningActivity.this,CalendarActivity.class));
-        });
+        imageCalendar.setOnClickListener(view -> startActivity(new Intent(PlanningActivity.this,CalendarActivity.class)));
 
-        findViewById(R.id.bell).setOnClickListener(click -> {
-            startActivity(new Intent(this, NotificationsCenterActivity.class));
-        });
+        findViewById(R.id.bell).setOnClickListener(click -> startActivity(new Intent(this, NotificationsCenterActivity.class)));
 
-        addToAgenda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(checkSelfPermission(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_DENIED) {
-                        //permission not granted
-                        String[] permissions = {Manifest.permission.WRITE_CALENDAR};
-                        //show popup for runtime permission
-                        requestPermissions(permissions, WRITE_CALENDAR_PERMISSION);
-                    }
-                    else if(checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
-                        //permission not granted
-                        String[] permissions = {Manifest.permission.READ_CALENDAR};
-                        //show popup for runtime permission
-                        requestPermissions(permissions, READ_CALENDAR_PERMISSION);
-
-                    }else{
-                        //permission already granted
-                        putEventToCalendar();
-                    }
+        addToAgenda.setOnClickListener(view -> {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if(checkSelfPermission(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+                    //permission not granted
+                    String[] permissions = {Manifest.permission.WRITE_CALENDAR};
+                    //show popup for runtime permission
+                    requestPermissions(permissions, WRITE_CALENDAR_PERMISSION);
                 }
-                else{
-                    //system os is less than marsmallow
+                else if(checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+                    //permission not granted
+                    String[] permissions = {Manifest.permission.READ_CALENDAR};
+                    //show popup for runtime permission
+                    requestPermissions(permissions, READ_CALENDAR_PERMISSION);
+
+                }else{
+                    //permission already granted
                     putEventToCalendar();
                 }
+            }
+            else{
+                //system os is less than marsmallow
+                putEventToCalendar();
             }
         });
 
