@@ -55,7 +55,7 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
 
         addToAgenda.setOnClickListener(view -> {
-            ContentResolver cr  = getApplicationContext().getContentResolver();
+            ContentResolver cr  = getContentResolver();
             ContentValues cv = new ContentValues();
             cv.put(CalendarContract.Events.TITLE,"test title");
             cv.put(CalendarContract.Events.DESCRIPTION,"test description");
