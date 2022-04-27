@@ -20,6 +20,9 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 
 import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactory;
+import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactoryDessert;
+import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactoryEntree;
+import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactoryPlat;
 import edu.polytech.projet_td2_menu.models.TypesDishes;
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
@@ -128,6 +131,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
     private List<Recipe> createRecipes(JsonReader jsonReader) throws IOException {
         String label = null;
+        String image = null;
         List<Pair<Ingredient, Quantity>> ingredientList = new ArrayList<>();
         int time = 0;
         List<TypesDishes> typesDishesList = new ArrayList<>();
@@ -139,6 +143,10 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
             switch (key){
                 case "label":
                     label = jsonReader.nextString();
+                    break;
+
+                case "image":
+                    image = jsonReader.nextString();
                     break;
 
                 case "ingredients":
@@ -164,22 +172,16 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                 Recipe recipe = null;
                 switch (dishiesTypes){
                     case ENTREE:
-                        ConcreteRecipeFactory concreteRecipeFactoryEnteree = new ConcreteRecipeFactory(ENTREE);
-                        concreteRecipeFactoryEnteree.setNameRecipe(label);
-                        concreteRecipeFactoryEnteree.addIngredientsList(ingredientList);
-                        recipe = concreteRecipeFactoryEnteree.buildRecipe();
+                        ConcreteRecipeFactoryEntree concreteRecipeFactoryEnteree = new ConcreteRecipeFactoryEntree();
+                        recipe = concreteRecipeFactoryEnteree.buildRecipe(label, ingredientList, image);
                         break;
                     case PLAT:
-                        ConcreteRecipeFactory concreteRecipeFactoryPlat = new ConcreteRecipeFactory(PLAT);
-                        concreteRecipeFactoryPlat.setNameRecipe(label);
-                        concreteRecipeFactoryPlat.addIngredientsList(ingredientList);
-                        recipe = concreteRecipeFactoryPlat.buildRecipe();
+                        ConcreteRecipeFactoryPlat concreteRecipeFactoryPlat = new ConcreteRecipeFactoryPlat();
+                        recipe = concreteRecipeFactoryPlat.buildRecipe(label, ingredientList, image);
                         break;
                     case DESSERT:
-                        ConcreteRecipeFactory concreteRecipeFactoryDessert = new ConcreteRecipeFactory(DESSERT);
-                        concreteRecipeFactoryDessert.setNameRecipe(label);
-                        concreteRecipeFactoryDessert.addIngredientsList(ingredientList);
-                        recipe = concreteRecipeFactoryDessert.buildRecipe();
+                        ConcreteRecipeFactoryDessert concreteRecipeFactoryDessert = new ConcreteRecipeFactoryDessert();
+                        recipe = concreteRecipeFactoryDessert.buildRecipe(label, ingredientList, image);
                         break;
                 }
                 recipeList.add(recipe);

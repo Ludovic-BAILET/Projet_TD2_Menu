@@ -13,14 +13,14 @@ import edu.polytech.projet_td2_menu.models.recipes.EntreeRecipe;
 import edu.polytech.projet_td2_menu.models.recipes.PlatRecipe;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
-public class ConcreteRecipeFactory extends AbstractRecipeFactory {
+public class ConcreteRecipeFactoryEntree extends AbstractRecipeFactory {
     private static final int INDEX_RATING_PRICE = 1;
     private static final int INDEX_RATING_SAIN = 0;
     private static final int INDEX_RATING_DIFFICULTY = 2;
     private final int[] ratingsArray;
 
-    public ConcreteRecipeFactory(TypesDishes typesDishes) {
-        super(typesDishes);
+    public ConcreteRecipeFactoryEntree() {
+        super(TypesDishes.ENTREE);
         ratingsArray = new int[3];
     }
 
@@ -33,16 +33,7 @@ public class ConcreteRecipeFactory extends AbstractRecipeFactory {
 
         buildRatings();
 
-        switch (type) {
-            case ENTREE:
-                return new EntreeRecipe(name, ingredients, ratings, image);
-            case PLAT:
-                return new PlatRecipe(name, ingredients, ratings, image);
-            case DESSERT:
-                return new DessertRecipe(name, ingredients, ratings, image);
-            default:
-                throw new Throwable("type is not valid");
-        }
+        return new EntreeRecipe(name, ingredients, ratings, image);
     }
 
     @Override

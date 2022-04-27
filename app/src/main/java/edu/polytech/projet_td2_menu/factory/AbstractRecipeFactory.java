@@ -23,7 +23,7 @@ public abstract class AbstractRecipeFactory {
         this.type = typesDishes;
     }
 
-    public abstract Recipe buildRecipe() throws Throwable;
+    public abstract Recipe buildRecipe(String name, List<Pair<Ingredient, Quantity>> ingredientList, String image) throws Throwable;
     public abstract List<Pair<Ingredient, Quantity>> getIngredientsList();
     public abstract Ratings buildRatings();
     public abstract void setNameRecipe(String name);

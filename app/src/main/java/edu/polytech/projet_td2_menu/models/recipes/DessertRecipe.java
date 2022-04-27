@@ -11,8 +11,8 @@ import edu.polytech.projet_td2_menu.models.TypesDishes;
 
 public class DessertRecipe extends Recipe {
 
-    public DessertRecipe(String name, List<Pair<Ingredient, Quantity>> ingredients, Ratings ratings) {
-        super(name, ingredients, ratings);
+    public DessertRecipe(String name, List<Pair<Ingredient, Quantity>> ingredients, Ratings ratings, String imageUrl) {
+        super(name, ingredients, ratings, imageUrl);
         this.type = TypesDishes.DESSERT;
     }
 }

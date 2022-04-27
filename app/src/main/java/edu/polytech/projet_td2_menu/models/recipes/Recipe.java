@@ -13,17 +13,23 @@ import edu.polytech.projet_td2_menu.models.TypesDishes;
 public abstract class Recipe {
     private final String name;
     private final List<Pair<Ingredient, Quantity>> ingredients;
+    private final String imageUrl;
     private Ratings ratings;
     protected TypesDishes type;
 
-    public Recipe(String name, List<Pair<Ingredient, Quantity>> ingredients, Ratings ratings) {
+    public Recipe(String name, List<Pair<Ingredient, Quantity>> ingredients, Ratings ratings, String imageUrl) {
         this.name = name;
         this.ingredients = new ArrayList<>(ingredients);
         this.ratings = ratings;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public List<Pair<Ingredient, Quantity>> getIngredients() {
