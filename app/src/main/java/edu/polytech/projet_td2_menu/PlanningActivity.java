@@ -53,7 +53,14 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
-        theDate.setText(date);
+        if(date == null){
+            String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+            theDate.setText(currentDate);
+
+        }else{
+            theDate.setText(date);
+        }
+
 
         imageCalendar.setOnClickListener(view -> {
             startActivity(new Intent(PlanningActivity.this,CalendarActivity.class));
@@ -97,27 +104,14 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
 
 
-//    public void putEventToCalendar(){
-//        ContentResolver cr  = this.getContentResolver();
-//        ContentValues cv = new ContentValues();
-//        cv.put(CalendarContract.Events.TITLE,"test title");
-//        cv.put(CalendarContract.Events.DESCRIPTION,"test description");
-//        cv.put(CalendarContract.Events.EVENT_LOCATION,"test event_location");
-//        cv.put(CalendarContract.Events.DTSTART, Calendar.getInstance().getTimeInMillis());
-//        cv.put(CalendarContract.Events.DTEND,Calendar.getInstance().getTimeInMillis()+60*60*1000);
-//        cv.put(CalendarContract.Events.CALENDAR_ID,1);
-//        cv.put(CalendarContract.Events.EVENT_TIMEZONE,Calendar.getInstance().getTimeZone().getID());
-//
-//        Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI,cv);
-//
-//        Toast.makeText(getApplicationContext(),"Event is successfully added",Toast.LENGTH_SHORT).show();
-//    }
+
 
     public void putEventToCalendar(){
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setData(CalendarContract.Events.CONTENT_URI);
         intent.putExtra(CalendarContract.Events.TITLE, "liste des courses du " + theDate.getText());
-        intent.putExtra(CalendarContract.Events.DESCRIPTION, "la liste des courses à acheter pour le " + theDate.getText());
+        //TODO reformuler la description pour l'agenda
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, "La liste des courses à acheter pour le " + theDate.getText());
 //        intent.putExtra(CalendarContract.Events.DTSTART, theDate.getText());
 
         intent.putExtra(CalendarContract.Events.ALL_DAY,true );
