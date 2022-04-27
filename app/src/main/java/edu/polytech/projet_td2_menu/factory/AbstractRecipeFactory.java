@@ -19,7 +19,7 @@ public abstract class AbstractRecipeFactory {
     protected TypesDishes type;
 
     public AbstractRecipeFactory(TypesDishes typesDishes) {
-        ingredients = new ArrayList<>();
+        this.type = typesDishes;
     }
 
     public abstract Recipe buildRecipe() throws Throwable;

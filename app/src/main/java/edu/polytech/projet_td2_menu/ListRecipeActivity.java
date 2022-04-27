@@ -35,14 +35,13 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_recipe);
 
-//        List<Recipe> recipeList = new ArrayList<>();
-//        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
-//
-//        ConstraintLayout constraintLayout = findViewById(R.id.activity_list_recipe);
-//
-//        ((ListView) constraintLayout.findViewById(R.id.list_recipes)).setAdapter(adapterRecipe);
-//
-//        setContentView(R.layout.activity_list_recipe);
+        List<Recipe> recipeList = getRecipeListFromApi();
+        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
+
+        ConstraintLayout constraintLayout = findViewById(R.id.activity_list_recipe);
+
+        ((ListView) constraintLayout.findViewById(R.id.list_recipes)).setAdapter(adapterRecipe);
+
 
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
@@ -71,9 +70,6 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
     private List<Recipe> getRecipeListFromApi() {
         ApiTask apiTask = new ApiTask();
         apiTask.execute();
-        while (ApiTask.recipeList == null){
-
-        }
         return ApiTask.recipeList;
     }
 }

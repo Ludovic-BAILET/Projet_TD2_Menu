@@ -158,36 +158,30 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         }
         jsonReader.endObject();
 
-        ConcreteRecipeFactory concreteRecipeFactoryEnteree = new ConcreteRecipeFactory(ENTREE);
-        ConcreteRecipeFactory concreteRecipeFactoryPlat = new ConcreteRecipeFactory(PLAT);
-        ConcreteRecipeFactory concreteRecipeFactoryDessert = new ConcreteRecipeFactory(DESSERT);
         for (TypesDishes dishiesTypes : typesDishesList) {
             try {
                 Recipe recipe = null;
                 switch (dishiesTypes){
                     case ENTREE:
+                        ConcreteRecipeFactory concreteRecipeFactoryEnteree = new ConcreteRecipeFactory(ENTREE);
                         concreteRecipeFactoryEnteree.setNameRecipe(label);
-                        for (Pair<Ingredient, Quantity> pair : ingredientList){
-                            concreteRecipeFactoryEnteree.addIngredients(pair.first, pair.second);
-                        }
+                        concreteRecipeFactoryEnteree.addIngredientsList(ingredientList);
                         concreteRecipeFactoryEnteree.buildIngredientsList();
                         concreteRecipeFactoryEnteree.buildRatings();
-                        recipe = concreteRecipeFactoryDessert.buildRecipe();
+                        recipe = concreteRecipeFactoryEnteree.buildRecipe();
                         break;
                     case PLAT:
+                        ConcreteRecipeFactory concreteRecipeFactoryPlat = new ConcreteRecipeFactory(PLAT);
                         concreteRecipeFactoryPlat.setNameRecipe(label);
-                        for (Pair<Ingredient, Quantity> pair : ingredientList){
-                            concreteRecipeFactoryPlat.addIngredients(pair.first, pair.second);
-                        }
+                        concreteRecipeFactoryPlat.addIngredientsList(ingredientList);
                         concreteRecipeFactoryPlat.buildIngredientsList();
                         concreteRecipeFactoryPlat.buildRatings();
                         recipe = concreteRecipeFactoryPlat.buildRecipe();
                         break;
                     case DESSERT:
+                        ConcreteRecipeFactory concreteRecipeFactoryDessert = new ConcreteRecipeFactory(DESSERT);
                         concreteRecipeFactoryDessert.setNameRecipe(label);
-                        for (Pair<Ingredient, Quantity> pair : ingredientList){
-                            concreteRecipeFactoryEnteree.addIngredients(pair.first, pair.second);
-                        }
+                        concreteRecipeFactoryDessert.addIngredientsList(ingredientList);
                         concreteRecipeFactoryDessert.buildIngredientsList();
                         concreteRecipeFactoryDessert.buildRatings();
                         recipe = concreteRecipeFactoryDessert.buildRecipe();
