@@ -7,7 +7,6 @@ import android.widget.ListView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import edu.polytech.projet_td2_menu.MVC.NotificationsController;
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterNotification;
 

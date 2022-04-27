@@ -1,6 +1,5 @@
 package edu.polytech.projet_td2_menu.fragments;
 
-import android.content.Context;
 import android.view.View;
 
 public interface NavigationBarInterface {

@@ -1,31 +1,22 @@
 package edu.polytech.projet_td2_menu.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import edu.polytech.projet_td2_menu.R;
-import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ViewAdapterRecipe extends BaseAdapter {

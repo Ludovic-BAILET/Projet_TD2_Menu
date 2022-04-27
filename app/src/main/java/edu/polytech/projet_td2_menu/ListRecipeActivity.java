@@ -1,16 +1,12 @@
 package edu.polytech.projet_td2_menu;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.os.Bundle;
-import android.view.View;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
-import edu.polytech.projet_td2_menu.fragments.NavigationBar;
-import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
-import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +14,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterRecipe;
+import edu.polytech.projet_td2_menu.fragments.NavigationBar;
+import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
+import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 import edu.polytech.projet_td2_menu.network.ApiTask;
 

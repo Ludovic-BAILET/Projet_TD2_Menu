@@ -19,13 +19,12 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactory;
 import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactoryDessert;
 import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactoryEntree;
 import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactoryPlat;
-import edu.polytech.projet_td2_menu.models.TypesDishes;
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
+import edu.polytech.projet_td2_menu.models.TypesDishes;
 import edu.polytech.projet_td2_menu.models.data.ModelRecipes;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
