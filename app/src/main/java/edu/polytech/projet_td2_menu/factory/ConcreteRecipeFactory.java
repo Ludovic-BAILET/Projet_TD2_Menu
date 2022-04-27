@@ -30,9 +30,7 @@ public class ConcreteRecipeFactory extends AbstractRecipeFactory {
             throw new Throwable("The name of the recipe is missing");
         }
 
-        if (ratings == null) {
-            throw new Throwable("The ratings are missing");
-        }
+        buildRatings();
 
         switch (type) {
             case ENTREE:
@@ -47,7 +45,7 @@ public class ConcreteRecipeFactory extends AbstractRecipeFactory {
     }
 
     @Override
-    public List<Pair<Ingredient, Quantity>> buildIngredientsList() {
+    public List<Pair<Ingredient, Quantity>> getIngredientsList() {
         return ingredients;
     }
 
