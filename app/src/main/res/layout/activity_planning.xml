@@ -11,7 +11,7 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mercredi 5 Janvier"
+        android:text=""
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
@@ -65,8 +65,8 @@
 
     <ImageView
         android:id="@+id/addToAgenda"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="40dp"
