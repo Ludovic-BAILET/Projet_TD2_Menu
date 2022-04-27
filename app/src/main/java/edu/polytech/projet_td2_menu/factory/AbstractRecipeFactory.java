@@ -19,11 +19,12 @@ public abstract class AbstractRecipeFactory {
     protected TypesDishes type;
 
     public AbstractRecipeFactory(TypesDishes typesDishes) {
+        ingredients = new ArrayList<>();
         this.type = typesDishes;
     }
 
     public abstract Recipe buildRecipe() throws Throwable;
-    public abstract List<Pair<Ingredient, Quantity>> buildIngredientsList();
+    public abstract List<Pair<Ingredient, Quantity>> getIngredientsList();
     public abstract Ratings buildRatings();
     public abstract void setNameRecipe(String name);
     public abstract void setType(TypesDishes type);

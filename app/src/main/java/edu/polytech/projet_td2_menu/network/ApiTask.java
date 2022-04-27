@@ -23,7 +23,6 @@ import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactory;
 import edu.polytech.projet_td2_menu.models.TypesDishes;
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
-import edu.polytech.projet_td2_menu.models.Ratings;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
