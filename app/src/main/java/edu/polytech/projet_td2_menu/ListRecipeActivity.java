@@ -2,14 +2,10 @@ package edu.polytech.projet_td2_menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
@@ -18,25 +14,37 @@ import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementati
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterRecipe;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 import edu.polytech.projet_td2_menu.network.ApiTask;
 
 
-public class ListRecipeActivity extends AppCompatActivity implements NavigationBarInterface {
+public class ListRecipeActivity extends AppCompatActivity implements NavigationBarInterface, Observer {
 
     private NavigationBarInterfaceImplementation implementation;
 
     private ViewAdapterRecipe adapterRecipe;
 
+    private final List<Recipe> recipeList = new ArrayList<>();
+
+    private ApiTask apiTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list_recipe);
 
-        List<Recipe> recipeList = getRecipeListFromApi();
+
         adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
+
+        apiTask = new ApiTask();
+
+
+        apiTask.getModelRecipes().addObserver(this);
 
         ConstraintLayout constraintLayout = findViewById(R.id.activity_list_recipe);
 
@@ -45,6 +53,8 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
 
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
+
+        callApi();
     }
 
     @Override
@@ -67,9 +77,19 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
         implementation.onButtonRecettesClicked(v);
     }
 
-    private List<Recipe> getRecipeListFromApi() {
-        ApiTask apiTask = new ApiTask();
+    private void callApi() {
         apiTask.execute();
-        return ApiTask.recipeList;
     }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        Log.d("object_List", ""+o);
+        recipeList.clear();
+        recipeList.addAll((List<Recipe>) o);
+        runOnUiThread(()-> {
+            adapterRecipe.notifyDataSetChanged();
+        });
+
+    }
+
 }

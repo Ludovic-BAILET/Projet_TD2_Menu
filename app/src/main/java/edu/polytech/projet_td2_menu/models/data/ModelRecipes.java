@@ -1,33 +1,26 @@
 package edu.polytech.projet_td2_menu.models.data;
 
-import static edu.polytech.projet_td2_menu.models.TypesUnits.*;
-import static edu.polytech.projet_td2_menu.models.data.ModelIngredients.*;
-
-import android.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-import edu.polytech.projet_td2_menu.models.Ingredient;
-import edu.polytech.projet_td2_menu.models.Quantity;
-import edu.polytech.projet_td2_menu.models.Ratings;
-import edu.polytech.projet_td2_menu.models.recipes.PlatRecipe;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
-public class ModelRecipes {
-    private final static List<Recipe> recipesList = new ArrayList<>();
+public class ModelRecipes extends Observable {
 
-    static {
-        List<Pair<Ingredient, Quantity>> ingredientsPizza = new ArrayList<>();
-        ingredientsPizza.add(new Pair<>(ModelIngredients.get(FARINE), new Quantity(200, "G")));
-        recipesList.add(new PlatRecipe("Pizza", ingredientsPizza, new Ratings(1, 2, 2)));
+    private List<Recipe> recipeList;
+
+    public ModelRecipes(){
+        recipeList = new ArrayList<>();
     }
 
-    public static Recipe get(int index) {
-        return recipesList.get(index);
+    public void setRecipeList(List<Recipe> recipeList) {
+        this.recipeList.addAll(recipeList);
+        setChanged();
+        notifyObservers(this.recipeList);
     }
 
-    public static int size() {
-        return recipesList.size();
+    public List<Recipe> getRecipeList() {
+        return recipeList;
     }
 }

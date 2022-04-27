@@ -46,16 +46,14 @@
         android:layout_marginLeft="160dp"
         android:text="@string/filter_title" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="La conection avec le web service est faite mais elle n'est pas implémenté\nElle se situe dans le dossier network"
-        app:layout_constraintTop_toBottomOf="@+id/filter_button"/>
 
     <ListView
         android:id="@+id/list_recipes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:dividerHeight="5dp"
         app:layout_constraintTop_toBottomOf="@id/filter_button"
         app:layout_constraintBottom_toTopOf="@id/navigation_bar"
         />

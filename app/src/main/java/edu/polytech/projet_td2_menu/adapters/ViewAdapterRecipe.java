@@ -1,6 +1,7 @@
 package edu.polytech.projet_td2_menu.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.models.Ingredient;
@@ -19,7 +25,7 @@ public class ViewAdapterRecipe extends BaseAdapter {
 
     private final LayoutInflater inflater;
 
-    private final List<Recipe> recipeList;
+    private List<Recipe> recipeList;
 
     public ViewAdapterRecipe(Context context, List<Recipe> recipeList){
 
@@ -43,7 +49,7 @@ public class ViewAdapterRecipe extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        LinearLayout layout = (LinearLayout) (view == null ? inflater.inflate(R.layout.view_adapter_recipe, viewGroup, false) : view);
+        ConstraintLayout layout = (ConstraintLayout) (view == null ? inflater.inflate(R.layout.view_adapter_recipe, viewGroup, false) : view);
 
         Recipe recipe = getItem(i);
         ((TextView) layout.findViewById(R.id.recipe_title)).setText(recipe.getName());
@@ -51,4 +57,6 @@ public class ViewAdapterRecipe extends BaseAdapter {
 
         return layout;
     }
+
+
 }
