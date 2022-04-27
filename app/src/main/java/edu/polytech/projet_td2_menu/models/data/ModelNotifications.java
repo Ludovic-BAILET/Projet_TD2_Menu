@@ -5,14 +5,15 @@ import android.app.Notification;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Observable;
 
-public final class ModelNotifications {
+public final class ModelNotifications extends Observable {
     private static ModelNotifications instance;
     private final List<Notification> notificationList = new ArrayList<>();
     private final List<Notification> pinnedNotificationList = new ArrayList<>();
 
     
-    private ModelNotifications(){}
+    public ModelNotifications(){}
 
     public static ModelNotifications getInstance(){
         if (instance == null)
@@ -22,14 +23,19 @@ public final class ModelNotifications {
     
     public void addNotification(Notification notification) {
         notificationList.add(notification);
+        updateData();
     }
 
     public Notification removeNotification(int index) {
-        return notificationList.remove(index);
+        Notification notification = notificationList.remove(index);
+        updateData();
+        return notification;
     }
 
     public Notification removePinnedNotification(int index) {
-        return pinnedNotificationList.remove(index);
+        Notification notification = pinnedNotificationList.remove(index);
+        updateData();
+        return notification;
     }
 
     public int sizeNotification() {
@@ -50,20 +56,29 @@ public final class ModelNotifications {
 
     public void transferNotificationToPinned(int index) {
         pinnedNotificationList.add(notificationList.remove(index));
+        updateData();
     }
 
     public void transferNotificationToUnpinned(int index) {
         notificationList.add(pinnedNotificationList.remove(index));
+        updateData();
     }
 
     public void sortTimeIncrease() {
         Comparator<Notification> c = (n1, n2) -> (int) (n1.when - n2.when);
         notificationList.sort(c);
         pinnedNotificationList.sort(c);
+        updateData();
     }
     public void sortTimeDecrease() {
         Comparator<Notification> c = (n1, n2) -> (int) (n2.when - n1.when);
         notificationList.sort(c);
         pinnedNotificationList.sort(c);
+        updateData();
+    }
+
+    private void updateData() {
+        setChanged();
+        notifyObservers();
     }
 }

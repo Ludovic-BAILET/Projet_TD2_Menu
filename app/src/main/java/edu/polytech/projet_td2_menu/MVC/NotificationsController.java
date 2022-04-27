@@ -1,40 +1,51 @@
 package edu.polytech.projet_td2_menu.MVC;
 
+import android.util.Log;
+import android.view.View;
+
+import java.util.Observable;
+import java.util.Observer;
+
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
-public class NotificationsController {
+public class NotificationsController implements Observer {
     private final NotificationView view;
+    public static final String TAG = "NotificationController";
 
     public NotificationsController(NotificationView view) {
         this.view = view;
     }
-    public void sortNotificationInIncreasingTime() {
+
+    private void sortNotificationInIncreasingTime() {
         ModelNotifications.getInstance().sortTimeIncrease();
-        updatesData();
     }
 
-    public void sortNotificationInDecreasingTime() {
+    private void sortNotificationInDecreasingTime() {
         ModelNotifications.getInstance().sortTimeDecrease();
-        updatesData();
+    }
+    public void setOnClickListenerSortNotification(View v) {
+        v.setOnClickListener(view -> sortNotificationInIncreasingTime());
     }
 
-    private void updatesData() {
-        view.getAdapterBaseNotification().notifyDataSetChanged();
-        view.getAdapterPinnedNotification().notifyDataSetChanged();
+    public void setOnClickListenerReverseSortNotification(View v) {
+        v.setOnClickListener(view -> sortNotificationInDecreasingTime());
     }
 
     public void changeNotificationToPinned(int index) {
         ModelNotifications.getInstance().transferNotificationToPinned(index);
-        updatesData();
     }
 
     public void changeNotificationToUnPinned(int index) {
         ModelNotifications.getInstance().transferNotificationToUnpinned(index);
-        updatesData();
     }
 
     public void removeNotification(int index) {
         ModelNotifications.getInstance().removeNotification(index);
-        updatesData();
+    }
+
+
+    @Override
+    public void update(Observable o, Object arg) {
+        Log.d(TAG, "Les données du modèle ont changé : " + arg);
     }
 }

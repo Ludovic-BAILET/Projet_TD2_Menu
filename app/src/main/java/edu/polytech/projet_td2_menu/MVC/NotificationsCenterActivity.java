@@ -10,6 +10,7 @@ import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
+import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
 public class NotificationsCenterActivity extends AppCompatActivity implements NavigationBarInterface {
     private NavigationBarInterfaceImplementation implementation;
@@ -25,6 +26,8 @@ public class NotificationsCenterActivity extends AppCompatActivity implements Na
         NotificationView view = new NotificationView(getApplicationContext(), (ConstraintLayout) findViewById(R.id.notification_center));
 
         NotificationsController controller = new NotificationsController(view);
+        ModelNotifications.getInstance().addObserver(controller);
+        ModelNotifications.getInstance().addObserver(view);
         view.setController(controller);
     }
 
