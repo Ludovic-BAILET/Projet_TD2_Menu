@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.polytech.projet_td2_menu.R;
-import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.UserProfil;
 
 public class ModelUserProfils {

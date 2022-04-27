@@ -14,10 +14,7 @@ import edu.polytech.projet_td2_menu.models.recipes.PlatRecipe;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ConcreteRecipeFactory extends AbstractRecipeFactory {
-    private static final int INDEX_RATING_PRICE = 1;
-    private static final int INDEX_RATING_SAIN = 0;
-    private static final int INDEX_RATING_DIFFICULTY = 2;
-    private final int[] ratingsArray;
+    protected final int[] ratingsArray;
 
     public ConcreteRecipeFactory(TypesDishes typesDishes) {
         super(typesDishes);
@@ -25,60 +22,27 @@ public class ConcreteRecipeFactory extends AbstractRecipeFactory {
     }
 
     @Override
-    public Recipe buildRecipe() throws Throwable {
-        if (name == null) {
-            throw new Throwable("The name of the recipe is missing");
-        }
+    public Recipe buildRecipe(String name, List<Pair<Ingredient, Quantity>> ingredientList, String image) throws Throwable {
 
-        buildRatings();
+        buildRatings(0, 0, 0);
 
         switch (type) {
             case ENTREE:
-                return new EntreeRecipe(name, ingredients, ratings);
+                return new EntreeRecipe(name, ingredientList, ratings, image);
             case PLAT:
-                return new PlatRecipe(name, ingredients, ratings);
+                return new PlatRecipe(name, ingredientList, ratings, image);
             case DESSERT:
-                return new DessertRecipe(name, ingredients, ratings);
+                return new DessertRecipe(name, ingredientList, ratings, image);
             default:
                 throw new Throwable("type is not valid");
         }
     }
 
     @Override
-    public List<Pair<Ingredient, Quantity>> getIngredientsList() {
-        return ingredients;
-    }
-
-    @Override
-    public Ratings buildRatings() {
-        return ratings = new Ratings(ratingsArray[INDEX_RATING_SAIN],
-                ratingsArray[INDEX_RATING_PRICE],
-                ratingsArray[INDEX_RATING_DIFFICULTY]);
-    }
-
-    @Override
-    public void setNameRecipe(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void setType(TypesDishes type) {
-        this.type = type;
-    }
-
-    public void setRatingPrix(int price) {
-        ratingsArray[INDEX_RATING_PRICE] = price;
-    }
-
-    public void setRatingSain(int sain) {
-        ratingsArray[INDEX_RATING_SAIN] = sain;
-    }
-
-    public void setIndexRatingDifficulty(int difficulty) {
-        ratingsArray[INDEX_RATING_DIFFICULTY] = difficulty;
-    }
-
-    public void addIngredients(Ingredient ingredient, Quantity quantity) {
-        ingredients.add(new Pair<>(ingredient, quantity));
+    public Ratings buildRatings(int sain, int price, int difficulty) {
+        return ratings = new Ratings(sain,
+                price,
+                difficulty
+        );
     }
 }

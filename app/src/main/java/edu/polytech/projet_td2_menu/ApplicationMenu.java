@@ -3,11 +3,7 @@ package edu.polytech.projet_td2_menu;
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.Intent;
 import android.os.Build;
-import android.view.ViewGroup;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 import java.util.Objects;
 

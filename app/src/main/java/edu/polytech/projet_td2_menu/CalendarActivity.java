@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;

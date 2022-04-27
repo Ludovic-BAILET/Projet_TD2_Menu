@@ -2,12 +2,8 @@ package edu.polytech.projet_td2_menu.fragments;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import edu.polytech.projet_td2_menu.ListRecipeActivity;
 import edu.polytech.projet_td2_menu.ListeCourseActivity;

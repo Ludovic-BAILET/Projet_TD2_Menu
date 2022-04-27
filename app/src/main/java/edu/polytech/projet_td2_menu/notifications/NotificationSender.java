@@ -1,15 +1,17 @@
 package edu.polytech.projet_td2_menu.notifications;
 
+import static edu.polytech.projet_td2_menu.ApplicationMenu.CHANNEL_rappelcourse;
+import static edu.polytech.projet_td2_menu.ApplicationMenu.CHANNEL_suggestion;
+
 import android.app.Notification;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import edu.polytech.projet_td2_menu.ApplicationMenu;
+
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import edu.polytech.projet_td2_menu.R;
-import static edu.polytech.projet_td2_menu.ApplicationMenu.*;
 public class NotificationSender {
     private final Context context;
     public static int notificationId = 0;
