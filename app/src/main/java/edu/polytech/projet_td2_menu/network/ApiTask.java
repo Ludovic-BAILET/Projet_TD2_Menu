@@ -23,7 +23,6 @@ import edu.polytech.projet_td2_menu.factory.ConcreteRecipeFactory;
 import edu.polytech.projet_td2_menu.models.TypesDishes;
 import edu.polytech.projet_td2_menu.models.Ingredient;
 import edu.polytech.projet_td2_menu.models.Quantity;
-import edu.polytech.projet_td2_menu.models.Ratings;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
@@ -170,7 +169,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                         for (Pair<Ingredient, Quantity> pair : ingredientList){
                             concreteRecipeFactoryEnteree.addIngredients(pair.first, pair.second);
                         }
-                        concreteRecipeFactoryEnteree.buildIngredientsList();
+                        concreteRecipeFactoryEnteree.getIngredientsList();
                         concreteRecipeFactoryEnteree.buildRatings();
                         recipe = concreteRecipeFactoryDessert.buildRecipe();
                         break;
@@ -179,7 +178,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                         for (Pair<Ingredient, Quantity> pair : ingredientList){
                             concreteRecipeFactoryPlat.addIngredients(pair.first, pair.second);
                         }
-                        concreteRecipeFactoryPlat.buildIngredientsList();
+                        concreteRecipeFactoryPlat.getIngredientsList();
                         concreteRecipeFactoryPlat.buildRatings();
                         recipe = concreteRecipeFactoryPlat.buildRecipe();
                         break;
@@ -188,7 +187,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                         for (Pair<Ingredient, Quantity> pair : ingredientList){
                             concreteRecipeFactoryEnteree.addIngredients(pair.first, pair.second);
                         }
-                        concreteRecipeFactoryDessert.buildIngredientsList();
+                        concreteRecipeFactoryDessert.getIngredientsList();
                         concreteRecipeFactoryDessert.buildRatings();
                         recipe = concreteRecipeFactoryDessert.buildRecipe();
                         break;
