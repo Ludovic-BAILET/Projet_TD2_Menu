@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
+import edu.polytech.projet_td2_menu.MVC.NotificationsController;
+
 public final class ModelNotifications extends Observable {
     public static final String NOTIFICFATION_LIST = "notifcationList";
     public static final String PINNED_NOTIFICFATION_LIST = "pinnedNotifcationList";
@@ -16,6 +18,7 @@ public final class ModelNotifications extends Observable {
     private static ModelNotifications instance;
     private final List<Notification> notificationList = new ArrayList<>();
     private final List<Notification> pinnedNotificationList = new ArrayList<>();
+    private NotificationsController controller;
 
     
     public ModelNotifications(){}
@@ -93,5 +96,13 @@ public final class ModelNotifications extends Observable {
     private void updateData() {
         setChanged();
         notifyObservers();
+
+        if (controller != null) {
+            controller.update();
+        }
+    }
+
+    public void setController(NotificationsController controller) {
+        this.controller = controller;
     }
 }

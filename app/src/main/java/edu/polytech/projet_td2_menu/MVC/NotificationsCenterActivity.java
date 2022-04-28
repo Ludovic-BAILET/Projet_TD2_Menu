@@ -26,9 +26,9 @@ public class NotificationsCenterActivity extends AppCompatActivity implements Na
         NotificationView view = new NotificationView(getApplicationContext(), findViewById(R.id.notification_center));
 
         NotificationsController controller = new NotificationsController(view, this);
-        ModelNotifications.getInstance().addObserver(controller);
         ModelNotifications.getInstance().addObserver(view);
         view.setController(controller);
+        ModelNotifications.getInstance().setController(controller);
     }
 
     @Override

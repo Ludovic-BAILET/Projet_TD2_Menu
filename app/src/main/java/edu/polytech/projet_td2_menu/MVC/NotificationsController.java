@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -11,16 +13,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import java.util.Observable;
 import java.util.Observer;
 
+import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterNotification;
 import edu.polytech.projet_td2_menu.gestures.OnSwipeTouchListener;
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
-public class NotificationsController implements Observer {
+public class NotificationsController {
     private final NotificationView view;
     public static final String TAG = "NotificationController";
     private final ViewAdapterNotification adapterBaseNotification;
     private final ViewAdapterNotification adapterPinnedNotification;
     private final NotificationsCenterActivity activity;
+    private final ConstraintLayout layout;
     private boolean sortModelNaturalOrder = true;
     private boolean controllerActOnModel = false;
 
@@ -29,6 +33,7 @@ public class NotificationsController implements Observer {
         adapterBaseNotification = new ViewAdapterNotification(view, ModelNotifications.getInstance().getNotificationList());
         adapterPinnedNotification = new ViewAdapterNotification(view, ModelNotifications.getInstance().getPinnedNotificationList());
         this.activity = activity;
+        this.layout = activity.findViewById(R.id.notification_center);
 
         view.setAdapterBaseNotification(adapterBaseNotification);
         view.setAdapterPinnedNotification(adapterPinnedNotification);
@@ -46,15 +51,7 @@ public class NotificationsController implements Observer {
         sortModelNaturalOrder = false;
     }
 
-    public void setOnClickListenerSortNotification(View v) {
-        v.setOnClickListener(view -> sortNotificationInIncreasingTime());
-    }
-
-    public void setOnClickListenerReverseSortNotification(View v) {
-        v.setOnClickListener(view -> sortNotificationInDecreasingTime());
-    }
-
-    public void setGestureAdapters(ViewAdapterNotification adapter, ConstraintLayout layout, int i) {
+    public void setGesturesAdapters(ViewAdapterNotification adapter, ConstraintLayout layout, int i) {
         OnSwipeTouchListener swipeTouchListener;
 
         if (adapter == adapterPinnedNotification) {
@@ -108,8 +105,7 @@ public class NotificationsController implements Observer {
         ModelNotifications.getInstance().removeNotification(index);
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
+    public void update() {
         Log.d(TAG, "Les données du modèle ont changé" );
 
         if (!controllerActOnModel) {
@@ -125,5 +121,15 @@ public class NotificationsController implements Observer {
 
     private void createToast(String text) {
         Toast.makeText(activity.getActivity(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void setListenersView() {
+        LinearLayout layoutListView =  layout.findViewById(R.id.layout_list_view);
+        ((ListView) layoutListView.findViewById(R.id.list_notifications)).setAdapter(adapterBaseNotification);
+        ((ListView) layoutListView.findViewById(R.id.list_notifications_pinned)).setAdapter(adapterPinnedNotification);
+
+        LinearLayout layout_buttons = layout.findViewById(R.id.buttons_sort);
+        layout_buttons.findViewById(R.id.increase_time_button).setOnClickListener(view -> sortNotificationInIncreasingTime());
+        layout_buttons.findViewById(R.id.decrease_time_button).setOnClickListener(view -> sortNotificationInDecreasingTime());
     }
 }

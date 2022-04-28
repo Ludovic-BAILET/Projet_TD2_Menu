@@ -29,6 +29,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/camera" />
 
+
+    <RatingBar
+        android:id="@+id/ratingBar3"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="214dp"
+        android:numStars="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RatingBar
         android:id="@+id/ratingBar2"
         android:layout_width="140dp"
@@ -40,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ratingBar3" />
 
     <RatingBar
-        android:id="@+id/ratingBar"
+        android:id="@+id/ratingBar1"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_marginTop="49dp"
@@ -48,16 +59,6 @@
         android:numStars="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ratingBar2" />
-
-    <RatingBar
-        android:id="@+id/ratingBar3"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginTop="214dp"
-        android:numStars="3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -90,17 +91,17 @@
         android:text="@string/item_recipe_difficulty"
         android:textSize="20dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/ratingBar"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar1"
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
     <ImageView
+
         android:id="@+id/favorite"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="267dp"
-        app:layout_constraintStart_toEndOf="@+id/ratingBar2"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/ratingBar2"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar2"
         app:srcCompat="@drawable/empty_heart" />
 
     <Button
@@ -127,12 +128,11 @@
         android:id="@+id/desc_recette"
         android:layout_width="245dp"
         android:layout_height="90dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginStart="20dp"
         android:text="@string/item_recipe_description"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/image_recette"
+        app:layout_constraintTop_toTopOf="@id/image_recette" />
 
     <TextView
         android:id="@+id/ingredient"
@@ -141,11 +141,12 @@
         android:text="@string/item_recipe_ingredient"
         android:textSize="25dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="370dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ratingBar1"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/nbPersonne"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -156,30 +157,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="570dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ImageView
+        android:id="@+id/image_nb_personne"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_delete"
+        android:src="@drawable/user"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Entrer un nombre de personne"
+        app:layout_constraintLeft_toRightOf="@id/image_nb_personne"
+        app:layout_constraintBottom_toBottomOf="@id/image_nb_personne"/>
+
 
     <ListView
-        android:layout_width="240dp"
-        android:layout_height="140dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toTopOf="@+id/nbPersonne"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredient"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintTop_toBottomOf="@+id/ingredient" />
 
     <FrameLayout
         android:id="@+id/navigation_bar"
