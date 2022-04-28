@@ -21,6 +21,8 @@ public class NotificationsController implements Observer {
     private final ViewAdapterNotification adapterBaseNotification;
     private final ViewAdapterNotification adapterPinnedNotification;
     private final NotificationsCenterActivity activity;
+    private boolean sortModelNaturalOrder = true;
+    private boolean controllerActOnModel = false;
 
     public NotificationsController(NotificationView view, NotificationsCenterActivity activity) {
         this.view = view;
@@ -33,11 +35,15 @@ public class NotificationsController implements Observer {
     }
 
     private void sortNotificationInIncreasingTime() {
+        controllerActOnModel = true;
         ModelNotifications.getInstance().sortTimeIncrease();
+        sortModelNaturalOrder = true;
     }
 
     private void sortNotificationInDecreasingTime() {
+        controllerActOnModel = true;
         ModelNotifications.getInstance().sortTimeDecrease();
+        sortModelNaturalOrder = false;
     }
 
     public void setOnClickListenerSortNotification(View v) {
@@ -104,7 +110,17 @@ public class NotificationsController implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        Log.d(TAG, "Les données du modèle ont changé : " + arg);
+        Log.d(TAG, "Les données du modèle ont changé" );
+
+        if (!controllerActOnModel) {
+            if (sortModelNaturalOrder) {
+                sortNotificationInIncreasingTime();
+            } else {
+                sortNotificationInDecreasingTime();
+            }
+        } else {
+            controllerActOnModel = false;
+        }
     }
 
     private void createToast(String text) {
