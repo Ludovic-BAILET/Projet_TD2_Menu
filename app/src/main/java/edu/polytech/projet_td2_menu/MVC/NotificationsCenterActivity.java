@@ -23,9 +23,9 @@ public class NotificationsCenterActivity extends AppCompatActivity implements Na
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
 
-        NotificationView view = new NotificationView(getApplicationContext(), (ConstraintLayout) findViewById(R.id.notification_center));
+        NotificationView view = new NotificationView(getApplicationContext(), findViewById(R.id.notification_center));
 
-        NotificationsController controller = new NotificationsController(view);
+        NotificationsController controller = new NotificationsController(view, this);
         ModelNotifications.getInstance().addObserver(controller);
         ModelNotifications.getInstance().addObserver(view);
         view.setController(controller);
@@ -49,6 +49,10 @@ public class NotificationsCenterActivity extends AppCompatActivity implements Na
     @Override
     public void onButtonRecettesClicked(View v) {
         implementation.onButtonRecettesClicked(v);
+    }
+
+    public NotificationsCenterActivity getActivity() {
+        return NotificationsCenterActivity.this;
     }
 
 }

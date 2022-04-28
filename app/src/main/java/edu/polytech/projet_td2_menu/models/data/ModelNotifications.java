@@ -4,10 +4,15 @@ import android.app.Notification;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 
 public final class ModelNotifications extends Observable {
+    public static final String NOTIFICFATION_LIST = "notifcationList";
+    public static final String PINNED_NOTIFICFATION_LIST = "pinnedNotifcationList";
+
     private static ModelNotifications instance;
     private final List<Notification> notificationList = new ArrayList<>();
     private final List<Notification> pinnedNotificationList = new ArrayList<>();
@@ -75,6 +80,14 @@ public final class ModelNotifications extends Observable {
         notificationList.sort(c);
         pinnedNotificationList.sort(c);
         updateData();
+    }
+
+    public List<Notification> getNotificationList() {
+        return notificationList;
+    }
+
+    public List<Notification> getPinnedNotificationList() {
+        return pinnedNotificationList;
     }
 
     private void updateData() {

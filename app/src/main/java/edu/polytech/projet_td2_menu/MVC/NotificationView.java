@@ -15,6 +15,7 @@ import java.util.Observer;
 import edu.polytech.projet_td2_menu.MVC.NotificationsController;
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterNotification;
+import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
 public class NotificationView implements Observer {
 
@@ -23,43 +24,54 @@ public class NotificationView implements Observer {
     private ViewAdapterNotification adapterBaseNotification;
     private ViewAdapterNotification adapterPinnedNotification;
     private NotificationsController controller;
-    private ConstraintLayout layout;
+    private final ConstraintLayout layout;
+    private final ListView listViewNotification;
+    private final ListView listViewPinnedNotification;
+    private final LinearLayout layoutListView;
+    private final Context context;
 
     public NotificationView(Context context, ConstraintLayout layout) {
-        adapterBaseNotification = new ViewAdapterNotification(context, false);
-        adapterPinnedNotification = new ViewAdapterNotification(context, true);
+        layoutListView =  layout.findViewById(R.id.layout_list_view);
+        listViewNotification = layoutListView.findViewById(R.id.list_notifications);
+        listViewPinnedNotification = layoutListView.findViewById(R.id.list_notifications_pinned);
         this.layout = layout;
+        this.context = context;
     }
 
-    public void setListeners() {
-        LinearLayout layout_list_view = layout.findViewById(R.id.layout_list_view);
-        ((ListView) layout_list_view.findViewById(R.id.list_notifications)).setAdapter(adapterBaseNotification);
-        ((ListView) layout_list_view.findViewById(R.id.list_notifications_pinned)).setAdapter(adapterPinnedNotification);
+    private void setListeners() {
+        listViewNotification.setAdapter(adapterBaseNotification);
+        listViewPinnedNotification.setAdapter(adapterPinnedNotification);
 
         LinearLayout layout_buttons = layout.findViewById(R.id.buttons_sort);
         controller.setOnClickListenerSortNotification(layout_buttons.findViewById(R.id.increase_time_button));
         controller.setOnClickListenerReverseSortNotification(layout_buttons.findViewById(R.id.decrease_time_button));
     }
 
-    public BaseAdapter getAdapterBaseNotification() {
-        return adapterBaseNotification;
+    public void setAdapterBaseNotification(ViewAdapterNotification adapterBaseNotification) {
+        this.adapterBaseNotification = adapterBaseNotification;
     }
 
-    public BaseAdapter getAdapterPinnedNotification() {
-        return adapterPinnedNotification;
+    public void setAdapterPinnedNotification(ViewAdapterNotification adapterPinnedNotification) {
+        this.adapterPinnedNotification = adapterPinnedNotification;
     }
 
     public void setController(NotificationsController controller) {
         this.controller = controller;
         this.setListeners();
-        this.adapterBaseNotification.setController(controller);
-        this.adapterPinnedNotification.setController(controller);
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        Log.d(TAG, "Les données du modèle ont changé : " + arg);
-        adapterPinnedNotification.notifyDataSetChanged();
-        adapterBaseNotification.notifyDataSetChanged();
+        ModelNotifications model = (ModelNotifications) o;
+        adapterPinnedNotification.refresh(model.getPinnedNotificationList());
+        adapterBaseNotification.refresh(model.getNotificationList());
+    }
+
+    public void setGestureAdapters(ViewAdapterNotification adapter, ConstraintLayout layout, int i) {
+        controller.setGestureAdapters(adapter, layout, i);
     }
 }
