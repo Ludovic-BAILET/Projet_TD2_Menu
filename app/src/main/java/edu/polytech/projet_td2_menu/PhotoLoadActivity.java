@@ -1,11 +1,14 @@
 package edu.polytech.projet_td2_menu;
 
+import static java.security.AccessController.getContext;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +18,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Random;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
@@ -146,8 +155,43 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
         if(resultCode == RESULT_OK && requestCode == CAMERA_CODE){
             Bitmap photo = (Bitmap)data.getExtras().get("data");
             camera.setImageBitmap(photo);
+            SaveImage(photo);
         }
 
+    }
+    private void SaveImage(Bitmap finalBitmap) {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions( this,
+                    new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    IStorageActivity.REQUEST_MEDIA_READ);
+        } else {
+            Toast.makeText(this,"wow we accessed this place!",Toast.LENGTH_SHORT).show();
+            String root = Environment.getExternalStorageDirectory().toString();
+        File myDir = new File(root + "/saved_images");
+        if (!myDir.exists()) {
+            myDir.mkdirs();
+        }
+        Random generator = new Random();
+        int n = 10000;
+        n = generator.nextInt(n);
+        String fname = "Image-"+ n +".jpg";
+
+        File file = new File (myDir, fname);
+        if (file.exists ())
+            file.delete ();
+
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+            Toast.makeText(this,"wow we accessed before close file!",Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }}
     }
 
     @Override
