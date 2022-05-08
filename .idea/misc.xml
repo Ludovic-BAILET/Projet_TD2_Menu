@@ -58,6 +58,18 @@
         <entry key="..\:/Users/basti/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_ingredient.xml" value="0.15602836879432624" />
         <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/bell.xml" value="0.124" />
         <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/drawable/dumbbell.xml" value="0.124" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_ajouter_recettes.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_liste_course.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_liste_course_container.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_notifications_center.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_photo_load.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning.xml" value="0.1" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_planning_container.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/activity_recipe_detail.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/navigation_bar.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_ingredient.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_notification.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/benja/AndroidStudioProjects/Projet_TD2_Menu/app/src/main/res/layout/view_adapter_recipe.xml" value="0.15307971014492755" />
       </map>
     </option>
   </component>

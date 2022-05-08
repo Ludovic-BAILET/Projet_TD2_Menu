@@ -187,7 +187,7 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
             finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
             out.flush();
             out.close();
-            Toast.makeText(this,"wow we accessed before close file!",Toast.LENGTH_SHORT).show();
+
 
         } catch (Exception e) {
             e.printStackTrace();
