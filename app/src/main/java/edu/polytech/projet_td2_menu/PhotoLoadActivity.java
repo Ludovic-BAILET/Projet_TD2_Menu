@@ -153,7 +153,7 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
 
         if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
             file.setImageURI(data.getData());
-            Bitmap photo = (Bitmap)data.getExtras().get("data");
+
 
 
         }
@@ -193,7 +193,7 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
                 finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
                 out.flush();
                 out.close();
-                
+
             } catch (Exception e) {
                 e.printStackTrace();
             }}

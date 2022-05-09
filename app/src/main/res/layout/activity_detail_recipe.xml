@@ -24,7 +24,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/item_recipe_name"
+        android:text="tarte au citron"
         android:textAlignment="center"
         android:textSize="30dp"
         android:layout_marginTop="20dp"
@@ -40,7 +40,7 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/camera" />
+        app:srcCompat="@drawable/tartecitron" />
 
 
     <RatingBar
@@ -129,30 +129,41 @@
         android:layout_width="245dp"
         android:layout_height="90dp"
         android:layout_marginStart="20dp"
-        android:text="@string/item_recipe_description"
+        android:text="Une tarte au citron basique, sans meringue"
         android:textSize="16sp"
         app:layout_constraintLeft_toRightOf="@id/image_recette"
         app:layout_constraintTop_toTopOf="@id/image_recette" />
 
     <TextView
         android:id="@+id/ingredient"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:text="@string/item_recipe_ingredient"
+        android:text="Ingredients : 4 citrons, 1 pâte sablée,
+        "
         android:textSize="25dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ratingBar1"/>
-
     <TextView
-        android:visibility="gone"
+        android:id="@+id/finishingredient"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="100 g de sucre
+        "
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingredient"/>
+    <TextView
+
         android:id="@+id/nbPersonne"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="570dp"
-        android:text="@string/item_recipe_people_number"
+        android:text="Nombre de personne: 4"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
