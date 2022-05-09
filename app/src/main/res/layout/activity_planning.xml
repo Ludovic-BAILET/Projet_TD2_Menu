@@ -47,568 +47,125 @@
         android:src="@drawable/calendar"/>
 
     <LinearLayout
+        android:id="@+id/petit_dejeuner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="90dp"
-        >
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Petit-déjeuner"
+            android:layout_marginBottom="5dp"/>
 
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Croissant x1"
+            android:textColor="@color/black"/>
 
-                <View
-                    android:id="@+id/view_separator_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <View
-                    android:id="@+id/view_separator_health"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintBottom_toTopOf="@id/view_separator_price"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator_title" />
-                <View
-                    android:id="@+id/view_separator_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator_health" />
-
-                <TextView
-                    android:id="@+id/recipe_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="petit dejeuner"
-                    app:layout_constraintStart_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/view_separator_title"/>
-
-                <TextView
-                    android:id="@+id/recipe_health"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="entrée"
-                    app:layout_constraintStart_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator_title"
-                    app:layout_constraintBottom_toTopOf="@id/view_separator_health"/>
-
-                <TextView
-                    android:id="@+id/recipe_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="plat"
-                    app:layout_constraintBottom_toTopOf="@id/view_separator_price"
-                    app:layout_constraintStart_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator_health" />
-
-                <TextView
-                    android:id="@+id/recipe_difficulty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="dessert"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator_price" />
-
-                <View
-                    android:id="@+id/view_separator_star"
-                    android:layout_width="1dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintLeft_toRightOf="@+id/recipe_difficulty"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/health_star_1"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="croissant"
-
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
-                    app:layout_constraintLeft_toRightOf="@id/view_separator_star"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_title" />
-
-                <TextView
-                    android:id="@+id/health_star_2"
-
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="     "
-
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
-                    app:layout_constraintLeft_toRightOf="@id/health_star_1"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_title" />
-
-                <TextView
-                    android:id="@+id/health_star_3"
-
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="nombre personne: 3"
-
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_health"
-                    app:layout_constraintLeft_toRightOf="@id/health_star_2"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_title" />
-
-                <TextView
-                    android:id="@+id/price_star_1"
-
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="bacon"
-
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_price"
-                    app:layout_constraintLeft_toRightOf="@id/view_separator_star"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_health" />
-
-                <ImageView
-                    android:id="@+id/price_star_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="    "
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_price"
-                    app:layout_constraintLeft_toRightOf="@id/price_star_1"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_health" />
-
-                <TextView
-                    android:id="@+id/price_star_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="nombre personne: 3"
-
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator_price"
-                    app:layout_constraintLeft_toRightOf="@id/price_star_2"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_health" />
-
-                <TextView
-                    android:id="@+id/difficulty_star_1"
-
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="confiture"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/view_separator_star"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_price" />
-
-                <TextView
-                    android:id="@+id/difficulty_star_2"
-
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="    "
-
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/difficulty_star_1"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_price" />
-
-                <TextView
-                    android:id="@+id/difficulty_star_3"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="nombre personne: 3"
-
-                    android:layout_marginStart="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/difficulty_star_2"
-                    app:layout_constraintTop_toBottomOf="@+id/view_separator_price" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tartines de confiture x2"
+            android:textColor="@color/black"/>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/dejeuner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="220dp"
-        >
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@id/petit_dejeuner"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Déjeuner"
+            android:layout_marginBottom="5dp"/>
 
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lasagnes x1"
+            android:textColor="@color/black"/>
 
-            <View
-                android:id="@+id/view_separator_title2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health2"
-                app:layout_constraintTop_toTopOf="parent" />
-            <View
-                android:id="@+id/view_separator_health2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_price2"
-                app:layout_constraintTop_toBottomOf="@id/view_separator_title2" />
-            <View
-                android:id="@+id/view_separator_price2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_separator_health2" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tarte aux citrons x1"
+            android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/recipe_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="dejeuner"
-
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_title2"/>
-
-            <TextView
-                android:id="@+id/recipe_health2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="entrée"
-
-                app:layout_constraintTop_toBottomOf="@id/view_separator_title2"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_health2"/>
-
-            <TextView
-                android:id="@+id/recipe_price2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="plat"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_price2"
-
-                app:layout_constraintTop_toBottomOf="@id/view_separator_health2" />
-
-            <TextView
-                android:id="@+id/recipe_difficulty2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="dessert"
-                app:layout_constraintBottom_toBottomOf="parent"
-
-                app:layout_constraintTop_toBottomOf="@id/view_separator_price2" />
-
-            <View
-                android:id="@+id/view_separator_star2"
-                android:layout_width="1dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                app:layout_constraintLeft_toRightOf="@+id/recipe_difficulty2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/health_star_1.2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="melon"
-
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health2"
-                app:layout_constraintLeft_toRightOf="@id/view_separator_star2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_title2" />
-
-            <TextView
-                android:id="@+id/health_star_2.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="         "
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health2"
-                app:layout_constraintLeft_toRightOf="@id/health_star_1.2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_title2" />
-
-            <TextView
-                android:id="@+id/health_star_3.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nombre de personne : 4"
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health2"
-                app:layout_constraintLeft_toRightOf="@id/health_star_2.2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_title2" />
-
-            <TextView
-                android:id="@+id/price_star_1.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="jambon"
-
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_price2"
-                app:layout_constraintLeft_toRightOf="@id/view_separator_star2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_health2" />
-
-            <TextView
-                android:id="@+id/price_star_2.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="        "
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_price2"
-                app:layout_constraintLeft_toRightOf="@id/price_star_1.2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_health2" />
-
-            <TextView
-                android:id="@+id/price_star_3.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nombre de personne: 4"
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_price2"
-                app:layout_constraintLeft_toRightOf="@id/price_star_2.2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_health2" />
-
-            <TextView
-                android:id="@+id/difficulty_star_1.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tarte"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/view_separator_star2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_price2" />
-
-            <TextView
-                android:id="@+id/difficulty_star_2.2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="       "
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/difficulty_star_1.2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_price2" />
-
-            <TextView
-                android:id="@+id/difficulty_star_3.2"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nombre de personne : 4"
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/difficulty_star_2.2"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_price2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salade niçoise x1"
+            android:textColor="@color/black"/>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/diner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="350dp"
-        >
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@id/dejeuner"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Diner"
+            android:layout_marginBottom="5dp"/>
 
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salade x1"
+            android:textColor="@color/black"/>
 
-            <View
-                android:id="@+id/view_separator_title3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health3"
-                app:layout_constraintTop_toTopOf="parent" />
-            <View
-                android:id="@+id/view_separator_health3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_price3"
-                app:layout_constraintTop_toBottomOf="@id/view_separator_title3" />
-            <View
-                android:id="@+id/view_separator_price3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_separator_health3" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soufflé de poissons x2"
+            android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/recipe_title3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="diner"
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gateau aux chocolat x1"
+            android:textColor="@color/black"/>
 
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_title3"/>
-
-            <TextView
-                android:id="@+id/recipe_health3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="entrée"
-
-                app:layout_constraintTop_toBottomOf="@id/view_separator_title3"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_health3"/>
-
-            <TextView
-                android:id="@+id/recipe_price3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="plat"
-                app:layout_constraintBottom_toTopOf="@id/view_separator_price3"
-
-                app:layout_constraintTop_toBottomOf="@id/view_separator_health3" />
-
-            <TextView
-                android:id="@+id/recipe_difficulty3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="dessert"
-                app:layout_constraintBottom_toBottomOf="parent"
-
-                app:layout_constraintTop_toBottomOf="@id/view_separator_price3" />
-
-            <View
-                android:id="@+id/view_separator_star3"
-                android:layout_width="1dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                app:layout_constraintLeft_toRightOf="@+id/recipe_difficulty3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/health_star_1.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="salade"
-
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health3"
-                app:layout_constraintLeft_toRightOf="@id/view_separator_star3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_title3" />
-
-            <TextView
-                android:id="@+id/health_star_2.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="       "
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health3"
-                app:layout_constraintLeft_toRightOf="@id/health_star_1.3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_title3" />
-
-            <TextView
-                android:id="@+id/health_star_3.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nombre personne: 3"
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_health3"
-                app:layout_constraintLeft_toRightOf="@id/health_star_2.3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_title3" />
-
-            <TextView
-                android:id="@+id/price_star_1.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="poisson"
-
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_price3"
-                app:layout_constraintLeft_toRightOf="@id/view_separator_star3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_health3" />
-
-            <ImageView
-                android:id="@+id/price_star_2.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="              "
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_price3"
-                app:layout_constraintLeft_toRightOf="@id/price_star_1.3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_health3" />
-
-            <TextView
-                android:id="@+id/price_star_3.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:text="nombre personne: 3"
-
-                app:layout_constraintBottom_toTopOf="@+id/view_separator_price3"
-                app:layout_constraintLeft_toRightOf="@id/price_star_2.3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_health3"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/difficulty_star_1.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="île flottante"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/view_separator_star3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_price3" />
-
-            <TextView
-                android:id="@+id/difficulty_star_2.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="      "
-
-                android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/difficulty_star_1.3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_price3" />
-
-            <TextView
-                android:id="@+id/difficulty_star_3.3"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nombre personne: 3"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/difficulty_star_2.3"
-                app:layout_constraintTop_toBottomOf="@+id/view_separator_price3"
-                 />
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
     <ListView
         android:id="@+id/list_meals"
         android:layout_width="match_parent"

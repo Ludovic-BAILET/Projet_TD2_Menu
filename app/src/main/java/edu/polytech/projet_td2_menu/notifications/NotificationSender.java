@@ -54,23 +54,22 @@ public class NotificationSender {
     }
 
     public static void mockNotifications(NotificationSender notificationSender) {
-        String title = "suggestion de plat";
-        String titlerappel = "rappel de course";
-        String message = "message ";
+        String title = "Suggestion de plat";
+        String titleRappel = "Rappel de course";
         int priority = 1;
-        int priorityrappel = 2;
+        String[] nameRecipe = new String[] {"Lasagnes", "Tarte aux citrons", "Boeuf bourguignon"};
+        for (int id = 0; id < 3; id++) {
+            notificationSender.sendNotification(title, "Voici une recette qui pourrait vous plaire : " + nameRecipe[id], CHANNEL_suggestion, priority);
+            notificationId++;
 
-        for (int id = 0; id < 10; id++) {
-            notificationSender.sendNotification(title, "voici une recettes a essayer", CHANNEL_suggestion, priority);
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            notificationId++;
         }
-        notificationId+=1;
-        for (int id = 0; id < 10; id++) {
 
-            notificationSender.sendNotification(titlerappel, "n'oubliez pas de faire vos course", CHANNEL_rappelcourse, priority);}
-    }
+        notificationSender.sendNotification(titleRappel, "N'oubliez pas de faire vos courses", CHANNEL_rappelcourse, priority);}
 }
