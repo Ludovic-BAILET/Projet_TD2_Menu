@@ -3,6 +3,7 @@ package edu.polytech.projet_td2_menu;
 import static java.security.AccessController.getContext;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -22,6 +23,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Random;
 
@@ -165,6 +167,8 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
         }
 
     }
+
+
     private void SaveImage(Bitmap finalBitmap) {
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                 PackageManager.PERMISSION_DENIED) {
