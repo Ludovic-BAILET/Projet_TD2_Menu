@@ -1,5 +1,6 @@
 package edu.polytech.projet_td2_menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,12 +39,14 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
         setContentView(R.layout.activity_list_recipe);
 
 
-        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList);
+        adapterRecipe = new ViewAdapterRecipe(getApplicationContext(), recipeList, this);
 
         apiTask = new ApiTask();
 
 
         apiTask.getModelRecipes().addObserver(this);
+        findViewById(R.id.filter_button).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), FilterActivity.class)));
+        findViewById(R.id.button_add_recipe).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), CreateRecipeActivity.class)));
 
         ConstraintLayout constraintLayout = findViewById(R.id.activity_list_recipe);
 

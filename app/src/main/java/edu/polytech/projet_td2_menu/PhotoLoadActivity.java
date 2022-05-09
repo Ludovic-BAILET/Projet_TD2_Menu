@@ -55,7 +55,9 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
 
-        valider = (Button) findViewById(R.id.button_valider);
+        findViewById(R.id.back_button).setOnClickListener(view -> startActivity(new Intent(new Intent(getApplicationContext(), CreateRecipeActivity.class))));
+        findViewById(R.id.button_valider).setOnClickListener(view -> startActivity(new Intent(new Intent(getApplicationContext(), CreateRecipeActivity.class))));
+        valider = findViewById(R.id.button_valider);
         camera = findViewById(R.id.camera);
         file = findViewById(R.id.file);
 
@@ -122,23 +124,24 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
     //handle result of runtime permission
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case PERMISSION_PICK_CODE:{
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_PICK_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //permission was granted
                     pickImageFromGallery();
-                }else{
+                } else {
                     //permission was denied
-                    Toast.makeText(this,"Permission denied ... !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Permission denied ... !", Toast.LENGTH_SHORT).show();
                 }
             }
-            case PERMISSION_CAMERA_CODE:{
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            case PERMISSION_CAMERA_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //permission was granted
                     takeImageFromCamera();
-                }else{
+                } else {
                     //permission was denied
-                    Toast.makeText(this,"Permission denied ... !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Permission denied ... !", Toast.LENGTH_SHORT).show();
                 }
             }
         }

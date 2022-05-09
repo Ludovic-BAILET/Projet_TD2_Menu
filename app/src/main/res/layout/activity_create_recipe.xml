@@ -4,20 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipeDetailActivity">
+    tools:context=".CreateRecipeActivity">
 
 
-    <TextView
+    <ImageView
+        android:id="@+id/back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        android:maxWidth="30dp"
+        android:maxHeight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
         android:id="@+id/title"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/item_recipe_name"
         android:textAlignment="center"
         android:textSize="30dp"
         android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/back_button" />
 
     <ImageView
         android:id="@+id/image_recette"
@@ -94,16 +108,6 @@
         app:layout_constraintEnd_toStartOf="@+id/ratingBar1"
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
-    <ImageView
-
-        android:id="@+id/favorite"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintLeft_toRightOf="@+id/ratingBar2"
-        app:layout_constraintTop_toTopOf="@+id/ratingBar2"
-        app:srcCompat="@drawable/empty_heart" />
-
     <Button
         android:id="@+id/button_delete"
         android:layout_width="wrap_content"
@@ -124,7 +128,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/desc_recette"
         android:layout_width="245dp"
         android:layout_height="90dp"

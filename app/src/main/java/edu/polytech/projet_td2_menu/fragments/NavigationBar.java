@@ -46,7 +46,7 @@ public class NavigationBar extends Fragment {
         } catch (ClassCastException e) {
         throw new ClassCastException(e
                 + " must implement NavigationBarInterface");
-    }
+        }
 
-}
+    }
 }

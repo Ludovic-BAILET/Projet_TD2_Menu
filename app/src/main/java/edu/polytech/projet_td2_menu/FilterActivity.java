@@ -1,5 +1,6 @@
 package edu.polytech.projet_td2_menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,9 @@ import edu.polytech.projet_td2_menu.adapters.ViewAdapterAdvancedFilter;
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
+import edu.polytech.projet_td2_menu.fragments.ValidationCancelButtonsInterface;
 
-public class FilterActivity extends AppCompatActivity implements NavigationBarInterface {
+public class FilterActivity extends AppCompatActivity implements NavigationBarInterface, ValidationCancelButtonsInterface {
 
     private ViewAdapterAdvancedFilter adapter;
     private NavigationBarInterfaceImplementation implementation;
@@ -49,5 +51,15 @@ public class FilterActivity extends AppCompatActivity implements NavigationBarIn
     @Override
     public void onButtonRecettesClicked(View v) {
         implementation.onButtonRecettesClicked(v);
+    }
+
+    @Override
+    public void onClickValid(View v) {
+        v.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
+    }
+
+    @Override
+    public void onClickCancel(View v) {
+        v.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
     }
 }

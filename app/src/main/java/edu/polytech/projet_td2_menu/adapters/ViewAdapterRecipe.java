@@ -1,6 +1,7 @@
 package edu.polytech.projet_td2_menu.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +17,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 
+import edu.polytech.projet_td2_menu.DetailRecipeActivity;
+import edu.polytech.projet_td2_menu.ListRecipeActivity;
 import edu.polytech.projet_td2_menu.R;
+import edu.polytech.projet_td2_menu.CreateRecipeActivity;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ViewAdapterRecipe extends BaseAdapter {
@@ -24,11 +28,13 @@ public class ViewAdapterRecipe extends BaseAdapter {
     private final LayoutInflater inflater;
 
     private List<Recipe> recipeList;
+    private ListRecipeActivity activity;
 
-    public ViewAdapterRecipe(Context context, List<Recipe> recipeList){
+    public ViewAdapterRecipe(Context context, List<Recipe> recipeList, ListRecipeActivity activity){
 
         this.inflater = LayoutInflater.from(context);
         this.recipeList = recipeList;
+        this.activity = activity;
     }
     @Override
     public int getCount() {
@@ -53,7 +59,7 @@ public class ViewAdapterRecipe extends BaseAdapter {
         ((TextView) layout.findViewById(R.id.recipe_title)).setText(recipe.getName());
 
         // ((ImageView) layout.findViewById(R.id.recipe_image)).setImageDrawable(getPicture(recipe.getImageUrl()));
-
+        layout.setOnClickListener(click -> activity.startActivity(new Intent(activity, DetailRecipeActivity.class)));
         return layout;
     }
 

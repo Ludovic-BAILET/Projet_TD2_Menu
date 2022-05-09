@@ -1,21 +1,31 @@
 package edu.polytech.projet_td2_menu;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.ImageView;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
 
-public class Ajouter_recettesActivity extends AppCompatActivity implements NavigationBarInterface {
+public class DetailRecipeActivity extends AppCompatActivity implements NavigationBarInterface {
+
     private NavigationBarInterfaceImplementation implementation;
+    private boolean liked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajouter_recettes);
+        setContentView(R.layout.activity_detail_recipe);
+
+        findViewById(R.id.back_button).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
+        findViewById(R.id.image_favori).setOnClickListener(view -> {
+            view.setBackgroundResource(liked ? R.drawable.empty_heart : R.drawable.full_heart);
+            liked = !liked;
+        });
 
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();

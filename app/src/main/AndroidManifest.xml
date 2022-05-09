@@ -2,24 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.polytech.projet_td2_menu">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-
-<!--    <queries>-->
-<!--        &lt;!&ndash; agenda &ndash;&gt;-->
-<!--        <intent>-->
-<!--            <action android:name="android.intent.action.INSERT" />-->
-<!--        </intent>-->
-
-
-<!--    </queries>-->
 
     <application
         android:name=".ApplicationMenu"
@@ -29,12 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_TD2_Menu">
-
+        <activity
+            android:name=".DetailRecipeActivity"
+            android:exported="false" />
         <activity
             android:name=".MVC.NotificationsCenterActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".CalendarActivity"
             android:exported="false" />
@@ -54,15 +43,11 @@
             android:name=".ProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".RecipeDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Ajouter_recettesActivity"
+            android:name=".CreateRecipeActivity"
             android:exported="false" />
         <activity
             android:name=".ProfilBoiteAmisActivity"
             android:exported="false" />
-
         <activity
             android:name=".PhotoLoadActivity"
             android:exported="false" />

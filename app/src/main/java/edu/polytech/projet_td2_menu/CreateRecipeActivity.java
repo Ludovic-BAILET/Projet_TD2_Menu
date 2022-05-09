@@ -3,7 +3,6 @@ package edu.polytech.projet_td2_menu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,16 +10,19 @@ import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementation;
 
-public class ProfilActivity extends AppCompatActivity implements NavigationBarInterface {
+public class CreateRecipeActivity extends AppCompatActivity implements NavigationBarInterface {
 
-    private Button buttonTMP;
     private NavigationBarInterfaceImplementation implementation;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil);
+        setContentView(R.layout.activity_create_recipe);
+
+        findViewById(R.id.button_delete).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
+        findViewById(R.id.button_save).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
+        findViewById(R.id.image_recette).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), PhotoLoadActivity.class)));
+        findViewById(R.id.back_button).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
 
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
