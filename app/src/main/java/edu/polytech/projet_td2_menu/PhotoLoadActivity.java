@@ -153,6 +153,9 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
 
         if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
             file.setImageURI(data.getData());
+            Bitmap photo = (Bitmap)data.getExtras().get("data");
+
+
         }
 
         if(resultCode == RESULT_OK && requestCode == CAMERA_CODE){
@@ -169,32 +172,31 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
                     new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     IStorageActivity.REQUEST_MEDIA_READ);
         } else {
-            Toast.makeText(this,"wow we accessed this place!",Toast.LENGTH_SHORT).show();
+
             String root = Environment.getExternalStorageDirectory().toString();
-        File myDir = new File(root + "/saved_images");
-        if (!myDir.exists()) {
-            myDir.mkdirs();
-        }
-        Random generator = new Random();
-        int n = 10000;
-        n = generator.nextInt(n);
-        String fname = "Image-"+ n +".jpg";
+            File myDir = new File(root + "/saved_images");
+            if (!myDir.exists()) {
+                myDir.mkdirs();
+            }
+            Random generator = new Random();
+            int n = 10000;
+            n = generator.nextInt(n);
+            String fname = "Image-"+ n +".jpg";
 
-        File file = new File (myDir, fname);
-        if (file.exists ())
-            file.delete ();
+            File file = new File (myDir, fname);
+            if (file.exists ())
+                file.delete ();
 
-        try {
-            FileOutputStream out = new FileOutputStream(file);
+            try {
+                FileOutputStream out = new FileOutputStream(file);
 
-            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
-            out.flush();
-            out.close();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }}
+                finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                out.flush();
+                out.close();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }}
     }
 
     @Override

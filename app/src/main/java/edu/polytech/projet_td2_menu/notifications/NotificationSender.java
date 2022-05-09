@@ -30,7 +30,7 @@ public class NotificationSender {
 // Creating a pending intent and wrapping our intent
         final PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, ListRecipeActivity.class), 0);
         final PendingIntent pendingIntent2 = PendingIntent.getActivity(context, 1, new Intent(context, ListeCourseActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
-        Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),R.drawable.farine_de_ble);
+        Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),R.drawable.poisson);
         Bitmap bitmap2= BitmapFactory.decodeResource(context.getResources(),R.drawable.calendarnotif);
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context, channelId)
                 .setContentTitle(title)
@@ -54,14 +54,14 @@ public class NotificationSender {
     }
 
     public static void mockNotifications(NotificationSender notificationSender) {
-        String title = "Mock notification suggestion";
-        String titlerappel = "Mock notification rappel";
+        String title = "suggestion de plat";
+        String titlerappel = "rappel de course";
         String message = "message ";
         int priority = 1;
         int priorityrappel = 2;
 
         for (int id = 0; id < 10; id++) {
-            notificationSender.sendNotification(title, message + id, CHANNEL_suggestion, priority);
+            notificationSender.sendNotification(title, "voici une recettes a essayer", CHANNEL_suggestion, priority);
 //            try {
 //                Thread.sleep(1000);
 //            } catch (InterruptedException e) {
@@ -71,6 +71,6 @@ public class NotificationSender {
         notificationId+=1;
         for (int id = 0; id < 10; id++) {
 
-            notificationSender.sendNotification(titlerappel, message + id, CHANNEL_rappelcourse, priority);}
+            notificationSender.sendNotification(titlerappel, "n'oubliez pas de faire vos course", CHANNEL_rappelcourse, priority);}
     }
 }
