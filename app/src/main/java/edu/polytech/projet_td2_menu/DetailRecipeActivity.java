@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;
@@ -23,7 +22,7 @@ public class DetailRecipeActivity extends AppCompatActivity implements Navigatio
 
         findViewById(R.id.back_button).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ListRecipeActivity.class)));
         findViewById(R.id.image_favori).setOnClickListener(view -> {
-            view.setBackgroundResource(liked ? R.drawable.empty_heart : R.drawable.full_heart);
+            view.setBackgroundResource(liked ? R.drawable.heart_empty : R.drawable.heart_full);
             liked = !liked;
         });
 

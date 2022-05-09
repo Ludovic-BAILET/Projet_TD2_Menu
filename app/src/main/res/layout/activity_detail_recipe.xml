@@ -51,7 +51,9 @@
         android:layout_marginTop="214dp"
         android:numStars="3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:rating="2.5"
+        android:isIndicator="true"/>
 
     <RatingBar
         android:id="@+id/ratingBar2"
@@ -61,7 +63,8 @@
         android:numStars="3"
         android:rating="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar3" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar3"
+        android:isIndicator="true" />
 
     <ImageView
         android:id="@+id/image_favori"
@@ -73,7 +76,7 @@
         android:maxHeight="50dp"
         android:layout_marginEnd="10dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/empty_heart"/>
+        android:src="@drawable/heart_empty" />
 
     <RatingBar
         android:id="@+id/ratingBar1"
@@ -83,7 +86,9 @@
         android:layout_marginRight="70dp"
         android:numStars="3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ratingBar2" />
+        app:layout_constraintTop_toTopOf="@+id/ratingBar2"
+        android:rating="0.5"
+        android:isIndicator="true" />
 
 
     <TextView

@@ -1,11 +1,8 @@
 package edu.polytech.projet_td2_menu.notifications;
 
-import static android.content.Context.ACTIVITY_SERVICE;
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static edu.polytech.projet_td2_menu.ApplicationMenu.CHANNEL_rappelcourse;
 import static edu.polytech.projet_td2_menu.ApplicationMenu.CHANNEL_suggestion;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -16,10 +13,6 @@ import android.graphics.BitmapFactory;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import java.util.Calendar;
-
-import edu.polytech.projet_td2_menu.ApplicationMenu;
-import edu.polytech.projet_td2_menu.CalendarActivity;
 import edu.polytech.projet_td2_menu.ListRecipeActivity;
 import edu.polytech.projet_td2_menu.ListeCourseActivity;
 import edu.polytech.projet_td2_menu.R;
@@ -49,7 +42,7 @@ public class NotificationSender {
                 ;
 
         switch(channelId) {
-            case CHANNEL_suggestion: notification.setSmallIcon(R.drawable.full_heart).setStyle(new NotificationCompat.BigPictureStyle()
+            case CHANNEL_suggestion: notification.setSmallIcon(R.drawable.heart_full).setStyle(new NotificationCompat.BigPictureStyle()
                     .bigPicture(bitmap).setSummaryText(message)).setContentIntent( pendingIntent);break;
             case CHANNEL_rappelcourse: notification.setTimeoutAfter(20000).setSmallIcon(R.drawable.bell).setStyle(new NotificationCompat.BigPictureStyle()
                     .bigPicture(bitmap2).setSummaryText(message)).setContentIntent( pendingIntent2);break;

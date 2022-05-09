@@ -13,7 +13,7 @@ public class ModelAdvancedFilters {
         filtersList.add(new AdvancedFilter(R.drawable.sack_dollar, "Economique"));
         filtersList.add(new AdvancedFilter(R.drawable.briefcase_medical, "Sain"));
         filtersList.add(new AdvancedFilter(R.drawable.dumbbell, "Difficulté"));
-        filtersList.add(new AdvancedFilter(R.drawable.full_heart, "Favoris"));
+        filtersList.add(new AdvancedFilter(R.drawable.heart_full, "Favoris"));
         filtersList.add(new AdvancedFilter(R.drawable.house, "Mes Créations"));
     }
 
