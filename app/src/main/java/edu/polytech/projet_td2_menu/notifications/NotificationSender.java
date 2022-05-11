@@ -30,7 +30,7 @@ public class NotificationSender {
 // Creating a pending intent and wrapping our intent
         final PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, ListRecipeActivity.class), 0);
         final PendingIntent pendingIntent2 = PendingIntent.getActivity(context, 1, new Intent(context, ListeCourseActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
-        Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),R.drawable.farine_de_ble);
+        Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),R.drawable.poisson);
         Bitmap bitmap2= BitmapFactory.decodeResource(context.getResources(),R.drawable.calendarnotif);
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context, channelId)
                 .setContentTitle(title)
@@ -54,23 +54,22 @@ public class NotificationSender {
     }
 
     public static void mockNotifications(NotificationSender notificationSender) {
-        String title = "Mock notification suggestion";
-        String titlerappel = "Mock notification rappel";
-        String message = "message ";
+        String title = "Suggestion de plat";
+        String titleRappel = "Rappel de course";
         int priority = 1;
-        int priorityrappel = 2;
+        String[] nameRecipe = new String[] {"Lasagnes", "Tarte aux citrons", "Boeuf bourguignon"};
+        for (int id = 0; id < 3; id++) {
+            notificationSender.sendNotification(title, "Voici une recette qui pourrait vous plaire : " + nameRecipe[id], CHANNEL_suggestion, priority);
+            notificationId++;
 
-        for (int id = 0; id < 10; id++) {
-            notificationSender.sendNotification(title, message + id, CHANNEL_suggestion, priority);
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            notificationId++;
         }
-        notificationId+=1;
-        for (int id = 0; id < 10; id++) {
 
-            notificationSender.sendNotification(titlerappel, message + id, CHANNEL_rappelcourse, priority);}
-    }
+        notificationSender.sendNotification(titleRappel, "N'oubliez pas de faire vos courses", CHANNEL_rappelcourse, priority);}
 }
