@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ApplicationMenu</string>
+    <string name="app_name">MHealty</string>
 
     <!-- Profil -->
     <string name="item_profil_name">Nom du profil</string>
