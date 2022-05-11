@@ -630,5 +630,5 @@
         app:layout_constraintEnd_toStartOf="@+id/bell"
         app:layout_constraintStart_toEndOf="@+id/date"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/file" />
+        app:srcCompat="@drawable/calendar_plus" />
 </androidx.constraintlayout.widget.ConstraintLayout>

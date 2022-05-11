@@ -19,6 +19,9 @@ public class CalendarActivity extends AppCompatActivity implements NavigationBar
     private CalendarView mCalendarView;
     private NavigationBarInterfaceImplementation implementation;
 
+    private static final int ACTIVITY_PLANNING = 1;
+    private static final int ACTIVITY_LISTE = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,23 @@ public class CalendarActivity extends AppCompatActivity implements NavigationBar
             String date = i2 + "/" + (i1 + 1) + "/" + i;
             Log.d(TAG, "onSelectedDayChange: date " + date);
 
-            Intent intent = new Intent(CalendarActivity.this, PlanningActivity.class);
+
+
+            int callingActivity = getIntent().getIntExtra("calling-activity", 1);
+
+            Intent intent = new Intent(CalendarActivity.this,PlanningActivity.class );
+
+            switch (callingActivity) {
+                case ACTIVITY_PLANNING:
+                    intent = new Intent(CalendarActivity.this,PlanningActivity.class );
+                    break;
+                case ACTIVITY_LISTE:
+                    intent = new Intent(CalendarActivity.this,ListeCourseActivity.class );
+                    break;
+            }
+
+
+
             intent.putExtra("date", date);
             startActivity(intent);
         });
