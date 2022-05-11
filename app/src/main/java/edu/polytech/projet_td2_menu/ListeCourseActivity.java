@@ -71,8 +71,8 @@ public class ListeCourseActivity extends AppCompatActivity implements Navigation
             @Override
             public void onClick(View view) {
                 q1.setText("500g");
-                q2.setText("500g");
-                q3.setText("6u");
+                q2.setText("500mL");
+                q3.setText("6 unité(s)");
                 q4.setText("500g");
             }
         });
@@ -82,8 +82,8 @@ public class ListeCourseActivity extends AppCompatActivity implements Navigation
             @Override
             public void onClick(View view) {
                 q1.setText("1kg");
-                q2.setText("1kg");
-                q3.setText("12u");
+                q2.setText("1L");
+                q3.setText("12 unité(s)");
                 q4.setText("1kg");
             }
         });
