@@ -1,8 +1,6 @@
 package edu.polytech.projet_td2_menu.adapters;
 
 import android.app.Notification;
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,14 +17,12 @@ import java.util.concurrent.TimeUnit;
 import edu.polytech.projet_td2_menu.MVC.NotificationView;
 import edu.polytech.projet_td2_menu.MVC.NotificationsController;
 import edu.polytech.projet_td2_menu.R;
-import edu.polytech.projet_td2_menu.gestures.OnSwipeTouchListener;
-import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
 public class ViewAdapterNotification extends BaseAdapter {
     private final LayoutInflater inflater;
     private List<Notification> notificationList;
     private NotificationsController controller;
-    private NotificationView view;
+    private final NotificationView view;
 
     public ViewAdapterNotification(NotificationView view, List<Notification> notificationList) {
         inflater = LayoutInflater.from(view.getContext());

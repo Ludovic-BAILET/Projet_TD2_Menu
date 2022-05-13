@@ -15,12 +15,10 @@ import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementati
 public class CalendarActivity extends AppCompatActivity implements NavigationBarInterface {
 
     private static final String TAG = "CalendarActivity";
-
-    private CalendarView mCalendarView;
-    private NavigationBarInterfaceImplementation implementation;
-
     private static final int ACTIVITY_PLANNING = 1;
     private static final int ACTIVITY_LISTE = 2;
+    private CalendarView mCalendarView;
+    private NavigationBarInterfaceImplementation implementation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,27 +28,25 @@ public class CalendarActivity extends AppCompatActivity implements NavigationBar
         implementation = new NavigationBarInterfaceImplementation(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.navigation_bar, new NavigationBar()).commit();
 
-        mCalendarView = (CalendarView) findViewById(R.id.calendarView);
+        mCalendarView = findViewById(R.id.calendarView);
 
         mCalendarView.setOnDateChangeListener((calendarView, i, i1, i2) -> {
             String date = i2 + "/" + (i1 + 1) + "/" + i;
             Log.d(TAG, "onSelectedDayChange: date " + date);
 
 
-
             int callingActivity = getIntent().getIntExtra("calling-activity", 1);
 
-            Intent intent = new Intent(CalendarActivity.this,PlanningActivity.class );
+            Intent intent = new Intent(CalendarActivity.this, PlanningActivity.class);
 
             switch (callingActivity) {
                 case ACTIVITY_PLANNING:
-                    intent = new Intent(CalendarActivity.this,PlanningActivity.class );
+                    intent = new Intent(CalendarActivity.this, PlanningActivity.class);
                     break;
                 case ACTIVITY_LISTE:
-                    intent = new Intent(CalendarActivity.this,ListeCourseActivity.class );
+                    intent = new Intent(CalendarActivity.this, ListeCourseActivity.class);
                     break;
             }
-
 
 
             intent.putExtra("date", date);

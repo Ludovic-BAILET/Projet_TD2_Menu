@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;

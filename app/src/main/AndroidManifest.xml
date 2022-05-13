@@ -28,9 +28,6 @@
             android:name=".CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".ListeCourseContainer"
-            android:exported="false" />
-        <activity
             android:name=".ListeCourseActivity"
             android:exported="false" />
         <activity

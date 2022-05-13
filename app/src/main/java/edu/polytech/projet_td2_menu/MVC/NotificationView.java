@@ -13,12 +13,11 @@ import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 public class NotificationView implements Observer {
 
     public static final String TAG = "NotificationView";
-
+    private final ConstraintLayout layout;
+    private final Context context;
     private ViewAdapterNotification adapterBaseNotification;
     private ViewAdapterNotification adapterPinnedNotification;
     private NotificationsController controller;
-    private final ConstraintLayout layout;
-    private final Context context;
 
     public NotificationView(Context context, ConstraintLayout layout) {
         this.layout = layout;

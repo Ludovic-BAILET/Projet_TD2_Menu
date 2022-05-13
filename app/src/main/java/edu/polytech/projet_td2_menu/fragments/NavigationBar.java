@@ -13,7 +13,9 @@ import edu.polytech.projet_td2_menu.R;
 
 public class NavigationBar extends Fragment {
     private NavigationBarInterface callback;
-    public NavigationBar() {}
+
+    public NavigationBar() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,8 +46,8 @@ public class NavigationBar extends Fragment {
         try {
             callback = (NavigationBarInterface) getActivity();
         } catch (ClassCastException e) {
-        throw new ClassCastException(e
-                + " must implement NavigationBarInterface");
+            throw new ClassCastException(e
+                    + " must implement NavigationBarInterface");
         }
 
     }

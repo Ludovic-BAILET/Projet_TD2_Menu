@@ -14,8 +14,8 @@ public abstract class Recipe {
     private final String name;
     private final List<Pair<Ingredient, Quantity>> ingredients;
     private final String imageUrl;
-    private Ratings ratings;
     protected TypesDishes type;
+    private Ratings ratings;
 
     public Recipe(String name, List<Pair<Ingredient, Quantity>> ingredients, Ratings ratings, String imageUrl) {
         this.name = name;

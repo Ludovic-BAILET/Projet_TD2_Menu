@@ -20,22 +20,22 @@ import java.util.List;
 import edu.polytech.projet_td2_menu.DetailRecipeActivity;
 import edu.polytech.projet_td2_menu.ListRecipeActivity;
 import edu.polytech.projet_td2_menu.R;
-import edu.polytech.projet_td2_menu.CreateRecipeActivity;
 import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ViewAdapterRecipe extends BaseAdapter {
 
     private final LayoutInflater inflater;
 
-    private List<Recipe> recipeList;
-    private ListRecipeActivity activity;
+    private final List<Recipe> recipeList;
+    private final ListRecipeActivity activity;
 
-    public ViewAdapterRecipe(Context context, List<Recipe> recipeList, ListRecipeActivity activity){
+    public ViewAdapterRecipe(Context context, List<Recipe> recipeList, ListRecipeActivity activity) {
 
         this.inflater = LayoutInflater.from(context);
         this.recipeList = recipeList;
         this.activity = activity;
     }
+
     @Override
     public int getCount() {
         return recipeList.size();
@@ -64,22 +64,22 @@ public class ViewAdapterRecipe extends BaseAdapter {
     }
 
 
-    private Drawable getPicture (String urlPath ) {
+    private Drawable getPicture(String urlPath) {
         // Le drawable à renvoyer
-        Drawable drawable = null ;
+        Drawable drawable = null;
         try {
             Log.d("urlPath", urlPath);
             // Récupération de l'URL à partir de sa représentation sous forme de String.
-            URL URL = new URL ( urlPath );
+            URL URL = new URL(urlPath);
             // Ouverture de l'inputStream associé à cette URL pour sa lecture.
             InputStream is = (InputStream) URL.getContent();
             // Construction du Drawable à partir de ce flux entrant.
-            drawable = Drawable.createFromStream ( is , "src" );
-        } catch (IOException e ) {
-            Log. e ( "Drawable_error" , e.toString());
+            drawable = Drawable.createFromStream(is, "src");
+        } catch (IOException e) {
+            Log.e("Drawable_error", e.toString());
             // Si une exception se produit faire quelque chose d'intelligent.
         }
         // Renvoyer le résultat.
-        return drawable ;
+        return drawable;
     }
 }

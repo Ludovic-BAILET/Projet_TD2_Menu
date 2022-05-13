@@ -1,9 +1,6 @@
 package edu.polytech.projet_td2_menu;
 
-import static java.security.AccessController.getContext;
-
 import android.Manifest;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -23,7 +20,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Random;
 
@@ -34,19 +30,14 @@ import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementati
 public class PhotoLoadActivity extends AppCompatActivity implements NavigationBarInterface {
 
     private static final String TAG = "photoLoad";
+    private static final int IMAGE_PICK_CODE = 1000;
+    private static final int PERMISSION_PICK_CODE = 1001;
+    private static final int CAMERA_CODE = 100;
+    private static final int PERMISSION_CAMERA_CODE = 101;
     private Button valider;
     private ImageView camera;
     private ImageView file;
-
-    private static final int IMAGE_PICK_CODE = 1000;
-    private static final int PERMISSION_PICK_CODE = 1001;
-
-    private static final int CAMERA_CODE = 100;
-    private static final int PERMISSION_CAMERA_CODE = 101;
-
     private NavigationBarInterfaceImplementation implementation;
-
-
 
 
     @Override
@@ -67,41 +58,37 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
         camera.setOnClickListener(view -> {
 
 
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if(checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
                     //permission not granted
                     String[] permissions = {Manifest.permission.CAMERA};
                     //show popup for runtime permission
                     requestPermissions(permissions, PERMISSION_CAMERA_CODE);
 
-                }else{
+                } else {
                     //permission already granted
                     takeImageFromCamera();
                 }
-            }
-            else{
+            } else {
                 //system os is less than marsmallow
                 takeImageFromCamera();
             }
         });
 
 
-
-
         file.setOnClickListener(view -> {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
                     //permission not granted
                     String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
                     //show popup for runtime permission
                     requestPermissions(permissions, PERMISSION_PICK_CODE);
 
-                }else{
+                } else {
                     //permission already granted
                     pickImageFromGallery();
                 }
-            }
-            else{
+            } else {
                 //system os is less than marsmallow
                 pickImageFromGallery();
             }
@@ -109,17 +96,17 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
 
     }
 
-    private void takeImageFromCamera(){
+    private void takeImageFromCamera() {
         Intent open_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(open_camera,CAMERA_CODE);
+        startActivityForResult(open_camera, CAMERA_CODE);
     }
 
 
-    private void pickImageFromGallery(){
+    private void pickImageFromGallery() {
         //intent to pick image
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
-        startActivityForResult(intent,IMAGE_PICK_CODE);
+        startActivityForResult(intent, IMAGE_PICK_CODE);
     }
 
 
@@ -153,15 +140,14 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             file.setImageURI(data.getData());
-
 
 
         }
 
-        if(resultCode == RESULT_OK && requestCode == CAMERA_CODE){
-            Bitmap photo = (Bitmap)data.getExtras().get("data");
+        if (resultCode == RESULT_OK && requestCode == CAMERA_CODE) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
             camera.setImageBitmap(photo);
             SaveImage(photo);
         }
@@ -172,8 +158,8 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
     private void SaveImage(Bitmap finalBitmap) {
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                 PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions( this,
-                    new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     IStorageActivity.REQUEST_MEDIA_READ);
         } else {
 
@@ -185,11 +171,11 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
             Random generator = new Random();
             int n = 10000;
             n = generator.nextInt(n);
-            String fname = "Image-"+ n +".jpg";
+            String fname = "Image-" + n + ".jpg";
 
-            File file = new File (myDir, fname);
-            if (file.exists ())
-                file.delete ();
+            File file = new File(myDir, fname);
+            if (file.exists())
+                file.delete();
 
             try {
                 FileOutputStream out = new FileOutputStream(file);
@@ -200,7 +186,8 @@ public class PhotoLoadActivity extends AppCompatActivity implements NavigationBa
 
             } catch (Exception e) {
                 e.printStackTrace();
-            }}
+            }
+        }
     }
 
     @Override

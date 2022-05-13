@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,8 +41,8 @@ public class ListeCourseActivity extends AppCompatActivity implements Navigation
     private ImageView calendar;
     private ImageView agenda;
 
-    private int WRITE_CALENDAR_PERMISSION = 101;
-    private int READ_CALENDAR_PERMISSION = 1001;
+    private final int WRITE_CALENDAR_PERMISSION = 101;
+    private final int READ_CALENDAR_PERMISSION = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,57 +91,55 @@ public class ListeCourseActivity extends AppCompatActivity implements Navigation
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(ListeCourseActivity.this,CalendarActivity.class);
-                intent.putExtra("calling-activity",2);
+                Intent intent = new Intent(ListeCourseActivity.this, CalendarActivity.class);
+                intent.putExtra("calling-activity", 2);
                 startActivity(intent);
 
             }
         });
 
         agenda.setOnClickListener(view -> {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if(checkSelfPermission(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_DENIED) {
                     //permission not granted
                     String[] permissions = {Manifest.permission.WRITE_CALENDAR};
                     //show popup for runtime permission
                     requestPermissions(permissions, WRITE_CALENDAR_PERMISSION);
-                }
-                else if(checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+                } else if (checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
                     //permission not granted
                     String[] permissions = {Manifest.permission.READ_CALENDAR};
                     //show popup for runtime permission
                     requestPermissions(permissions, READ_CALENDAR_PERMISSION);
 
-                }else{
+                } else {
                     //permission already granted
                     putEventToCalendar();
                 }
-            }
-            else{
+            } else {
                 //system os is less than marsmallow
                 putEventToCalendar();
             }
         });
     }
 
-    public void putEventToCalendar(){
+    public void putEventToCalendar() {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setData(CalendarContract.Events.CONTENT_URI);
-        intent.putExtra(CalendarContract.Events.TITLE, "liste des courses du " +  dateFormat.format(cal.getTime()));
+        intent.putExtra(CalendarContract.Events.TITLE, "liste des courses du " + dateFormat.format(cal.getTime()));
         //TODO reformuler la description pour l'agenda
         intent.putExtra(CalendarContract.Events.DESCRIPTION, "ingrédients :" + "\r\n" +
                 d1.getText() + "  " + q1.getText() + "\r\n" +
                 d2.getText() + "  " + q2.getText() + "\r\n" +
                 d3.getText() + "  " + q3.getText() + "\r\n" +
                 d4.getText() + "  " + q4.getText() + "\r\n"
-                );
+        );
 
-        intent.putExtra(CalendarContract.Events.EVENT_LOCATION,"Biot");
-        intent.putExtra(CalendarContract.Events.CALENDAR_ID,1);
-        intent.putExtra(CalendarContract.Events.ALL_DAY,true );
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Biot");
+        intent.putExtra(CalendarContract.Events.CALENDAR_ID, 1);
+        intent.putExtra(CalendarContract.Events.ALL_DAY, true);
 
         startActivity(intent);
 

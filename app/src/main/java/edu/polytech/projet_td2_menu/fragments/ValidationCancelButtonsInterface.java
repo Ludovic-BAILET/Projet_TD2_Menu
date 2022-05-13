@@ -5,5 +5,6 @@ import android.view.View;
 public interface ValidationCancelButtonsInterface {
 
     void onClickValid(View v);
+
     void onClickCancel(View v);
 }

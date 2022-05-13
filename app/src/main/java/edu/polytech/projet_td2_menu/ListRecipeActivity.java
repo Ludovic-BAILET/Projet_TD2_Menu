@@ -24,12 +24,9 @@ import edu.polytech.projet_td2_menu.network.ApiTask;
 
 public class ListRecipeActivity extends AppCompatActivity implements NavigationBarInterface, Observer {
 
-    private NavigationBarInterfaceImplementation implementation;
-
-    private ViewAdapterRecipe adapterRecipe;
-
     private final List<Recipe> recipeList = new ArrayList<>();
-
+    private NavigationBarInterfaceImplementation implementation;
+    private ViewAdapterRecipe adapterRecipe;
     private ApiTask apiTask;
 
     @Override
@@ -85,10 +82,10 @@ public class ListRecipeActivity extends AppCompatActivity implements NavigationB
 
     @Override
     public void update(Observable observable, Object o) {
-        Log.d("object_List", ""+o);
+        Log.d("object_List", "" + o);
         recipeList.clear();
         recipeList.addAll((List<Recipe>) o);
-        runOnUiThread(()-> {
+        runOnUiThread(() -> {
             adapterRecipe.notifyDataSetChanged();
         });
 

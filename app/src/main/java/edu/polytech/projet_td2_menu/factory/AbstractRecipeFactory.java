@@ -24,6 +24,10 @@ public abstract class AbstractRecipeFactory {
     }
 
     public abstract Recipe buildRecipe(String name, List<Pair<Ingredient, Quantity>> ingredientList, String image) throws Throwable;
-    public List<Pair<Ingredient, Quantity>> getIngredientsList(){return ingredients;};
+
+    public List<Pair<Ingredient, Quantity>> getIngredientsList() {
+        return ingredients;
+    }
+
     public abstract Ratings buildRatings(int sain, int price, int difficulty);
 }

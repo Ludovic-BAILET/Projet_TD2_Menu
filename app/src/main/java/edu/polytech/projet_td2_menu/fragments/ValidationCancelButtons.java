@@ -1,6 +1,5 @@
 package edu.polytech.projet_td2_menu.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,8 @@ public class ValidationCancelButtons extends Fragment {
 
     private ValidationCancelButtonsInterface callback;
 
-    public ValidationCancelButtons() {}
+    public ValidationCancelButtons() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

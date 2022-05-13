@@ -1,17 +1,12 @@
 package edu.polytech.projet_td2_menu.MVC;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import java.util.Observable;
-import java.util.Observer;
 
 import edu.polytech.projet_td2_menu.R;
 import edu.polytech.projet_td2_menu.adapters.ViewAdapterNotification;
@@ -19,8 +14,8 @@ import edu.polytech.projet_td2_menu.gestures.OnSwipeTouchListener;
 import edu.polytech.projet_td2_menu.models.data.ModelNotifications;
 
 public class NotificationsController {
-    private final NotificationView view;
     public static final String TAG = "NotificationController";
+    private final NotificationView view;
     private final ViewAdapterNotification adapterBaseNotification;
     private final ViewAdapterNotification adapterPinnedNotification;
     private final NotificationsCenterActivity activity;
@@ -106,7 +101,7 @@ public class NotificationsController {
     }
 
     public void update() {
-        Log.d(TAG, "Les données du modèle ont changé" );
+        Log.d(TAG, "Les données du modèle ont changé");
 
         if (!controllerActOnModel) {
             if (sortModelNaturalOrder) {
@@ -124,7 +119,7 @@ public class NotificationsController {
     }
 
     public void setListenersView() {
-        LinearLayout layoutListView =  layout.findViewById(R.id.layout_list_view);
+        LinearLayout layoutListView = layout.findViewById(R.id.layout_list_view);
         ((ListView) layoutListView.findViewById(R.id.list_notifications)).setAdapter(adapterBaseNotification);
         ((ListView) layoutListView.findViewById(R.id.list_notifications_pinned)).setAdapter(adapterPinnedNotification);
 

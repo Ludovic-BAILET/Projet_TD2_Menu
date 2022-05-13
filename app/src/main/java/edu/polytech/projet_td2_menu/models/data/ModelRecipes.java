@@ -8,19 +8,19 @@ import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ModelRecipes extends Observable {
 
-    private List<Recipe> recipeList;
+    private final List<Recipe> recipeList;
 
-    public ModelRecipes(){
+    public ModelRecipes() {
         recipeList = new ArrayList<>();
+    }
+
+    public List<Recipe> getRecipeList() {
+        return recipeList;
     }
 
     public void setRecipeList(List<Recipe> recipeList) {
         this.recipeList.addAll(recipeList);
         setChanged();
         notifyObservers(this.recipeList);
-    }
-
-    public List<Recipe> getRecipeList() {
-        return recipeList;
     }
 }

@@ -18,8 +18,8 @@ public class ApplicationMenu extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        createNotificationChannel(CHANNEL_suggestion , "low", NotificationManager.IMPORTANCE_LOW);
-        createNotificationChannel(CHANNEL_rappelcourse , "default", NotificationManager.IMPORTANCE_DEFAULT);
+        createNotificationChannel(CHANNEL_suggestion, "low", NotificationManager.IMPORTANCE_LOW);
+        createNotificationChannel(CHANNEL_rappelcourse, "default", NotificationManager.IMPORTANCE_DEFAULT);
 
         //startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
         notificationSender = new NotificationSender(getApplicationContext());

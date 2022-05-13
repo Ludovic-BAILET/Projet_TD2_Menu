@@ -30,17 +30,12 @@ import edu.polytech.projet_td2_menu.models.recipes.Recipe;
 
 public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
-    private final static String APP_ID = "app_id=7d6e984e&";
-
-    private final static String APP_KEY = "app_key=edb1367410cb62d49b28b3220b1e4b2b&";
-
-    private final static String API_URL = "https://api.edamam.com/";
-
-    private final static String RECIPE_PATH = "api/recipes/v2?type=public&";
-
-    private final static String FIELDS = "field=label&field=image&field=ingredientLines&field=ingredients&field=totalTime&field=mealType&field=dishType";
-
     public final static List<Recipe> recipeList = new ArrayList<>();
+    private final static String APP_ID = "app_id=7d6e984e&";
+    private final static String APP_KEY = "app_key=edb1367410cb62d49b28b3220b1e4b2b&";
+    private final static String API_URL = "https://api.edamam.com/";
+    private final static String RECIPE_PATH = "api/recipes/v2?type=public&";
+    private final static String FIELDS = "field=label&field=image&field=ingredientLines&field=ingredients&field=totalTime&field=mealType&field=dishType";
     private final ModelRecipes modelRecipes = new ModelRecipes();
 
     @Override
@@ -58,7 +53,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
             HttpsURLConnection myConnection = (HttpsURLConnection) edamamEndpoint.openConnection();
             Log.d("Connection_URL", "Connection établie");
 
-            Log.d("connection", ""+myConnection);
+            Log.d("connection", "" + myConnection);
 
             Log.d("Response_Code", "On check le code de réponse : " + myConnection.getResponseCode());
             if (myConnection.getResponseCode() == 200) {
@@ -89,7 +84,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         jsonReader.beginObject(); // Start processing the JSON object
         while (jsonReader.hasNext()) { // Loop through all keys
             String key = jsonReader.nextName(); // Fetch the next key
-            Log.d("key", ""+key);
+            Log.d("key", "" + key);
             if (key.equals("hits")) { // Check if desired key
                 Log.d("key", "on rentre dans l'objet");
                 recipeList.addAll(readRecipes(jsonReader));
@@ -99,7 +94,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
             }
         }
         Log.d("List size", "la taille de la liste est de : " + recipeList.size());
-        Log.d("Liste_recipe", ""+recipeList);
+        Log.d("Liste_recipe", "" + recipeList);
         return recipeList;
     }
 
@@ -107,7 +102,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         List<Recipe> recipeList = new ArrayList<>();
 
         jsonReader.beginArray();
-        while (jsonReader.hasNext()){
+        while (jsonReader.hasNext()) {
             recipeList.addAll(readOneRecipe(jsonReader));
         }
         jsonReader.endArray();
@@ -118,7 +113,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         List<Recipe> recipes = new ArrayList<>();
 
         jsonReader.beginObject();
-        while (jsonReader.hasNext()){
+        while (jsonReader.hasNext()) {
             if (jsonReader.nextName().equals("recipe"))
                 recipes.addAll(createRecipes(jsonReader));
             else
@@ -137,9 +132,9 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
         List<Recipe> recipeList = new ArrayList<>();
         jsonReader.beginObject();
-        while (jsonReader.hasNext()){
+        while (jsonReader.hasNext()) {
             String key = jsonReader.nextName();
-            switch (key){
+            switch (key) {
                 case "label":
                     label = jsonReader.nextString();
                     break;
@@ -169,7 +164,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
         for (TypesDishes dishiesTypes : typesDishesList) {
             try {
                 Recipe recipe = null;
-                switch (dishiesTypes){
+                switch (dishiesTypes) {
                     case ENTREE:
                         ConcreteRecipeFactoryEntree concreteRecipeFactoryEnteree = new ConcreteRecipeFactoryEntree();
                         recipe = concreteRecipeFactoryEnteree.buildRecipe(label, ingredientList, image);
@@ -193,36 +188,35 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
     }
 
 
-
     private List<TypesDishes> readDishesTypesList(JsonReader jsonReader) throws IOException {
         List<TypesDishes> typesDishesList = new ArrayList<>();
 
-            jsonReader.beginArray(); // Start processing the JSON object
+        jsonReader.beginArray(); // Start processing the JSON object
 
-            while (jsonReader.hasNext()) { // Loop through all keys
-                String type = jsonReader.nextString();
-                Log.d("sidhType", ""+type+", hasNext :"+jsonReader.hasNext()+", "+jsonReader);
+        while (jsonReader.hasNext()) { // Loop through all keys
+            String type = jsonReader.nextString();
+            Log.d("sidhType", "" + type + ", hasNext :" + jsonReader.hasNext() + ", " + jsonReader);
 
-                switch (type){
-                    case "desserts":
-                        typesDishesList.add(DESSERT);
-                        break;
-                    case "starter":
-                        typesDishesList.add(ENTREE);
-                        break;
-                    case "main course":
-                        typesDishesList.add(PLAT);
-                        break;
-                }
+            switch (type) {
+                case "desserts":
+                    typesDishesList.add(DESSERT);
+                    break;
+                case "starter":
+                    typesDishesList.add(ENTREE);
+                    break;
+                case "main course":
+                    typesDishesList.add(PLAT);
+                    break;
             }
-            jsonReader.endArray();
+        }
+        jsonReader.endArray();
         return typesDishesList;
     }
 
     private List<Pair<Ingredient, Quantity>> readIngredientList(JsonReader jsonReader) throws IOException {
         List<Pair<Ingredient, Quantity>> list = new ArrayList<>();
         jsonReader.beginArray();
-        while (jsonReader.hasNext()){
+        while (jsonReader.hasNext()) {
             list.add(readIngredien(jsonReader));
         }
         jsonReader.endArray();
@@ -230,7 +224,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
     }
 
     private Pair<Ingredient, Quantity> readIngredien(JsonReader jsonReader) throws IOException {
-        Pair<Ingredient, Quantity> paire =  null;
+        Pair<Ingredient, Quantity> paire = null;
         double quantity = -1;
         String measure = null;
         String name = null;
@@ -240,7 +234,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
 
         while (jsonReader.hasNext()) { // Loop through all keys
             String key = jsonReader.nextName(); // Fetch the next key
-            switch (key){
+            switch (key) {
                 case "quantity":
                     quantity = jsonReader.nextDouble();
                     break;
@@ -257,7 +251,7 @@ public class ApiTask extends AsyncTask<Void, Void, List<Recipe>> {
                     name = jsonReader.nextString();
                     break;
                 case "image":
-                    try{
+                    try {
                         image = jsonReader.nextString();
                     } catch (Exception ignored) {
                         jsonReader.nextNull();

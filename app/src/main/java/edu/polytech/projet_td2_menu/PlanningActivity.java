@@ -25,15 +25,15 @@ import edu.polytech.projet_td2_menu.fragments.NavigationBarInterfaceImplementati
 
 public class PlanningActivity extends AppCompatActivity implements NavigationBarInterface {
 
-    private static final String  TAG = "PlanningActivity";
+    private static final String TAG = "PlanningActivity";
     private TextView theDate;
     private Calendar calendar;
     private ImageView imageCalendar;
     private NavigationBarInterfaceImplementation implementation;
     private ImageView addToAgenda;
 
-    private int WRITE_CALENDAR_PERMISSION = 101;
-    private int READ_CALENDAR_PERMISSION = 1001;
+    private final int WRITE_CALENDAR_PERMISSION = 101;
+    private final int READ_CALENDAR_PERMISSION = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,46 +47,44 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 
         Intent incomingIntent = getIntent();
         String currentDate = incomingIntent.getStringExtra("date");
-        if(currentDate == null){
+        if (currentDate == null) {
             currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
             theDate.setText(currentDate);
 
-        }else{
+        } else {
             theDate.setText(currentDate);
         }
 
         String[] dateInt = currentDate.split("/");
         calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR,Integer.valueOf(dateInt[2]));
-        calendar.set(Calendar.MONTH,Integer.valueOf(dateInt[1]));
-        calendar.set(Calendar.DATE,Integer.valueOf(dateInt[0]));
+        calendar.set(Calendar.YEAR, Integer.valueOf(dateInt[2]));
+        calendar.set(Calendar.MONTH, Integer.valueOf(dateInt[1]));
+        calendar.set(Calendar.DATE, Integer.valueOf(dateInt[0]));
 
         Log.d(TAG, "onCreate: " + calendar.getTimeInMillis());
 
-        imageCalendar.setOnClickListener(view -> startActivity(new Intent(PlanningActivity.this,CalendarActivity.class)));
+        imageCalendar.setOnClickListener(view -> startActivity(new Intent(PlanningActivity.this, CalendarActivity.class)));
 
         findViewById(R.id.bell).setOnClickListener(click -> startActivity(new Intent(this, NotificationsCenterActivity.class)));
 
         addToAgenda.setOnClickListener(view -> {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                if(checkSelfPermission(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.WRITE_CALENDAR) == PackageManager.PERMISSION_DENIED) {
                     //permission not granted
                     String[] permissions = {Manifest.permission.WRITE_CALENDAR};
                     //show popup for runtime permission
                     requestPermissions(permissions, WRITE_CALENDAR_PERMISSION);
-                }
-                else if(checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
+                } else if (checkSelfPermission(Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_DENIED) {
                     //permission not granted
                     String[] permissions = {Manifest.permission.READ_CALENDAR};
                     //show popup for runtime permission
                     requestPermissions(permissions, READ_CALENDAR_PERMISSION);
 
-                }else{
+                } else {
                     //permission already granted
                     putEventToCalendar();
                 }
-            }
-            else{
+            } else {
                 //system os is less than marsmallow
                 putEventToCalendar();
             }
@@ -97,10 +95,7 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
     }
 
 
-
-
-
-    public void putEventToCalendar(){
+    public void putEventToCalendar() {
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setData(CalendarContract.Events.CONTENT_URI);
         intent.putExtra(CalendarContract.Events.TITLE, "liste des courses du " + theDate.getText());
@@ -108,10 +103,10 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
         intent.putExtra(CalendarContract.Events.DESCRIPTION, "La liste des courses à acheter pour le " + theDate.getText());
 
         intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, calendar.getTimeInMillis());
-        intent.putExtra(CalendarContract.Events.DURATION,100000);
-        intent.putExtra(CalendarContract.Events.EVENT_LOCATION,"Biot");
-        intent.putExtra(CalendarContract.Events.CALENDAR_ID,1);
-        intent.putExtra(CalendarContract.Events.ALL_DAY,true );
+        intent.putExtra(CalendarContract.Events.DURATION, 100000);
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Biot");
+        intent.putExtra(CalendarContract.Events.CALENDAR_ID, 1);
+        intent.putExtra(CalendarContract.Events.ALL_DAY, true);
 
         startActivity(intent);
 
@@ -137,7 +132,6 @@ public class PlanningActivity extends AppCompatActivity implements NavigationBar
 //        startActivity(intent);
 //
 //    }
-
 
 
     @Override

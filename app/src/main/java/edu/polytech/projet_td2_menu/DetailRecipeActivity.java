@@ -1,10 +1,10 @@
 package edu.polytech.projet_td2_menu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import edu.polytech.projet_td2_menu.fragments.NavigationBar;
 import edu.polytech.projet_td2_menu.fragments.NavigationBarInterface;

@@ -4,9 +4,7 @@ import android.app.Notification;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Observable;
 
 import edu.polytech.projet_td2_menu.MVC.NotificationsController;
@@ -20,15 +18,16 @@ public final class ModelNotifications extends Observable {
     private final List<Notification> pinnedNotificationList = new ArrayList<>();
     private NotificationsController controller;
 
-    
-    public ModelNotifications(){}
 
-    public static ModelNotifications getInstance(){
+    public ModelNotifications() {
+    }
+
+    public static ModelNotifications getInstance() {
         if (instance == null)
             instance = new ModelNotifications();
         return instance;
     }
-    
+
     public void addNotification(Notification notification) {
         notificationList.add(notification);
         updateData();
@@ -78,6 +77,7 @@ public final class ModelNotifications extends Observable {
         pinnedNotificationList.sort(c);
         updateData();
     }
+
     public void sortTimeDecrease() {
         Comparator<Notification> c = (n1, n2) -> (int) (n2.when - n1.when);
         notificationList.sort(c);
