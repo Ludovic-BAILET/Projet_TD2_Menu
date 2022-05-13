@@ -51,7 +51,7 @@
 
     <TextView
         android:id="@+id/mySub"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginLeft="10dp"
         android:text="@string/status_sub_subscription"

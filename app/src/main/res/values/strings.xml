@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MHealty</string>
+    <string name="app_name">Mhealty</string>
 
     <!-- Profil -->
     <string name="item_profil_name">Nom du profil</string>
@@ -17,9 +17,9 @@
     <string name="item_ingredient_name">Nom de l\'ingrédient</string>
 
     <!-- Navigation -->
-    <string name="item_navigation_planing">Planing</string>
+    <string name="item_navigation_planing">Planning</string>
     <string name="item_navigation_recipe">Recettes</string>
-    <string name="item_navigation_course">MesCourses</string>
+    <string name="item_navigation_course">Mes Courses</string>
     <string name="item_navigation_profil">Profil</string>
 
     <!-- Status abonnement -->
@@ -31,8 +31,8 @@
 
     <!-- Filtre -->
     <string name="filter_title">Filtres</string>
-    <string name="filter_fav">Favori</string>
-    <string name="filter_creation">Création</string>
+    <string name="filter_fav">Favoris</string>
+    <string name="filter_creation">Créations</string>
     <string name="filter_starter">Entrées</string>
     <string name="filter_main">Plats</string>
     <string name="filter_dessert">Desserts</string>
@@ -47,6 +47,6 @@
     <string name="picture_title">Ajouter une photo</string>
     <string name="picture_take">Prendre une photo</string>
     <string name="picture_find_picture">Parcourire les fichiers locaux</string>
-    <string name="title_notification_center">Centre de notification</string>
+    <string name="title_notification_center">Centre de notifications</string>
 
 </resources>

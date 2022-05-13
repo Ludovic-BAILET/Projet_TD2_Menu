@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="290dp"
-            android:text="poisson"
+            android:text="Poisson"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="114dp"
-            android:text="lait"
+            android:text="Lait"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent" />

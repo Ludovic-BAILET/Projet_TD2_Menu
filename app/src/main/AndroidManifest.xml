@@ -23,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".MVC.NotificationsCenterActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".CalendarActivity"
             android:exported="false" />

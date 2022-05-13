@@ -130,7 +130,7 @@ public class ListeCourseActivity extends AppCompatActivity implements Navigation
         intent.setData(CalendarContract.Events.CONTENT_URI);
         intent.putExtra(CalendarContract.Events.TITLE, "liste des courses du " + dateFormat.format(cal.getTime()));
         //TODO reformuler la description pour l'agenda
-        intent.putExtra(CalendarContract.Events.DESCRIPTION, "ingrédients :" + "\r\n" +
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Ingrédients :" + "\r\n" +
                 d1.getText() + "  " + q1.getText() + "\r\n" +
                 d2.getText() + "  " + q2.getText() + "\r\n" +
                 d3.getText() + "  " + q3.getText() + "\r\n" +
